@@ -5,7 +5,7 @@ const LogoBlock = () => {
 	return (
 		<div className='relative min-w-30 min-h-12'>
 			<Link href='/'>
-				<Image src='/logo.webp' alt='логотип' fill />
+				<Image src='/logo.webp' alt='логотип' fill priority />
 			</Link>
 		</div>
 	)
