@@ -21,7 +21,9 @@ export default function RootLayout({
 }>) {
 	return (
 		<html lang='en'>
-			<body className={`${montserrat.variable} font-sans`}>
+			<body
+				className={`${montserrat.variable} font-sans m-auto max-w-[1408px]`}
+			>
 				<Header />
 				{children}
 				<Footer />

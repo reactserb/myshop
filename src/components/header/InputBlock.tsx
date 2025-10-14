@@ -2,7 +2,7 @@ import { GoSearch } from 'react-icons/go'
 
 const InputBlock = () => {
 	return (
-		<div className='relative'>
+		<div className='relative hidden md:flex'>
 			<input
 				placeholder='Найти товар'
 				className='w-full h-10 rounded p-2 pr-10 outline text-base leading-[150%]'

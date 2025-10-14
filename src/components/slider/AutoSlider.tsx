@@ -1,7 +1,7 @@
 'use client'
 
 import { Swiper, SwiperSlide } from 'swiper/react'
-import { Autoplay, Pagination } from 'swiper/modules' // Импортируйте нужные модули
+import { Autoplay, Pagination } from 'swiper/modules'
 
 import 'swiper/css' // Базовые стили
 import 'swiper/css/pagination' // Стили пагинации
@@ -14,8 +14,9 @@ interface Slide {
 }
 
 const slides: Slide[] = [
-	{ src: '/slides/slide1.jpg', alt: 'slide1' },
-	{ src: '/slides/slide2.jpg', alt: 'slide2' },
+	{ src: '/images/slides/slide1.jpg', alt: 'slide1' },
+	{ src: '/images/slides/slide2.jpg', alt: 'slide2' },
+	{ src: '/images/slides/slide3.jpg', alt: 'slide3' },
 ]
 
 const AutoSlider = () => {
@@ -31,7 +32,7 @@ const AutoSlider = () => {
 			}}
 			pagination={{ clickable: true }} // Включение пагинации (точек)
 			loop={true} // Зацикливание слайдера
-			style={{ height: '300px', width: '100%' }} // Пример стилей для слайдера
+			className='h-[200px] sm:h-[400px] w-full mb-20'
 		>
 			{slides.map((slide, index) => (
 				<SwiperSlide key={index}>
@@ -39,7 +40,7 @@ const AutoSlider = () => {
 						src={slide.src}
 						alt={slide.alt}
 						fill
-						className='object-cover xl:object-contain'
+						className='object-contain sm:object-cover'
 					/>
 				</SwiperSlide>
 			))}

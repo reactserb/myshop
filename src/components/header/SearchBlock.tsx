@@ -3,7 +3,7 @@ import InputBlock from './InputBlock'
 
 const SearchBlock = () => {
 	return (
-		<div className='flex gap-4 hidden md:flex'>
+		<div className='flex gap-4'>
 			<ButtonSearch />
 			<InputBlock />
 		</div>
