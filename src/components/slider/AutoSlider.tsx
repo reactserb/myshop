@@ -16,7 +16,6 @@ interface Slide {
 const slides: Slide[] = [
 	{ src: '/images/slides/slide1.jpg', alt: 'slide1' },
 	{ src: '/images/slides/slide2.jpg', alt: 'slide2' },
-	{ src: '/images/slides/slide3.jpg', alt: 'slide3' },
 ]
 
 const AutoSlider = () => {
@@ -32,7 +31,7 @@ const AutoSlider = () => {
 			}}
 			pagination={{ clickable: true }} // Включение пагинации (точек)
 			loop={true} // Зацикливание слайдера
-			className='h-[200px] sm:h-[400px] w-full mb-20'
+			className='h-[300px] sm:h-[400px] w-full mb-20'
 		>
 			{slides.map((slide, index) => (
 				<SwiperSlide key={index}>
@@ -40,7 +39,7 @@ const AutoSlider = () => {
 						src={slide.src}
 						alt={slide.alt}
 						fill
-						className='object-contain sm:object-cover'
+						className='object-contain xl:object-cover'
 					/>
 				</SwiperSlide>
 			))}

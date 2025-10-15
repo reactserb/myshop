@@ -8,7 +8,7 @@
 			"basePrice": 30000,
 			"discountPercent": 0,
 			"sizes": ["s", "m", "l", "xl"],
-			"categories": ["jacket"]
+			"categories": ["jacket", "new"]
 		},
 		{
 			"id": 2,
@@ -38,7 +38,7 @@
 			"basePrice": 30000,
 			"discountPercent": 0,
 			"sizes": ["s", "m", "l", "xl"],
-			"categories": ["jacket"]
+			"categories": ["jacket", "new"]
 		},
 		{
 			"id": 5,

@@ -17,7 +17,7 @@ const ProductCard = (product: ProductCardProps) => {
 					src={product.img}
 					alt='action'
 					fill
-					className='object-cover p-2'
+					className='object-contain p-2'
 				/>
 				<button className='w-8 h-8 absolute right-1 rounded cursor-pointer'>
 					<IoStarOutline className='text-2xl text-gray-400 hover:text-black' />
@@ -25,7 +25,7 @@ const ProductCard = (product: ProductCardProps) => {
 			</div>
 			<div className='flex flex-col text-center mb-5'>
 				<div>{product.title}</div>
-				<div className=''>{product.description}</div>
+				<div className='text-gray-400'>{product.description}</div>
 			</div>
 			{product.discountPercent > 0 && (
 				<div className='flex flex-col'>
