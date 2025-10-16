@@ -29,9 +29,9 @@ const AutoSlider = () => {
 				delay: 3000, // Задержка между слайдами в миллисекундах
 				disableOnInteraction: false, // Продолжать прокрутку после взаимодействия пользователя
 			}}
-			pagination={{ clickable: true }} // Включение пагинации (точек)
+			// pagination={{ clickable: true }} // Включение пагинации (точек)
 			loop={true} // Зацикливание слайдера
-			className='h-[300px] sm:h-[400px] w-full mb-20'
+			className='h-[300px] sm:h-[400px] w-full md:mb-20'
 		>
 			{slides.map((slide, index) => (
 				<SwiperSlide key={index}>
@@ -39,7 +39,7 @@ const AutoSlider = () => {
 						src={slide.src}
 						alt={slide.alt}
 						fill
-						className='object-contain xl:object-cover'
+						className='object-contain lg:object-cover'
 					/>
 				</SwiperSlide>
 			))}

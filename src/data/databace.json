@@ -44,7 +44,7 @@
 			"id": 5,
 			"img": "/images/products/shu.webp",
 			"title": "SHU",
-			"description": "Худи",
+			"description": "Куртка",
 			"basePrice": 20000,
 			"discountPercent": 50,
 			"sizes": ["xl"],

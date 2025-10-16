@@ -11,7 +11,7 @@ const ProductCard = (product: ProductCardProps) => {
 	)
 
 	return (
-		<div className='flex flex-col flex-1 justify-between items-center w-35 rounded overflow-hidden sm:w-60 align-top p-1 outline-1 outline-solid outline-transparent hover:outline-gray-300'>
+		<div className='group flex flex-col flex-1 justify-between items-center w-35 rounded overflow-hidden sm:w-60 align-top p-1 outline-1 outline-solid outline-transparent hover:outline-gray-300'>
 			<div className='relative w-35 h-35 sm:w-60 sm:h-60'>
 				<Image
 					src={product.img}
@@ -19,7 +19,7 @@ const ProductCard = (product: ProductCardProps) => {
 					fill
 					className='object-contain p-2'
 				/>
-				<button className='w-8 h-8 absolute right-1 rounded cursor-pointer'>
+				<button className='w-8 h-8 absolute top-1 right-1 cursor-pointer hidden group-hover:flex'>
 					<IoStarOutline className='text-2xl text-gray-400 hover:text-black' />
 				</button>
 			</div>

@@ -21,11 +21,11 @@ export default function RootLayout({
 }>) {
 	return (
 		<html lang='en'>
-			<body
-				className={`${montserrat.variable} font-sans m-auto max-w-[1408px]`}
-			>
-				<Header />
-				{children}
+			<body className={`${montserrat.variable} font-sans`}>
+				<div className='m-auto max-w-[1408px]'>
+					<Header />
+					{children}
+				</div>
 				<Footer />
 			</body>
 		</html>

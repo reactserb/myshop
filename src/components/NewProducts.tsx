@@ -11,14 +11,14 @@ const NewProducts = () => {
 	return (
 		<section>
 			<div className='flex flex-col justify-center'>
-				<div className='flex flex-row justify-between items-center mb-5 px-2'>
+				<div className='flex flex-row justify-between items-center mb-5 px-5'>
 					<h2 className='text-lg sm:text-xl'>Новинки</h2>
 					<Link
 						href='#'
-						className='flex flex-row items-center text-left gap-x-2 cursor-pointer'
+						className='flex flex-row items-center text-left gap-x-1 cursor-pointer'
 					>
 						<p className='text-sm sm:text-base text-center'>Все новинки</p>
-						<IoIosArrowForward className='text-xl' />
+						<IoIosArrowForward className='text-lg lg:text-xl' />
 					</Link>
 				</div>
 				<ul className='flex flex-row flex-wrap justify-around gap-4'>
