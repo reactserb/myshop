@@ -5,9 +5,9 @@ import Link from 'next/link'
 
 const FirstFooterCol = () => {
 	return (
-		<div className='flex flex-col items-center sm:items-baseline gap-y-2'>
+		<div className='flex flex-col items-center sm:items-baseline gap-y-2 sm:gap-y-4'>
 			<div className='text-gray-400'>Социальные сети</div>
-			<ul className='flex flex-col items-center sm:items-baseline gap-y-2'>
+			<ul className='flex flex-col items-center sm:items-baseline gap-y-2 sm:gap-y-4'>
 				<li className='flex'>
 					<Link
 						href='#'
