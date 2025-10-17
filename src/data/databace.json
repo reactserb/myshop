@@ -69,6 +69,26 @@
 			"discountPercent": 10,
 			"sizes": ["s", "l", "xl"],
 			"categories": ["jacket", "discount"]
+		},
+		{
+			"id": 8,
+			"img": "/images/products/alpha2.webp",
+			"title": "Alpha Industries",
+			"description": "Куртка",
+			"basePrice": 65000,
+			"discountPercent": 0,
+			"sizes": ["s", "m", "l", "xl"],
+			"categories": ["jacket", "new"]
+		},
+		{
+			"id": 9,
+			"img": "/images/products/vans.webp",
+			"title": "The North Face",
+			"description": "Обувь",
+			"basePrice": 12000,
+			"discountPercent": 0,
+			"sizes": [35, 36, 37, 38, 39],
+			"categories": ["boots", "new"]
 		}
 	]
 }
