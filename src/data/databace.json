@@ -53,7 +53,7 @@
 		{
 			"id": 6,
 			"img": "/images/products/timberland.webp",
-			"title": "Timerland",
+			"title": "Timberland",
 			"description": "Обувь",
 			"basePrice": 20000,
 			"discountPercent": 20,
@@ -83,7 +83,7 @@
 		{
 			"id": 9,
 			"img": "/images/products/vans.webp",
-			"title": "The North Face",
+			"title": "Vans",
 			"description": "Обувь",
 			"basePrice": 12000,
 			"discountPercent": 0,

@@ -10,7 +10,7 @@ const NewProducts = () => {
 
 	return (
 		<section>
-			<div className='flex flex-col justify-center'>
+			<div className='flex flex-col justify-center border-b-1 border-gray-200 shadow-[var(--shadow-thick)] sm:shadow-none sm:border-none'>
 				<div className='flex flex-row justify-between items-center mb-5 px-5'>
 					<h2 className='text-lg sm:text-xl'>Новинки</h2>
 					<Link

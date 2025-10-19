@@ -11,13 +11,14 @@ const ProductCard = (product: ProductCardProps) => {
 	)
 
 	return (
-		<div className='group relative flex flex-col flex-1 justify-between items-center w-35 rounded overflow-hidden sm:w-60 p-1 xl:p-5 outline-1 outline-solid outline-transparent hover:outline-gray-300'>
-			<div className='relative w-35 h-35 sm:w-60 sm:h-60'>
+		<div className='group relative flex flex-col flex-1 justify-between items-center rounded overflow-hidden sm:w-60 p-1 xl:p-5 outline-1 outline-solid outline-transparent hover:outline-gray-300'>
+			<div className='relative w-60 h-60'>
 				<Image
 					src={product.img}
 					alt='action'
 					fill
 					className='object-contain p-2'
+					sizes='(max-width: 640px) 140px, 240px'
 				/>
 				<button className='w-8 h-8 absolute z-20 top-1 right-1 xl:-top-3 cursor-pointer xl:hidden xl:group-hover:flex'>
 					<IoStarOutline className='text-2xl text-gray-400 xl:hover:text-black' />

@@ -14,6 +14,7 @@ const ArticleCard = (article: ArticleCardProps) => {
 					alt='action'
 					fill
 					className='object-contain p-2 hover:opacity-75'
+					sizes='(max-width: 1024px) 280px, 320px'
 				/>
 			</Link>
 			<div className='flex flex-col gap-y-2 items-center lg:items-baseline mb-5'>

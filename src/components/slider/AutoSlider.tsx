@@ -23,17 +23,15 @@ const slides: Slide[] = [
 const AutoSlider = () => {
 	return (
 		<Swiper
-			modules={[Autoplay, Pagination]} // Добавьте модули в список
-			spaceBetween={50} // Отступ между слайдами
-			slidesPerView={1} // Количество слайдов на одной странице
+			modules={[Autoplay, Pagination]}
+			spaceBetween={50}
+			slidesPerView={1}
 			autoplay={{
-				// Настройки автопрокрутки
-				delay: 3000, // Задержка между слайдами в миллисекундах
-				disableOnInteraction: false, // Продолжать прокрутку после взаимодействия пользователя
+				delay: 3000,
+				disableOnInteraction: false,
 			}}
-			// pagination={{ clickable: true }} // Включение пагинации (точек)
-			loop={true} // Зацикливание слайдера
-			className='h-[300px] md:h-[400px] w-full -mt-10 -mb-5 sm:my-0 md:mb-20 md:mt-10'
+			loop={true}
+			className='h-[250px] w-full -mt-5 mb-5 450px:h-[300px] 450px:mb-20 450px:mt-15 xl:h-[400px]'
 		>
 			{slides.map((slide, index) => (
 				<SwiperSlide key={index}>
@@ -41,7 +39,9 @@ const AutoSlider = () => {
 						src={slide.src}
 						alt={slide.alt}
 						fill
-						className='object-contain lg:object-cover'
+						className='object-contain object-bottom 450px:object-cover 450px:object-top'
+						priority={index === 0}
+						sizes='100vw'
 					/>
 				</SwiperSlide>
 			))}
