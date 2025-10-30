@@ -17,7 +17,6 @@ const slides: Slide[] = [
 	{ src: '/images/slides/slide1.jpg', alt: 'slide1' },
 	{ src: '/images/slides/slide2.jpg', alt: 'slide2' },
 	{ src: '/images/slides/slide3.jpg', alt: 'slide3' },
-	{ src: '/images/slides/slide4.jpg', alt: 'slide4' },
 ]
 
 const AutoSlider = () => {
@@ -31,7 +30,7 @@ const AutoSlider = () => {
 				disableOnInteraction: false,
 			}}
 			loop={true}
-			className='h-[250px] w-full -mt-5 mb-5 450px:h-[300px] 450px:mb-20 450px:mt-15 xl:h-[400px]'
+			className='h-[250px] w-full -mt-35 mb-5 450px:h-[300px] 450px:mb-20 450px:mt-0 lg:mt-0 lg:h-[400px]'
 		>
 			{slides.map((slide, index) => (
 				<SwiperSlide key={index}>

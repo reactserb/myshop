@@ -1,20 +1,11 @@
-import Actions from '@/components/Actions'
-import Articles from '@/components/Articles'
-import NewProducts from '@/components/NewProducts'
-import { SearchWrapper } from '@/components/SearchWrapper'
+import Actions from '@/app/(products)/Actions'
+import Articles from '@/app/(articles)/Articles'
+import NewProducts from '@/app/(products)/NewProducts'
 import AutoSlider from '@/components/slider/AutoSlider'
 
-export default async function Home({
-	searchParams,
-}: {
-	searchParams: { showSearch?: string }
-}) {
-	const { showSearch } = await searchParams
-	const isSearchVisible = showSearch === 'true'
-
+export default async function Home() {
 	return (
-		<main className='w-full mx-auto mb-20'>
-			<SearchWrapper isSearchVisible={isSearchVisible} />
+		<main className='w-full mx-auto'>
 			<AutoSlider />
 			<div className='flex flex-col gap-y-20'>
 				<Actions />

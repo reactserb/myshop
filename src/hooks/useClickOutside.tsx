@@ -1,12 +1,11 @@
 'use client'
 
-import { useEffect, useRef, RefObject } from 'react'
+import { useEffect } from 'react'
 
-export const useClickOutside = <T extends HTMLElement>(
+function useClickOutside<T extends HTMLElement>(
+	ref: React.RefObject<T | null>,
 	callback: () => void
-): RefObject<T | null> => {
-	const ref = useRef<T>(null)
-
+) {
 	useEffect(() => {
 		const handleClickOutside = (event: MouseEvent) => {
 			if (ref.current && !ref.current.contains(event.target as Node)) {
@@ -15,10 +14,11 @@ export const useClickOutside = <T extends HTMLElement>(
 		}
 
 		document.addEventListener('mousedown', handleClickOutside)
+
 		return () => {
 			document.removeEventListener('mousedown', handleClickOutside)
 		}
-	}, [callback])
-
-	return ref
+	}, [ref, callback])
 }
+
+export default useClickOutside
