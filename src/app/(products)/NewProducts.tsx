@@ -1,4 +1,4 @@
-import { shuffleArray } from '@/utils/array/shuffleArray'
+import { shuffleArray } from '@/lib/utils/array/shuffleArray'
 import getDBProducts from './getDBProducts'
 import ProductsSection from './ProductsSection'
 

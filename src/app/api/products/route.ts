@@ -1,4 +1,4 @@
-import { getDB } from '@/utils/api-routes'
+import { getDB } from '@/lib/utils/api-routes'
 import { NextResponse } from 'next/server'
 
 export const dynamic = 'force-dynamic'

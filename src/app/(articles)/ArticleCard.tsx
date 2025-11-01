@@ -1,4 +1,4 @@
-import { ArticleCardProps } from '@/types/article'
+import { ArticleCardProps } from '@/lib/types/article'
 import Image from 'next/image'
 import Link from 'next/link'
 

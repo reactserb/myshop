@@ -3,7 +3,7 @@
 import { useEffect, useState } from 'react'
 import { CONFIG } from '../../config/config'
 import { useRouter, useSearchParams } from 'next/navigation'
-import { debounce } from '@/utils/debounce'
+import { debounce } from '@/lib/utils/debounce'
 import Pagination from './Pagination'
 
 function getItemsPerPageByWidth(contentType?: string) {

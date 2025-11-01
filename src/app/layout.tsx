@@ -4,6 +4,7 @@ import './globals.css'
 import Footer from '@/components/footer/Footer'
 import Header from '@/components/header/Header'
 import ScrollToTop from '@/components/ScrollToTop'
+import BreadCrumbs from '@/components/BreadCrumbs'
 
 const montserrat = Montserrat({
 	variable: '--font-montserrat',
@@ -28,6 +29,7 @@ export default function RootLayout({
 				<ScrollToTop />
 				<Header />
 				<div className='m-auto max-w-[1408px] mt-30 mb-20 flex-1 w-full'>
+					<BreadCrumbs />
 					{children}
 				</div>
 				<Footer />

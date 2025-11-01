@@ -1,8 +1,8 @@
-import { ProductCardProps } from '@/types/product'
+import { ProductCardProps } from '@/lib/types/product'
 import Image from 'next/image'
 import { IoStarOutline } from 'react-icons/io5'
-import { calculateFinalPrice } from '@/utils/price/calculateFinalPrice'
-import { formatPriceWithSpaces } from '@/utils/price/formatPriceWithSpaces'
+import { calculateFinalPrice } from '@/lib/utils/price/calculateFinalPrice'
+import { formatPriceWithSpaces } from '@/lib/utils/price/formatPriceWithSpaces'
 
 const ProductCard = (product: ProductCardProps) => {
 	const finalPrice = calculateFinalPrice(
@@ -20,7 +20,7 @@ const ProductCard = (product: ProductCardProps) => {
 					className='object-contain p-2'
 					sizes='(max-width: 640px) 140px, 240px'
 				/>
-				<button className='w-8 h-8 absolute z-20 top-1 right-1 xl:-top-3 cursor-pointer xl:hidden xl:group-hover:flex'>
+				<button className='w-8 h-8 absolute z-[20] top-1 right-1 xl:-top-3 cursor-pointer xl:hidden xl:group-hover:flex'>
 					<IoStarOutline className='text-2xl text-gray-400 xl:hover:text-black' />
 				</button>
 			</div>
@@ -48,7 +48,7 @@ const ProductCard = (product: ProductCardProps) => {
 					{formatPriceWithSpaces(product.basePrice)} ₽
 				</div>
 			)}
-			<div className='absolute inset-y-0 w-full z-10 flex flex-wrap justify-center content-end pb-5 gap-2 bg-white opacity-75 hidden group-hover:flex'>
+			<div className='absolute inset-y-0 w-full z-[10] flex flex-wrap justify-center content-end pb-5 gap-2 bg-white opacity-75 hidden group-hover:flex'>
 				{product.sizes.map(size => (
 					<button
 						key={size}

@@ -1,6 +1,6 @@
 'use client'
 
-import { PaginationProps } from '@/types/paginationProps'
+import { PaginationProps } from '@/lib/types/paginationProps'
 import Link from 'next/link'
 import { MdKeyboardArrowRight } from 'react-icons/md'
 import { MdKeyboardArrowLeft } from 'react-icons/md'

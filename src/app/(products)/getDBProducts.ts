@@ -1,5 +1,5 @@
-import { ProductCardProps } from '@/types/product'
-import { getDB } from '@/utils/api-routes'
+import { ProductCardProps } from '@/lib/types/product'
+import { getDB } from '@/lib/utils/api-routes'
 
 const getDBProducts = async (category: string) => {
 	try {

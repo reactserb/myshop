@@ -5,8 +5,8 @@ import useEscapeKey from '@/hooks/useEscapeKey'
 import { useEffect, useRef, useState } from 'react'
 import { GoSearch } from 'react-icons/go'
 
-const InputBlock = ({ handleClose }: { handleClose: () => void }) => {
-	const inputBlockRef = useRef<HTMLDivElement | null>(null)
+const InputSearchBlock = ({ handleClose }: { handleClose: () => void }) => {
+	const inputRef = useRef<HTMLDivElement | null>(null)
 	const [isVisible, setIsVisible] = useState(false)
 
 	useEffect(() => {
@@ -20,15 +20,15 @@ const InputBlock = ({ handleClose }: { handleClose: () => void }) => {
 		}, 300) // Длительность должна соответствовать или быть меньше transition-duration
 	}
 
-	useClickOutside(inputBlockRef, handleCloseAnimation)
+	useClickOutside(inputRef, handleCloseAnimation)
 
 	useEscapeKey(handleCloseAnimation)
 
 	return (
 		<div
-			ref={inputBlockRef}
+			ref={inputRef}
 			className={`
-				border-b-1 border-gray-200 shadow-[var(--shadow-thick)] fixed top-0 right-0 left-0 z-10000 bg-white
+				border-b-1 border-gray-200 shadow-[var(--shadow-thick)] fixed top-0 right-0 left-0 z-[10000] bg-white
 				mt-20 pt-10 pb-20 sm:pb-30 md:pb-40 px-5
 				transition-all duration-300 ease-out transform
 				${isVisible ? 'translate-y-0' : '-translate-y-full'}
@@ -46,4 +46,4 @@ const InputBlock = ({ handleClose }: { handleClose: () => void }) => {
 		</div>
 	)
 }
-export default InputBlock
+export default InputSearchBlock

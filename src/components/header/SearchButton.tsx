@@ -3,7 +3,7 @@
 import { useState } from 'react'
 import { GoSearch } from 'react-icons/go'
 import { IoMdClose } from 'react-icons/io'
-import InputBlock from '../InputBlock'
+import InputSearchBlock from './InputSearchBlock'
 
 const SearchButton = () => {
 	const [isOpenSearch, setIsOpenSearch] = useState(false)
@@ -25,7 +25,7 @@ const SearchButton = () => {
 					<GoSearch className='text-2xl lg:hover:text-black' />
 				)}
 			</div>
-			{isOpenSearch && <InputBlock handleClose={handleCloseSearch} />}
+			{isOpenSearch && <InputSearchBlock handleClose={handleCloseSearch} />}
 		</li>
 	)
 }

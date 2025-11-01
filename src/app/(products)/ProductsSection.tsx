@@ -1,6 +1,6 @@
 import ProductCard from '@/components/ProductCard'
 import ViewAllButton from '@/components/ViewAllButton'
-import { ProductsSectionProps } from '@/types/productsSection'
+import { ProductsSectionProps } from '@/lib/types/productsSection'
 
 const ProductsSection = ({
 	title,
@@ -19,10 +19,12 @@ const ProductsSection = ({
 			>
 				<div className='flex flex-row justify-between items-center mb-5 px-5'>
 					<h2 className='text-md sm:text-xl'>{title}</h2>
-					<ViewAllButton
-						btnText={viewAllButtons.btnText}
-						href={viewAllButtons.href}
-					/>
+					{viewAllButtons && (
+						<ViewAllButton
+							btnText={viewAllButtons.btnText}
+							href={viewAllButtons.href}
+						/>
+					)}
 				</div>
 				{compact ? (
 					<ul className='flex flex-row flex-wrap justify-around gap-4'>

@@ -1,5 +1,5 @@
-import { ArticleCardProps } from '@/types/article'
-import { getDB } from '@/utils/api-routes'
+import { ArticleCardProps } from '@/lib/types/article'
+import { getDB } from '@/lib/utils/api-routes'
 
 const getDBArticles = async () => {
 	try {

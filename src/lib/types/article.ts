@@ -1,5 +1,6 @@
 export interface ArticleCardProps {
-	_id: number
+	_id: string
+	id: number
 	img: string
 	title: string
 	text: string
