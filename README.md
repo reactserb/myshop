@@ -1,36 +1,37 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🛍️ Интернет-магазин "myshop"
 
-## Getting Started
+Первый личный проект интернет-магазина, разработанный с использованием современного стека Next.js 14 (App Router) и Tailwind CSS. Проект демонстрирует полный цикл разработки e-commerce платформы, включая поиск, фильтрацию, интеграцию с базой данных MongoDB и развертывание на Vercel.
 
-First, run the development server:
+---
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## 🚀 Актуальная ссылка на проект
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Вы можете посмотреть рабочую версию интернет-магазина по ссылке ниже. Проект автоматически обновляется при каждом новом коммите в репозиторий.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+[**Перейти в интернет-магазин "myshop"**](https://myshop-three-nu.vercel.app)
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+---
 
-## Learn More
+## ✨ Используемые технологии
 
-To learn more about Next.js, take a look at the following resources:
+Проект реализован с применением следующих технологий и инструментов:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- **Next.js 14:** Фреймворк для React с SSR, SSG и App Router.
+- **React & TypeScript:** Надежная разработка с типизацией.
+- **Tailwind CSS:** Быстрая и адаптивная стилизация.
+- **MongoDB:** База данных для хранения информации о товарах и пользователях.
+- **Vercel:** Платформа для развертывания проекта (CI/CD).
+- **React Icons:** Библиотека иконок.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+---
 
-## Deploy on Vercel
+## 📋 Основные возможности
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- **Адаптивный дизайн (Mobile First):** Отличный внешний вид на любых устройствах.
+- **Поиск товаров:** Мгновенный поиск с подсветкой результатов и переходом на страницу полного поиска.
+- **Фильтрация и сортировка:** (Если есть) Возможность уточнять результаты поиска.
+- **Страницы товаров:** Детальное отображение информации о продуктах.
+- **Интерактивный Header/Footer:** Фиксированные элементы с навигацией и меню.
+- **State Management:** Управление состоянием на стороне клиента.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+---
