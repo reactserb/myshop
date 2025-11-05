@@ -13,9 +13,6 @@ function getItemsPerPageByWidth(contentType?: string) {
 		return width < 640 ? 1 : width < 1024 ? 2 : 3
 	}
 
-	if (width < 768) return 2
-	if (width < 1280) return 3
-
 	return CONFIG.ITEMS_PER_PAGE
 }
 

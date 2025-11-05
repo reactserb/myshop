@@ -1,20 +1,20 @@
 'use client'
 
-import { PATH_TRANSLATIONS } from '@/lib/utils/pathTranslations'
+import { TRANSLATIONS } from '@/lib/utils/translations'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 
 const BreadCrumbs = () => {
 	const pathname = usePathname()
 
-	if (pathname === '/') return null
+	if (pathname === '/' || pathname === '/search') return null
 
 	const pathSegments = pathname.split('/').filter(segment => segment !== '')
 
 	const breadcrumbs = pathSegments.map((seg, index) => {
 		const href = '/' + pathSegments.slice(0, index + 1)
 		return {
-			label: PATH_TRANSLATIONS[seg] || seg,
+			label: TRANSLATIONS[seg] || seg,
 			href,
 			isLast: index === pathSegments.length - 1,
 		}

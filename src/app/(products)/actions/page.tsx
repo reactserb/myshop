@@ -15,7 +15,8 @@ const AllActions = async ({
 		<GenericListPage
 			searchParams={searchParams}
 			props={{
-				getData: () => getDBProducts('discount'),
+				getData: ({ pagination: { startId, perPage } }) =>
+					getDBProducts('discount', { pagination: { startId, perPage } }),
 				pageTitle: 'Все акции',
 				basePath: '/actions',
 				errorMessage: 'Ошибка: не удалось загрузить акции',

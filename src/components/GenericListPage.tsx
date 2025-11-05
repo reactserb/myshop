@@ -24,26 +24,29 @@ const GenericListPage = async ({
 	const startId = (currentPage - 1) * perPage
 
 	try {
-		const items = await props.getData()
-		const paginatedItems = items.slice(startId, startId + perPage)
+		const { items, totalCount } = await props.getData({
+			pagination: { startId, perPage },
+		})
+
+		const totalPages = Math.ceil(totalCount / perPage)
 
 		return (
 			<>
 				{props.contentType ? (
 					<ArticlesSection
 						title={props.pageTitle}
-						articles={paginatedItems as ArticleCardProps[]}
+						articles={items as ArticleCardProps[]}
 					/>
 				) : (
 					<ProductsSection
 						title={props.pageTitle}
-						products={paginatedItems as ProductCardProps[]}
+						products={items as ProductCardProps[]}
 					/>
 				)}
 
-				{items.length > perPage && (
+				{totalPages > 1 && (
 					<PaginationWrapper
-						totalItems={items.length}
+						totalItems={totalCount}
 						currentPage={currentPage}
 						basePath={props.basePath}
 						contentType={props.contentType}

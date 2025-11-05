@@ -1,5 +1,5 @@
-import GenericProductListPage from '@/components/GenericListPage'
 import getDBArticles from '../getDBArticles'
+import GenericListPage from '@/components/GenericListPage'
 
 export const metadata = {
 	title: 'Статьи на сайте магазина UNKNOWN',
@@ -12,10 +12,11 @@ const AllArticles = async ({
 	searchParams: Promise<{ page?: string; itemsPerPage?: string }>
 }) => {
 	return (
-		<GenericProductListPage
+		<GenericListPage
 			searchParams={searchParams}
 			props={{
-				getData: () => getDBArticles(),
+				getData: ({ pagination: { startId, perPage } }) =>
+					getDBArticles({ pagination: { startId, perPage } }),
 				pageTitle: 'Блог',
 				basePath: '/articles',
 				errorMessage: 'Ошибка: не удалось загрузить статьи',

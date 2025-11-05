@@ -24,7 +24,7 @@ export default function RootLayout({
 	return (
 		<html lang='en'>
 			<body
-				className={`${montserrat.variable} font-sans flex flex-col min-h-screen`}
+				className={`${montserrat.variable} font-sans flex flex-col min-h-screen overflow-y-scroll`}
 			>
 				<ScrollToTop />
 				<Header />

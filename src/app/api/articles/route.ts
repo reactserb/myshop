@@ -1,14 +1,46 @@
 import { getDB } from '@/lib/utils/api-routes'
 import { NextResponse } from 'next/server'
+import { CONFIG } from '../../../../config/config'
 
+export const dynamic = 'force-dynamic'
 export const revalidate = 3600
 
-export async function GET() {
+export async function GET(request: Request) {
 	try {
 		const db = await getDB()
-		const articles = await db.collection('articles').find().toArray()
+		const url = new URL(request.url)
 
-		return NextResponse.json(articles)
+		const articlesLimit = url.searchParams.get('articlesLimit')
+		const startId = parseInt(url.searchParams.get('startIndex') || '0')
+		const perPage = parseInt(
+			url.searchParams.get('perPage') ||
+				CONFIG.ITEMS_PER_PAGE_MAIN_ARTICLES.toString()
+		)
+
+		if (articlesLimit) {
+			const limit = parseInt(articlesLimit)
+
+			const articles = await db
+				.collection('articles')
+				.find()
+				.sort({ createdAt: -1 })
+				.limit(limit)
+				.toArray()
+
+			return NextResponse.json(articles)
+		}
+
+		const totalCount = await db.collection('articles').countDocuments()
+
+		const articles = await db
+			.collection('articles')
+			.find()
+			.sort({ createdAt: -1 })
+			.skip(startId)
+			.limit(perPage)
+			.toArray()
+
+		return NextResponse.json({ articles, totalCount })
 	} catch {
 		return NextResponse.json(
 			{ message: 'Error to fetch articles' },

@@ -1,17 +1,18 @@
-import { shuffleArray } from '@/lib/utils/array/shuffleArray'
 import getDBProducts from './getDBProducts'
 import ProductsSection from './ProductsSection'
+import { CONFIG } from '../../../config/config'
 
 const Actions = async () => {
 	try {
-		let actionProducts = await getDBProducts('discount')
-		actionProducts = shuffleArray(actionProducts)
+		const { items } = await getDBProducts('discount', {
+			randomLimit: CONFIG.ITEMS_PER_PAGE_MAIN_PRODUCTS,
+		})
 
 		return (
 			<ProductsSection
 				title='Акции'
 				viewAllButtons={{ btnText: 'Все акции', href: 'actions' }}
-				products={actionProducts}
+				products={items}
 				compact
 			/>
 		)
