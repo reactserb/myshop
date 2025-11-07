@@ -4,16 +4,16 @@ export const CATALOG: CatalogItemProps[] = [
 	{
 		id: 1,
 		name: 'Бренды',
-		href: 'brands',
+		href: '/brands',
 	},
 	{
 		id: 2,
 		name: 'Новинки',
-		href: 'new',
+		href: '/new',
 	},
 	{
 		id: 3,
 		name: 'Скидки',
-		href: 'actions',
+		href: '/actions',
 	},
 ]

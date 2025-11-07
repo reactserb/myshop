@@ -17,9 +17,9 @@ const AllActions = async ({
 			props={{
 				getData: ({ pagination: { startId, perPage } }) =>
 					getDBProducts('discount', { pagination: { startId, perPage } }),
-				pageTitle: 'Все акции',
+				pageTitle: 'Все скидки',
 				basePath: '/actions',
-				errorMessage: 'Ошибка: не удалось загрузить акции',
+				errorMessage: 'Ошибка: не удалось загрузить скидки',
 			}}
 		/>
 	)

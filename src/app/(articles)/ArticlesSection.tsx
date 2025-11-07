@@ -22,7 +22,7 @@ const ArticlesSection = ({
 				</div>
 				{compact ? (
 					<ul className='flex flex-row flex-wrap justify-around gap-4'>
-						{articles.slice(0, 3).map((article, index) => (
+						{articles.map((article, index) => (
 							<li
 								key={article._id}
 								className={`

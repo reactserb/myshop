@@ -12,7 +12,7 @@ const Articles = async () => {
 		return (
 			<ArticlesSection
 				title='Статьи'
-				viewAllButtons={{ btnText: 'Все статьи', href: 'articles' }}
+				viewAllButtons={{ btnText: 'Все статьи', href: '/articles' }}
 				articles={items as ArticleCardProps[]}
 				compact
 			/>

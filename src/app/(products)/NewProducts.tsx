@@ -11,7 +11,7 @@ const NewProducts = async () => {
 		return (
 			<ProductsSection
 				title='Новинки'
-				viewAllButtons={{ btnText: 'Все новинки', href: 'new' }}
+				viewAllButtons={{ btnText: 'Все новинки', href: '/new' }}
 				products={items}
 				compact
 			/>

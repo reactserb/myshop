@@ -1,0 +1,37 @@
+[
+	{
+		"id": 1,
+		"img": "/images/brands/the-north-face.svg",
+		"brandName": "The North Face"
+	},
+	{
+		"id": 2,
+		"img": "/images/brands/timberland.svg",
+		"brandName": "Timberland"
+	},
+	{
+		"id": 3,
+		"img": "/images/brands/Obey.png",
+		"brandName": "Obey"
+	},
+	{
+		"id": 4,
+		"img": "/images/brands/native.svg",
+		"brandName": "Native"
+	},
+	{
+		"id": 5,
+		"img": "/images/brands/SHU.png",
+		"brandName": "SHU"
+	},
+	{
+		"id": 6,
+		"img": "/images/brands/vans.svg",
+		"brandName": "Vans"
+	},
+	{
+		"id": 7,
+		"img": "/images/brands/alpha-industries.svg",
+		"brandName": "Alpha Industries"
+	}
+]

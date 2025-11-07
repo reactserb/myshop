@@ -30,7 +30,7 @@ const AutoSlider = () => {
 				disableOnInteraction: false,
 			}}
 			loop={true}
-			className='h-[250px] w-full -mt-35 mb-5 450px:h-[300px] 450px:mb-20 450px:mt-0 lg:mt-0 lg:h-[400px]'
+			className='h-[250px] w-full -mt-35 mb-15 450px:h-[300px] 450px:mb-20 450px:mt-0 lg:mt-0 lg:h-[400px]'
 		>
 			{slides.map((slide, index) => (
 				<SwiperSlide key={index}>

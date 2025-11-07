@@ -17,7 +17,7 @@ const ProductCard = (product: ProductCardProps) => {
 		<div className='group relative flex flex-col flex-1 justify-between items-center rounded overflow-hidden sm:w-60 p-1 xl:p-5 outline-1 outline-solid outline-transparent hover:outline-gray-300 cursor-pointer'>
 			<FavoriteButton />
 			<Link
-				href={`/products/${product._id}`}
+				href={`/products/${product.id}`}
 				className='w-8 h-8 absolute z-[20] top-10 right-1 cursor-pointer hidden xl:group-hover:flex'
 			>
 				<GoSearch className='text-2xl text-gray-400 xl:hover:text-black' />
@@ -25,7 +25,7 @@ const ProductCard = (product: ProductCardProps) => {
 			<SizeOptions sizes={product.sizes} />
 
 			<Link
-				href={`/products/${product._id}`}
+				href={`/products/${product.id}`}
 				className='flex flex-col w-full items-center justify-between flex-grow relative'
 			>
 				<div className='relative w-60 h-60'>

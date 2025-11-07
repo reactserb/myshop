@@ -10,15 +10,17 @@ const Actions = async () => {
 
 		return (
 			<ProductsSection
-				title='Акции'
-				viewAllButtons={{ btnText: 'Все акции', href: 'actions' }}
+				title='Скидки'
+				viewAllButtons={{ btnText: 'Все скидки', href: '/actions' }}
 				products={items}
 				compact
 			/>
 		)
 	} catch {
 		return (
-			<div className='text-red-500 p-3'>Ошибка: не удалось загрузить акции</div>
+			<div className='text-red-500 p-3'>
+				Ошибка: не удалось загрузить скидки
+			</div>
 		)
 	}
 }

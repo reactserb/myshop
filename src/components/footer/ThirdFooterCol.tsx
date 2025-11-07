@@ -20,7 +20,7 @@ const ThirdFooterCol = () => {
 					</Link>
 				</li>
 				<li>
-					<Link href='articles' className='group relative'>
+					<Link href='/articles' className='group relative'>
 						<span className='after:block after:absolute after:-bottom-1 after:w-0 after:h-px after:bg-black after:content-[""] after:left-0 after:transition-all after:duration-300 group-hover:after:w-full'>
 							Блог
 						</span>

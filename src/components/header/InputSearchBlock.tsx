@@ -91,6 +91,7 @@ const InputSearchBlock = ({ handleClose }: { handleClose: () => void }) => {
 						<input
 							type='search'
 							name='search'
+							value={query}
 							placeholder='Найти товар'
 							spellCheck={false}
 							autoComplete='off'

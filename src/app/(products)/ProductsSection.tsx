@@ -28,7 +28,7 @@ const ProductsSection = ({
 				</div>
 				{compact ? (
 					<ul className='flex flex-row flex-wrap justify-around gap-4'>
-						{products.slice(0, 4).map((item, index) => (
+						{products.map((item, index) => (
 							<li
 								key={item._id}
 								className={`
@@ -42,7 +42,7 @@ const ProductsSection = ({
 						))}
 					</ul>
 				) : (
-					<ul className='grid grid-cols-1 450px:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-4 justify-items-center'>
+					<ul className='grid grid-cols-1 450px:grid-cols-2 md:grid-cols-3 md:grid-cols-4 gap-4 justify-items-center'>
 						{products.map(item => (
 							<li key={item._id}>{<ProductCard {...item} />}</li>
 						))}

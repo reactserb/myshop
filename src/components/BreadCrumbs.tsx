@@ -12,9 +12,12 @@ const BreadCrumbs = () => {
 	const pathSegments = pathname.split('/').filter(segment => segment !== '')
 
 	const breadcrumbs = pathSegments.map((seg, index) => {
-		const href = '/' + pathSegments.slice(0, index + 1)
+		const href = '/' + pathSegments.slice(0, index + 1).join('/')
+
+		const decodedSeg = decodeURIComponent(seg)
+
 		return {
-			label: TRANSLATIONS[seg] || seg,
+			label: TRANSLATIONS[decodedSeg] || decodedSeg,
 			href,
 			isLast: index === pathSegments.length - 1,
 		}

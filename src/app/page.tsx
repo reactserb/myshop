@@ -4,6 +4,7 @@ import NewProducts from '@/app/(products)/NewProducts'
 import AutoSlider from '@/components/slider/AutoSlider'
 import { Suspense } from 'react'
 import Loader from '@/components/Loader'
+import Brands from './(brands)/Brands'
 
 export default async function Home() {
 	return (
@@ -11,6 +12,7 @@ export default async function Home() {
 			<AutoSlider />
 			<div className='flex flex-col gap-y-20'>
 				{[
+					{ component: <Brands />, text: 'брендов' },
 					{ component: <Actions />, text: 'скидок' },
 					{ component: <NewProducts />, text: 'новинок' },
 					{ component: <Articles />, text: 'статей' },

@@ -18,7 +18,6 @@ const CatalogBlock = ({ handleClose }: { handleClose: () => void }) => {
 		document.body.style.overflow = 'hidden'
 
 		return () => {
-			// Восстановление прокрутки при закрытии (размонтировании)
 			document.body.style.overflow = ''
 		}
 	}, [])
@@ -46,7 +45,7 @@ const CatalogBlock = ({ handleClose }: { handleClose: () => void }) => {
 			<div
 				ref={catalogBlockRef}
 				className={`
-				border-r-1 border-gray-200 shadow-[var(--shadow-thick)] fixed top-0 left-0 bottom-0 pl-15 pr-20 py-8 z-[10000] bg-white
+				border-r-1 border-gray-200 fixed top-0 left-0 bottom-0 pl-15 pr-20 py-8 z-[10000] bg-white
 				transition-all duration-${ANIMATION_DURATION} ease-out transform
 				${isVisible ? 'translate-x-0' : '-translate-x-full'}
 			`}
