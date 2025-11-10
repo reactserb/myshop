@@ -1,10 +1,12 @@
 import Actions from '@/app/(products)/Actions'
 import Articles from '@/app/(articles)/Articles'
 import NewProducts from '@/app/(products)/NewProducts'
-import AutoSlider from '@/components/slider/AutoSlider'
+import AutoSlider from '@/components/autoslider/AutoSlider'
 import { Suspense } from 'react'
 import Loader from '@/components/Loader'
 import Brands from './(brands)/Brands'
+
+export const dynamic = 'force-dynamic'
 
 export default async function Home() {
 	return (

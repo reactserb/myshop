@@ -4,16 +4,22 @@ import { useState } from 'react'
 import { GoSearch } from 'react-icons/go'
 import { IoMdClose } from 'react-icons/io'
 import InputSearchBlock from './InputSearchBlock'
+import { AnimatePresence } from 'framer-motion'
+import { useSearchOverlay } from '@/hooks/useSearchOverlay'
 
 const SearchButton = () => {
 	const [isOpenSearch, setIsOpenSearch] = useState(false)
+	const { setIsSearchOpen } = useSearchOverlay()
 
 	const handleToggleSearch = () => {
-		setIsOpenSearch(!isOpenSearch)
+		const newState = !isOpenSearch
+		setIsOpenSearch(newState)
+		setIsSearchOpen(newState)
 	}
 
 	const handleCloseSearch = () => {
 		setIsOpenSearch(false)
+		setIsSearchOpen(false)
 	}
 
 	return (
@@ -25,7 +31,9 @@ const SearchButton = () => {
 					<GoSearch className='text-2xl lg:hover:text-black' />
 				)}
 			</div>
-			{isOpenSearch && <InputSearchBlock handleClose={handleCloseSearch} />}
+			<AnimatePresence>
+				{isOpenSearch && <InputSearchBlock handleClose={handleCloseSearch} />}
+			</AnimatePresence>
 		</li>
 	)
 }

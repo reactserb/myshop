@@ -7,7 +7,8 @@ export async function GET() {
 		const users = await db.collection('users').find().toArray()
 
 		return NextResponse.json(users)
-	} catch {
+	} catch (error) {
+		console.error('Error fetching users:', error)
 		return NextResponse.json(
 			{ message: 'Error to fetch users' },
 			{ status: 500 }

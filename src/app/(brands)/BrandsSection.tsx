@@ -28,34 +28,36 @@ const BrandsSection = ({
 					)}
 				</div>
 				{compact ? (
-					<ul className='flex flex-row flex-wrap justify-around gap-4'>
-						{brands.map((brand, index) => (
-							<li
-								key={brand._id}
-								className={`
-                                block
-                                ${index >= 2 ? 'hidden md:block' : ''}
-                                ${index >= 3 ? 'md:hidden lg:block' : ''}
-								${index >= 4 ? 'lg:hidden xl:block' : ''}
-							`}
-							>
-								<Link
-									href={`/brands/${brand.brandName}`}
-									className='flex flex-col w-full items-center justify-between flex-grow relative'
+					<div className='relative'>
+						<div
+							className='block absolute right-0 top-0 bottom-0 w-30 bg-gradient-to-l from-white to-transparent pointer-events-none z-10 
+                   xl:hidden'
+						></div>
+						<ul className='flex flex-row flex-nowrap overflow-x-auto gap-10 px-5 xl:flex-wrap xl:overflow-x-visible xl:justify-around'>
+							{brands.map((brand, index) => (
+								<li
+									key={brand._id}
+									className={`block flex-shrink-0 xl:flex-shrink
+									${index > 4 ? 'xl:hidden' : ''}`}
 								>
-									<div className='relative w-50 h-40'>
-										<Image
-											src={brand.img}
-											alt={brand.brandName}
-											fill
-											className='object-contain p-2'
-											sizes='(max-width: 640px) 140px, 240px'
-										/>
-									</div>
-								</Link>
-							</li>
-						))}
-					</ul>
+									<Link
+										href={`/brands/${brand.brandName}`}
+										className='flex flex-col w-full items-center justify-between flex-grow relative'
+									>
+										<div className='relative w-50 h-40'>
+											<Image
+												src={brand.img}
+												alt={brand.brandName}
+												fill
+												className='object-contain p-2'
+												sizes='(max-width: 640px) 140px, 240px'
+											/>
+										</div>
+									</Link>
+								</li>
+							))}
+						</ul>
+					</div>
 				) : (
 					<ul className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 justify-items-center'>
 						{brands.map(brand => (

@@ -3,7 +3,7 @@ interface LoaderProps {
 	className?: string
 }
 
-const Loader = ({ text = '', className = '' }: LoaderProps) => {
+export const Loader = ({ text = '', className = '' }: LoaderProps) => {
 	return (
 		<div
 			className={`flex flex-col items-center justify-center gap-3 ${className}`}

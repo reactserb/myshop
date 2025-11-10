@@ -10,19 +10,16 @@ import { GoSearch } from 'react-icons/go'
 import HighlightText from '../HighlightText'
 import { useRouter } from 'next/navigation'
 import { FaArrowRightLong } from 'react-icons/fa6'
+import { motion } from 'framer-motion'
+import Loader from '../Loader'
 
 const InputSearchBlock = ({ handleClose }: { handleClose: () => void }) => {
 	const inputRef = useRef<HTMLDivElement | null>(null)
-	const [isVisible, setIsVisible] = useState(false)
 	const [isOpen, setIsOpen] = useState(false)
 	const [query, setQuery] = useState('')
 	const [isLoading, setIsLoading] = useState(false)
 	const [searchProducts, setSearchProducts] = useState<SearchProduct[]>([])
 	const router = useRouter()
-
-	useEffect(() => {
-		setIsVisible(true)
-	}, [])
 
 	useEffect(() => {
 		const fetchSearchData = async () => {
@@ -46,10 +43,7 @@ const InputSearchBlock = ({ handleClose }: { handleClose: () => void }) => {
 	}, [query])
 
 	const handleCloseAnimation = () => {
-		setIsVisible(false)
-		setTimeout(() => {
-			handleClose() //
-		}, 300) // Длительность должна соответствовать или быть меньше transition-duration
+		handleClose()
 	}
 
 	const handleInputFocus = () => setIsOpen(true)
@@ -71,13 +65,15 @@ const InputSearchBlock = ({ handleClose }: { handleClose: () => void }) => {
 	useEscapeKey(handleCloseAnimation)
 
 	return (
-		<div
+		<motion.div
 			ref={inputRef}
+			initial={{ y: '-100%', opacity: 0 }} // Изначальное состояние (скрыто сверху)
+			animate={{ y: '0%', opacity: 1 }} // Состояние при появлении (видимо)
+			exit={{ y: '-100%', opacity: 0 }} // Состояние при скрытии (уходит вверх)
+			transition={{ duration: 0.3, ease: 'easeOut' }} // Плавный переход за 300ms
 			className={`
-				border-b-1 border-gray-200 shadow-[var(--shadow-thick)] fixed top-0 right-0 left-0 z-[10000] bg-white
-				mt-20 pt-10 pb-20 sm:pb-30 md:pb-40 px-5
-				transition-all duration-300 ease-out transform
-				${isVisible ? 'translate-y-0' : '-translate-y-full'}
+				border-b-1 border-gray-200 shadow-[var(--shadow-thick)] fixed top-20 right-0 left-0 z-[10000] bg-white
+				pt-10 pb-20 sm:pb-30 md:pb-40 px-5
 			`}
 		>
 			<div className='relative max-w-[1408px] m-auto'>
@@ -114,7 +110,9 @@ const InputSearchBlock = ({ handleClose }: { handleClose: () => void }) => {
 				{isOpen && (
 					<div className='break-words max-h-[70vh] overflow-y-auto'>
 						{isLoading ? (
-							<div className='p-4 text-center'>Поиск...</div>
+							<div className='p-4 bg-white text-black flex justify-center items-center h-32'>
+								<Loader text='товаров' />
+							</div>
 						) : searchProducts.length > 0 ? (
 							<>
 								<ul className='p-2 flex flex-col gap-2 text-black'>
@@ -168,7 +166,7 @@ const InputSearchBlock = ({ handleClose }: { handleClose: () => void }) => {
 					</div>
 				)}
 			</div>
-		</div>
+		</motion.div>
 	)
 }
 export default InputSearchBlock

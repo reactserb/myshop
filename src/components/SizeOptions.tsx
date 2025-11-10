@@ -12,7 +12,7 @@ const SizeOptions = ({ sizes }: SizeOptionsProps) => {
 	}
 
 	return (
-		<div className='absolute inset-y-0 w-full z-[10] flex flex-wrap justify-center content-end pb-5 gap-2 bg-white opacity-50 hidden xl:group-hover:flex'>
+		<div className='absolute inset-y-0 w-full z-10 flex flex-wrap justify-center content-end pb-5 gap-2 bg-white opacity-50 hidden xl:group-hover:flex'>
 			{sizes.map(size => (
 				<button
 					key={size}

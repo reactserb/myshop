@@ -2,9 +2,6 @@ import { getDB } from '@/lib/utils/api-routes'
 import { NextResponse } from 'next/server'
 import { CONFIG } from '../../../../config/config'
 
-export const dynamic = 'force-dynamic'
-export const revalidate = 3600
-
 export async function GET(request: Request) {
 	try {
 		const db = await getDB()
@@ -41,7 +38,9 @@ export async function GET(request: Request) {
 			.toArray()
 
 		return NextResponse.json({ articles, totalCount })
-	} catch {
+	} catch (error) {
+		console.error('Error fetching articles:', error)
+
 		return NextResponse.json(
 			{ message: 'Error to fetch articles' },
 			{ status: 500 }

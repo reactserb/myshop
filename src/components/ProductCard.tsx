@@ -18,7 +18,7 @@ const ProductCard = (product: ProductCardProps) => {
 			<FavoriteButton />
 			<Link
 				href={`/products/${product.id}`}
-				className='w-8 h-8 absolute z-[20] top-10 right-1 cursor-pointer hidden xl:group-hover:flex'
+				className='w-8 h-8 absolute z-20 top-10 right-1 cursor-pointer hidden xl:group-hover:flex'
 			>
 				<GoSearch className='text-2xl text-gray-400 xl:hover:text-black' />
 			</Link>

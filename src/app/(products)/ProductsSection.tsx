@@ -27,22 +27,27 @@ const ProductsSection = ({
 					)}
 				</div>
 				{compact ? (
-					<ul className='flex flex-row flex-wrap justify-around gap-4'>
-						{products.map((item, index) => (
-							<li
-								key={item._id}
-								className={`
-                                block
-                                ${index >= 2 ? 'hidden md:block' : ''}
-                                ${index >= 3 ? 'md:hidden lg:block' : ''}
-							`}
-							>
-								{<ProductCard {...item} />}
-							</li>
-						))}
-					</ul>
+					<div className='relative'>
+						<div
+							className='block absolute right-0 top-0 bottom-0 w-30 bg-gradient-to-l from-white to-transparent pointer-events-none z-10 
+                   xl:hidden'
+						></div>
+						<ul className='flex flex-row flex-nowrap overflow-x-auto gap-10 px-5 xl:flex-wrap xl:overflow-x-visible xl:justify-around'>
+							{products.map((item, index) => (
+								<li
+									key={item._id}
+									className={`
+                                block w-60 flex-shrink-0 
+                    			${index > 3 ? 'xl:hidden' : ''}
+                            `}
+								>
+									{<ProductCard {...item} />}
+								</li>
+							))}
+						</ul>
+					</div>
 				) : (
-					<ul className='grid grid-cols-1 450px:grid-cols-2 md:grid-cols-3 md:grid-cols-4 gap-4 justify-items-center'>
+					<ul className='grid grid-cols-1 450px:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-4 justify-items-center'>
 						{products.map(item => (
 							<li key={item._id}>{<ProductCard {...item} />}</li>
 						))}
