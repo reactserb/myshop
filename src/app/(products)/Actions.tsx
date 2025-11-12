@@ -1,6 +1,7 @@
 import getDBProducts from './getDBProducts'
 import ProductsSection from './ProductsSection'
 import { CONFIG } from '../../../config/config'
+import ErrorComponent from '@/components/ErrorComponent'
 
 const Actions = async () => {
 	try {
@@ -16,11 +17,12 @@ const Actions = async () => {
 				compact
 			/>
 		)
-	} catch {
+	} catch (error) {
 		return (
-			<div className='text-red-500 p-3'>
-				Ошибка: не удалось загрузить скидки
-			</div>
+			<ErrorComponent
+				error={error instanceof Error ? error : new Error(String(error))}
+				userMessage='Ошибка: не удалось загрузить скидки'
+			/>
 		)
 	}
 }

@@ -51,11 +51,8 @@ const getDBProducts = async (
 			totalCount = items.length
 		}
 
-		if (!items) throw new Error('Ошибка получения товаров')
-
 		return { items, totalCount }
 	} catch (err) {
-		console.log(`Ошибка получения: ${category}`, err)
 		throw err
 	}
 }

@@ -35,11 +35,8 @@ const getDBArticles = async (options?: {
 			totalCount = items.length
 		}
 
-		if (!items) throw new Error('Ошибка получения статей')
-
 		return { items, totalCount }
 	} catch (err) {
-		console.log(`Ошибка получения статей`, err)
 		throw err
 	}
 }

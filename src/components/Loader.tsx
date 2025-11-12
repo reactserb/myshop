@@ -1,7 +1,4 @@
-interface LoaderProps {
-	text?: string
-	className?: string
-}
+import { LoaderProps } from '@/lib/types/loader'
 
 export const Loader = ({ text = '', className = '' }: LoaderProps) => {
 	return (

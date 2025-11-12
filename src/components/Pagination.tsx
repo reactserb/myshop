@@ -60,7 +60,7 @@ const Pagination = ({
 	const buttonDisabled = 'opacity-0 cursor-default'
 
 	return (
-		<div className='flex flex-1 justify-center mt-8 mb-12'>
+		<div className='flex flex-1 justify-center mt-8'>
 			<nav className='flex flex-wrap gap-2 md:gap-4 items-center'>
 				<Link
 					href={createdPageURL(basePath, params, 1)}

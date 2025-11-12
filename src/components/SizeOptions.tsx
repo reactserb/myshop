@@ -1,8 +1,6 @@
 'use client'
 
-interface SizeOptionsProps {
-	sizes: string[] | number[]
-}
+import { SizeOptionsProps } from '@/lib/types/sizeOptions'
 
 const SizeOptions = ({ sizes }: SizeOptionsProps) => {
 	const handleClick = (e: React.MouseEvent, size: string | number) => {

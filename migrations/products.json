@@ -91,49 +91,49 @@
 	},
 	{
 		"id": 10,
-		"img": "/images/products/tnf.webp",
+		"img": "/images/products/tnf3.webp",
 		"title": "The North Face",
 		"description": "Куртка",
-		"basePrice": 30000,
+		"basePrice": 28000,
 		"discountPercent": 0,
-		"sizes": ["s", "m", "l", "xl"],
+		"sizes": ["s", "m", "l"],
 		"categories": ["jacket", "new"]
 	},
 	{
 		"id": 11,
-		"img": "/images/products/native.webp",
+		"img": "/images/products/native2.webp",
 		"title": "Native",
 		"description": "Обувь",
-		"basePrice": 15000,
+		"basePrice": 12000,
 		"discountPercent": 10,
-		"sizes": [40, 41, 42, 43, 44, 45],
+		"sizes": [40],
 		"categories": ["boots", "discount"]
 	},
 	{
 		"id": 12,
-		"img": "/images/products/obey.webp",
+		"img": "/images/products/obey2.webp",
 		"title": "Obey",
-		"description": "Худи",
-		"basePrice": 20000,
+		"description": "Свитер",
+		"basePrice": 17000,
 		"discountPercent": 20,
 		"sizes": ["s", "xl"],
 		"categories": ["hoodie", "discount"]
 	},
 	{
 		"id": 13,
-		"img": "/images/products/alpha.webp",
+		"img": "/images/products/alpha3.webp",
 		"title": "Alpha Industries",
 		"description": "Куртка",
-		"basePrice": 30000,
+		"basePrice": 50000,
 		"discountPercent": 0,
 		"sizes": ["s", "m", "l", "xl"],
 		"categories": ["jacket", "new"]
 	},
 	{
 		"id": 14,
-		"img": "/images/products/shu.webp",
-		"title": "SHU",
-		"description": "Куртка",
+		"img": "/images/products/fp.webp",
+		"title": "Fred Perry",
+		"description": "Жилет",
 		"basePrice": 20000,
 		"discountPercent": 50,
 		"sizes": ["xl"],
@@ -141,27 +141,27 @@
 	},
 	{
 		"id": 15,
-		"img": "/images/products/timberland.webp",
+		"img": "/images/products/timberland2.webp",
 		"title": "Timberland",
 		"description": "Обувь",
-		"basePrice": 20000,
+		"basePrice": 25000,
 		"discountPercent": 20,
 		"sizes": [43, 44, 45],
 		"categories": ["boots", "discount"]
 	},
 	{
 		"id": 16,
-		"img": "/images/products/tnf2.webp",
+		"img": "/images/products/tnf4.webp",
 		"title": "The North Face",
 		"description": "Куртка",
-		"basePrice": 25000,
+		"basePrice": 28000,
 		"discountPercent": 10,
 		"sizes": ["s", "l", "xl"],
 		"categories": ["jacket", "discount"]
 	},
 	{
 		"id": 17,
-		"img": "/images/products/alpha2.webp",
+		"img": "/images/products/alpha4.webp",
 		"title": "Alpha Industries",
 		"description": "Куртка",
 		"basePrice": 65000,
@@ -171,28 +171,28 @@
 	},
 	{
 		"id": 18,
-		"img": "/images/products/vans.webp",
+		"img": "/images/products/vans2.webp",
 		"title": "Vans",
 		"description": "Обувь",
-		"basePrice": 12000,
+		"basePrice": 10000,
 		"discountPercent": 0,
 		"sizes": [35, 36, 37, 38, 39],
 		"categories": ["boots", "new"]
 	},
 	{
-		"id": 1,
-		"img": "/images/products/tnf.webp",
-		"title": "The North Face",
-		"description": "Куртка",
-		"basePrice": 30000,
+		"id": 19,
+		"img": "/images/products/adidas.webp",
+		"title": "Adidas",
+		"description": "Обувь",
+		"basePrice": 20000,
 		"discountPercent": 0,
-		"sizes": ["s", "m", "l", "xl"],
-		"categories": ["jacket", "new"]
+		"sizes": [40, 41, 42, 43, 44, 45],
+		"categories": ["boots", "new"]
 	},
 	{
-		"id": 2,
-		"img": "/images/products/native.webp",
-		"title": "Native",
+		"id": 20,
+		"img": "/images/products/adidas2.webp",
+		"title": "Adidas",
 		"description": "Обувь",
 		"basePrice": 15000,
 		"discountPercent": 10,
@@ -200,28 +200,28 @@
 		"categories": ["boots", "discount"]
 	},
 	{
-		"id": 3,
-		"img": "/images/products/obey.webp",
-		"title": "Obey",
+		"id": 21,
+		"img": "/images/products/carhartt.webp",
+		"title": "Carhartt",
 		"description": "Худи",
-		"basePrice": 20000,
+		"basePrice": 25000,
 		"discountPercent": 20,
 		"sizes": ["s", "xl"],
 		"categories": ["hoodie", "discount"]
 	},
 	{
-		"id": 4,
-		"img": "/images/products/alpha.webp",
+		"id": 22,
+		"img": "/images/products/alpha5.webp",
 		"title": "Alpha Industries",
 		"description": "Куртка",
-		"basePrice": 30000,
+		"basePrice": 50000,
 		"discountPercent": 0,
 		"sizes": ["s", "m", "l", "xl"],
 		"categories": ["jacket", "new"]
 	},
 	{
-		"id": 5,
-		"img": "/images/products/shu.webp",
+		"id": 23,
+		"img": "/images/products/shu2.webp",
 		"title": "SHU",
 		"description": "Куртка",
 		"basePrice": 20000,
@@ -230,9 +230,9 @@
 		"categories": ["jacket", "discount"]
 	},
 	{
-		"id": 6,
-		"img": "/images/products/timberland.webp",
-		"title": "Timberland",
+		"id": 24,
+		"img": "/images/products/newbalance.webp",
+		"title": "New Balance",
 		"description": "Обувь",
 		"basePrice": 20000,
 		"discountPercent": 20,
@@ -240,9 +240,9 @@
 		"categories": ["boots", "discount"]
 	},
 	{
-		"id": 7,
-		"img": "/images/products/tnf2.webp",
-		"title": "The North Face",
+		"id": 25,
+		"img": "/images/products/carhartt2.webp",
+		"title": "Carhartt",
 		"description": "Куртка",
 		"basePrice": 25000,
 		"discountPercent": 10,
@@ -250,9 +250,9 @@
 		"categories": ["jacket", "discount"]
 	},
 	{
-		"id": 8,
-		"img": "/images/products/alpha2.webp",
-		"title": "Alpha Industries",
+		"id": 26,
+		"img": "/images/products/napapijri.webp",
+		"title": "Napapijri",
 		"description": "Куртка",
 		"basePrice": 65000,
 		"discountPercent": 0,
@@ -260,8 +260,98 @@
 		"categories": ["jacket", "new"]
 	},
 	{
-		"id": 9,
-		"img": "/images/products/vans.webp",
+		"id": 27,
+		"img": "/images/products/adidas3.webp",
+		"title": "Adidas",
+		"description": "Обувь",
+		"basePrice": 22000,
+		"discountPercent": 0,
+		"sizes": [35, 36, 37, 38, 39],
+		"categories": ["boots", "new"]
+	},
+	{
+		"id": 28,
+		"img": "/images/products/tnf5.webp",
+		"title": "The North Face",
+		"description": "Куртка",
+		"basePrice": 12000,
+		"discountPercent": 0,
+		"sizes": ["s", "m", "l", "xl"],
+		"categories": ["jacket", "new"]
+	},
+	{
+		"id": 29,
+		"img": "/images/products/asics.webp",
+		"title": "Asics",
+		"description": "Обувь",
+		"basePrice": 17000,
+		"discountPercent": 10,
+		"sizes": [40, 41, 42, 43, 44, 45],
+		"categories": ["boots", "discount"]
+	},
+	{
+		"id": 30,
+		"img": "/images/products/napapijri2.webp",
+		"title": "Napapijri",
+		"description": "Свитер",
+		"basePrice": 20000,
+		"discountPercent": 20,
+		"sizes": ["s", "xl"],
+		"categories": ["hoodie", "discount"]
+	},
+	{
+		"id": 31,
+		"img": "/images/products/napapijri3.webp",
+		"title": "Napapijri",
+		"description": "Жилет",
+		"basePrice": 20000,
+		"discountPercent": 0,
+		"sizes": ["s", "m", "l", "xl"],
+		"categories": ["jacket", "new"]
+	},
+	{
+		"id": 32,
+		"img": "/images/products/shu3.webp",
+		"title": "SHU",
+		"description": "Куртка",
+		"basePrice": 22000,
+		"discountPercent": 50,
+		"sizes": ["xl"],
+		"categories": ["jacket", "discount"]
+	},
+	{
+		"id": 33,
+		"img": "/images/products/newbalance2.webp",
+		"title": "New Balance",
+		"description": "Обувь",
+		"basePrice": 15000,
+		"discountPercent": 20,
+		"sizes": [43, 44, 45],
+		"categories": ["boots", "discount"]
+	},
+	{
+		"id": 34,
+		"img": "/images/products/fp2.webp",
+		"title": "Fred Perry",
+		"description": "Куртка",
+		"basePrice": 25000,
+		"discountPercent": 10,
+		"sizes": ["s", "l", "xl"],
+		"categories": ["jacket", "discount"]
+	},
+	{
+		"id": 35,
+		"img": "/images/products/alpha6.webp",
+		"title": "Alpha Industries",
+		"description": "Куртка",
+		"basePrice": 45000,
+		"discountPercent": 0,
+		"sizes": ["s", "m", "l", "xl"],
+		"categories": ["jacket", "new"]
+	},
+	{
+		"id": 36,
+		"img": "/images/products/vans3.webp",
 		"title": "Vans",
 		"description": "Обувь",
 		"basePrice": 12000,
@@ -270,9 +360,9 @@
 		"categories": ["boots", "new"]
 	},
 	{
-		"id": 10,
-		"img": "/images/products/tnf.webp",
-		"title": "The North Face",
+		"id": 37,
+		"img": "/images/products/obey3.webp",
+		"title": "Obey",
 		"description": "Куртка",
 		"basePrice": 30000,
 		"discountPercent": 0,
@@ -280,8 +370,8 @@
 		"categories": ["jacket", "new"]
 	},
 	{
-		"id": 11,
-		"img": "/images/products/native.webp",
+		"id": 38,
+		"img": "/images/products/native3.webp",
 		"title": "Native",
 		"description": "Обувь",
 		"basePrice": 15000,
@@ -290,19 +380,19 @@
 		"categories": ["boots", "discount"]
 	},
 	{
-		"id": 12,
-		"img": "/images/products/obey.webp",
-		"title": "Obey",
-		"description": "Худи",
+		"id": 39,
+		"img": "/images/products/fp3.webp",
+		"title": "Fred Perry",
+		"description": "Свитер",
 		"basePrice": 20000,
 		"discountPercent": 20,
 		"sizes": ["s", "xl"],
 		"categories": ["hoodie", "discount"]
 	},
 	{
-		"id": 13,
-		"img": "/images/products/alpha.webp",
-		"title": "Alpha Industries",
+		"id": 40,
+		"img": "/images/products/napapijri4.webp",
+		"title": "Napapijri",
 		"description": "Куртка",
 		"basePrice": 30000,
 		"discountPercent": 0,
@@ -310,19 +400,19 @@
 		"categories": ["jacket", "new"]
 	},
 	{
-		"id": 14,
+		"id": 41,
 		"img": "/images/products/shu.webp",
 		"title": "SHU",
 		"description": "Куртка",
 		"basePrice": 20000,
-		"discountPercent": 50,
+		"discountPercent": 30,
 		"sizes": ["xl"],
 		"categories": ["jacket", "discount"]
 	},
 	{
-		"id": 15,
-		"img": "/images/products/timberland.webp",
-		"title": "Timberland",
+		"id": 42,
+		"img": "/images/products/newbalance3.webp",
+		"title": "New Balance",
 		"description": "Обувь",
 		"basePrice": 20000,
 		"discountPercent": 20,
@@ -330,29 +420,29 @@
 		"categories": ["boots", "discount"]
 	},
 	{
-		"id": 16,
-		"img": "/images/products/tnf2.webp",
+		"id": 43,
+		"img": "/images/products/tnf6.webp",
 		"title": "The North Face",
 		"description": "Куртка",
 		"basePrice": 25000,
-		"discountPercent": 10,
+		"discountPercent": 30,
 		"sizes": ["s", "l", "xl"],
 		"categories": ["jacket", "discount"]
 	},
 	{
-		"id": 17,
-		"img": "/images/products/alpha2.webp",
+		"id": 44,
+		"img": "/images/products/alpha7.webp",
 		"title": "Alpha Industries",
 		"description": "Куртка",
-		"basePrice": 65000,
+		"basePrice": 55000,
 		"discountPercent": 0,
 		"sizes": ["s", "m", "l", "xl"],
 		"categories": ["jacket", "new"]
 	},
 	{
-		"id": 18,
-		"img": "/images/products/vans.webp",
-		"title": "Vans",
+		"id": 45,
+		"img": "/images/products/adidas.webp",
+		"title": "Adidas",
 		"description": "Обувь",
 		"basePrice": 12000,
 		"discountPercent": 0,
@@ -360,8 +450,8 @@
 		"categories": ["boots", "new"]
 	},
 	{
-		"id": 1,
-		"img": "/images/products/tnf.webp",
+		"id": 46,
+		"img": "/images/products/tnf7.webp",
 		"title": "The North Face",
 		"description": "Куртка",
 		"basePrice": 30000,
@@ -370,9 +460,9 @@
 		"categories": ["jacket", "new"]
 	},
 	{
-		"id": 2,
-		"img": "/images/products/native.webp",
-		"title": "Native",
+		"id": 47,
+		"img": "/images/products/asics2.webp",
+		"title": "Asisc",
 		"description": "Обувь",
 		"basePrice": 15000,
 		"discountPercent": 10,
@@ -380,8 +470,8 @@
 		"categories": ["boots", "discount"]
 	},
 	{
-		"id": 3,
-		"img": "/images/products/obey.webp",
+		"id": 48,
+		"img": "/images/products/obey4.webp",
 		"title": "Obey",
 		"description": "Худи",
 		"basePrice": 20000,
@@ -390,8 +480,8 @@
 		"categories": ["hoodie", "discount"]
 	},
 	{
-		"id": 4,
-		"img": "/images/products/alpha.webp",
+		"id": 49,
+		"img": "/images/products/alpha8.webp",
 		"title": "Alpha Industries",
 		"description": "Куртка",
 		"basePrice": 30000,
@@ -400,29 +490,29 @@
 		"categories": ["jacket", "new"]
 	},
 	{
-		"id": 5,
-		"img": "/images/products/shu.webp",
-		"title": "SHU",
+		"id": 50,
+		"img": "/images/products/alpha9.webp",
+		"title": "Alpha Industries",
 		"description": "Куртка",
-		"basePrice": 20000,
+		"basePrice": 55000,
 		"discountPercent": 50,
 		"sizes": ["xl"],
 		"categories": ["jacket", "discount"]
 	},
 	{
-		"id": 6,
-		"img": "/images/products/timberland.webp",
+		"id": 51,
+		"img": "/images/products/timberland3.webp",
 		"title": "Timberland",
 		"description": "Обувь",
-		"basePrice": 20000,
+		"basePrice": 25000,
 		"discountPercent": 20,
 		"sizes": [43, 44, 45],
 		"categories": ["boots", "discount"]
 	},
 	{
-		"id": 7,
-		"img": "/images/products/tnf2.webp",
-		"title": "The North Face",
+		"id": 52,
+		"img": "/images/products/alpha10.webp",
+		"title": "Alpha Industries",
 		"description": "Куртка",
 		"basePrice": 25000,
 		"discountPercent": 10,
@@ -430,8 +520,8 @@
 		"categories": ["jacket", "discount"]
 	},
 	{
-		"id": 8,
-		"img": "/images/products/alpha2.webp",
+		"id": 53,
+		"img": "/images/products/alpha11.webp",
 		"title": "Alpha Industries",
 		"description": "Куртка",
 		"basePrice": 65000,
@@ -440,101 +530,11 @@
 		"categories": ["jacket", "new"]
 	},
 	{
-		"id": 9,
-		"img": "/images/products/vans.webp",
-		"title": "Vans",
+		"id": 54,
+		"img": "/images/products/newbalance4.webp",
+		"title": "New Balance",
 		"description": "Обувь",
-		"basePrice": 12000,
-		"discountPercent": 0,
-		"sizes": [35, 36, 37, 38, 39],
-		"categories": ["boots", "new"]
-	},
-	{
-		"id": 10,
-		"img": "/images/products/tnf.webp",
-		"title": "The North Face",
-		"description": "Куртка",
-		"basePrice": 30000,
-		"discountPercent": 0,
-		"sizes": ["s", "m", "l", "xl"],
-		"categories": ["jacket", "new"]
-	},
-	{
-		"id": 11,
-		"img": "/images/products/native.webp",
-		"title": "Native",
-		"description": "Обувь",
-		"basePrice": 15000,
-		"discountPercent": 10,
-		"sizes": [40, 41, 42, 43, 44, 45],
-		"categories": ["boots", "discount"]
-	},
-	{
-		"id": 12,
-		"img": "/images/products/obey.webp",
-		"title": "Obey",
-		"description": "Худи",
-		"basePrice": 20000,
-		"discountPercent": 20,
-		"sizes": ["s", "xl"],
-		"categories": ["hoodie", "discount"]
-	},
-	{
-		"id": 13,
-		"img": "/images/products/alpha.webp",
-		"title": "Alpha Industries",
-		"description": "Куртка",
-		"basePrice": 30000,
-		"discountPercent": 0,
-		"sizes": ["s", "m", "l", "xl"],
-		"categories": ["jacket", "new"]
-	},
-	{
-		"id": 14,
-		"img": "/images/products/shu.webp",
-		"title": "SHU",
-		"description": "Куртка",
-		"basePrice": 20000,
-		"discountPercent": 50,
-		"sizes": ["xl"],
-		"categories": ["jacket", "discount"]
-	},
-	{
-		"id": 15,
-		"img": "/images/products/timberland.webp",
-		"title": "Timberland",
-		"description": "Обувь",
-		"basePrice": 20000,
-		"discountPercent": 20,
-		"sizes": [43, 44, 45],
-		"categories": ["boots", "discount"]
-	},
-	{
-		"id": 16,
-		"img": "/images/products/tnf2.webp",
-		"title": "The North Face",
-		"description": "Куртка",
-		"basePrice": 25000,
-		"discountPercent": 10,
-		"sizes": ["s", "l", "xl"],
-		"categories": ["jacket", "discount"]
-	},
-	{
-		"id": 17,
-		"img": "/images/products/alpha2.webp",
-		"title": "Alpha Industries",
-		"description": "Куртка",
-		"basePrice": 65000,
-		"discountPercent": 0,
-		"sizes": ["s", "m", "l", "xl"],
-		"categories": ["jacket", "new"]
-	},
-	{
-		"id": 18,
-		"img": "/images/products/vans.webp",
-		"title": "Vans",
-		"description": "Обувь",
-		"basePrice": 12000,
+		"basePrice": 22000,
 		"discountPercent": 0,
 		"sizes": [35, 36, 37, 38, 39],
 		"categories": ["boots", "new"]

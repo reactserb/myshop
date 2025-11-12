@@ -33,5 +33,30 @@
 		"id": 7,
 		"img": "/images/brands/alpha-industries.svg",
 		"brandName": "Alpha Industries"
+	},
+	{
+		"id": 8,
+		"img": "/images/brands/fred-perry.svg",
+		"brandName": "Fred Perry"
+	},
+	{
+		"id": 9,
+		"img": "/images/brands/new-balance.svg",
+		"brandName": "New Balance"
+	},
+	{
+		"id": 10,
+		"img": "/images/brands/carhartt.svg",
+		"brandName": "Carhartt"
+	},
+	{
+		"id": 11,
+		"img": "/images/brands/asics.svg",
+		"brandName": "Asics"
+	},
+	{
+		"id": 12,
+		"img": "/images/brands/adidas.svg",
+		"brandName": "Adidas"
 	}
 ]

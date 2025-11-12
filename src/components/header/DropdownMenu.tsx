@@ -5,23 +5,22 @@ import { useEffect, useState } from 'react'
 import Image from 'next/image'
 import { BrandProps } from '@/lib/types/brand'
 import { ProductCardProps } from '@/lib/types/product'
-import { CatalogItemProps } from '@/lib/types/catalog'
 import { FaArrowRightLong } from 'react-icons/fa6'
 import Loader from '../Loader'
+import ErrorComponent from '../ErrorComponent'
+import { DropdownMenuProps } from '@/lib/types/dropdown'
 
 type DataType = BrandProps | ProductCardProps
-
-interface DropdownMenuProps {
-	item: CatalogItemProps
-	onClose: () => void
-}
 
 const menuCache = new Map<string, DataType[]>()
 
 const DropdownMenu: React.FC<DropdownMenuProps> = ({ item, onClose }) => {
 	const [data, setData] = useState<DataType[] | null>(null)
 	const [isLoading, setIsLoading] = useState(true)
-	const [error, setError] = useState<string | null>(null)
+	const [error, setError] = useState<{
+		error: Error
+		userMessage: string
+	} | null>(null)
 	const limit = 10
 
 	useEffect(() => {
@@ -47,17 +46,16 @@ const DropdownMenu: React.FC<DropdownMenuProps> = ({ item, onClose }) => {
 
 				const res = await fetch(apiUrl)
 
-				if (!res.ok) {
-					throw new Error('Failed to fetch data')
-				}
-
 				const result = (await res.json()) as DataType[]
 
 				menuCache.set(cacheKey, result)
 				setData(result)
-			} catch (err) {
-				console.error(err)
-				setError('Ошибка загрузки данных')
+			} catch (error) {
+				setError({
+					error:
+						error instanceof Error ? error : new Error('Неизвестная ошибка'),
+					userMessage: 'Не удалось загрузить данные. Попробуйте позже.',
+				})
 			} finally {
 				setIsLoading(false)
 			}
@@ -76,9 +74,7 @@ const DropdownMenu: React.FC<DropdownMenuProps> = ({ item, onClose }) => {
 
 	if (error) {
 		return (
-			<div className='p-4 bg-white text-sm text-red-500 border-b border-gray-200'>
-				{error}
-			</div>
+			<ErrorComponent error={error.error} userMessage={error.userMessage} />
 		)
 	}
 

@@ -18,6 +18,7 @@ const InputSearchBlock = ({ handleClose }: { handleClose: () => void }) => {
 	const [isOpen, setIsOpen] = useState(false)
 	const [query, setQuery] = useState('')
 	const [isLoading, setIsLoading] = useState(false)
+	const [error, setError] = useState<string | null>(null)
 	const [searchProducts, setSearchProducts] = useState<SearchProduct[]>([])
 	const router = useRouter()
 
@@ -26,16 +27,20 @@ const InputSearchBlock = ({ handleClose }: { handleClose: () => void }) => {
 			if (query.length > 0) {
 				try {
 					setIsLoading(true)
+					setError(null)
 					const response = await fetch(`api/search?query=${query}`)
 					const data = await response.json()
 					setSearchProducts(data)
-				} catch (err) {
-					console.log('Не найден товар', err)
+				} catch (error) {
+					console.error('Не найден товар', error)
+					setError('Не найден товар')
+					setSearchProducts([])
 				} finally {
 					setIsLoading(false)
 				}
 			} else {
 				setSearchProducts([])
+				setError(null)
 			}
 		}
 		const debounceTimer = setTimeout(fetchSearchData, 300)
@@ -109,7 +114,20 @@ const InputSearchBlock = ({ handleClose }: { handleClose: () => void }) => {
 
 				{isOpen && (
 					<div className='break-words max-h-[70vh] overflow-y-auto'>
-						{isLoading ? (
+						{error ? (
+							<div className='p-4 text-red-500 text-center text-sm'>
+								{error}
+								<button
+									onClick={() => {
+										setError(null)
+										setQuery('')
+									}}
+									className='text-blue-500 hover:text-blue-700 cursor-pointer'
+								>
+									Повторить
+								</button>
+							</div>
+						) : isLoading ? (
 							<div className='p-4 bg-white text-black flex justify-center items-center h-32'>
 								<Loader text='товаров' />
 							</div>

@@ -23,11 +23,8 @@ const getDBBrands = async (options?: {
 			totalCount = items.length
 		}
 
-		if (!items) throw new Error('Ошибка получения брендов')
-
 		return { items, totalCount }
 	} catch (err) {
-		console.log(`Ошибка получения брендов`, err)
 		throw err
 	}
 }

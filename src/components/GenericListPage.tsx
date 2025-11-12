@@ -5,6 +5,7 @@ import PaginationWrapper from '@/components/PaginationWrapper'
 import ArticlesSection from '../app/(articles)/ArticlesSection'
 import { ArticleCardProps } from '@/lib/types/article'
 import { ProductCardProps } from '@/lib/types/product'
+import ErrorComponent from './ErrorComponent'
 
 const GenericListPage = async ({
 	searchParams,
@@ -54,8 +55,13 @@ const GenericListPage = async ({
 				)}
 			</>
 		)
-	} catch {
-		return <div className='text-red-500'>{props.errorMessage}</div>
+	} catch (error) {
+		return (
+			<ErrorComponent
+				error={error instanceof Error ? error : new Error(String(error))}
+				userMessage={props.errorMessage}
+			/>
+		)
 	}
 }
 export default GenericListPage

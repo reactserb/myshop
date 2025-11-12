@@ -1,5 +1,28 @@
 import getDBProducts from '@/app/(products)/getDBProducts'
 import GenericListPage from '@/components/GenericListPage'
+import Loader from '@/components/Loader'
+import { Suspense } from 'react'
+
+export async function generateMetadata({
+	params,
+}: {
+	params: Promise<{ brandName: string }>
+}) {
+	const { brandName } = await params
+	const title = `Все товары бренда: ${decodeURIComponent(brandName)}`
+	const descriptionText = `Описание товаров бренда ${decodeURIComponent(
+		brandName
+	)} в интернет-магазине UNKNOWN.`
+
+	return {
+		title: title,
+		description: descriptionText,
+		openGraph: {
+			title: title,
+			description: descriptionText,
+		},
+	}
+}
 
 const BrandPage = async ({
 	params,
@@ -26,15 +49,17 @@ const BrandPage = async ({
 	}
 
 	return (
-		<GenericListPage
-			searchParams={searchParams}
-			props={{
-				getData: getDataHandler,
-				pageTitle: pageTitle,
-				basePath: `/brands/${brandResponse}`,
-				errorMessage: `Ошибка: не удалось загрузить товары бренда ${brandName}`,
-			}}
-		/>
+		<Suspense fallback={<Loader />}>
+			<GenericListPage
+				searchParams={searchParams}
+				props={{
+					getData: getDataHandler,
+					pageTitle: pageTitle,
+					basePath: `/brands/${brandResponse}`,
+					errorMessage: `Ошибка: не удалось загрузить товары бренда ${brandName}`,
+				}}
+			/>
+		</Suspense>
 	)
 }
 export default BrandPage

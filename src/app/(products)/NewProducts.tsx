@@ -1,3 +1,4 @@
+import ErrorComponent from '@/components/ErrorComponent'
 import { CONFIG } from '../../../config/config'
 import getDBProducts from './getDBProducts'
 import ProductsSection from './ProductsSection'
@@ -16,11 +17,12 @@ const NewProducts = async () => {
 				compact
 			/>
 		)
-	} catch {
+	} catch (error) {
 		return (
-			<div className='text-red-500 p-3'>
-				Ошибка: не удалось загрузить новинки
-			</div>
+			<ErrorComponent
+				error={error instanceof Error ? error : new Error(String(error))}
+				userMessage='Ошибка: не удалось загрузить новинки'
+			/>
 		)
 	}
 }

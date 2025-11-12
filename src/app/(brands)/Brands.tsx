@@ -2,6 +2,7 @@ import { BrandProps } from '@/lib/types/brand'
 import { CONFIG } from '../../../config/config'
 import getDBBrands from './getDBBrands'
 import BrandsSection from './BrandsSection'
+import ErrorComponent from '@/components/ErrorComponent'
 
 const Brands = async () => {
 	try {
@@ -17,11 +18,12 @@ const Brands = async () => {
 				compact
 			/>
 		)
-	} catch {
+	} catch (error) {
 		return (
-			<div className='text-red-500 p-3'>
-				Ошибка: не удалось загрузить бренды
-			</div>
+			<ErrorComponent
+				error={error instanceof Error ? error : new Error(String(error))}
+				userMessage='Ошибка: не удалось загрузить бренды'
+			/>
 		)
 	}
 }

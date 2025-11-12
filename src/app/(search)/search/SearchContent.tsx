@@ -1,6 +1,7 @@
 'use client'
 
 import ProductsSection from '@/app/(products)/ProductsSection'
+import ErrorComponent from '@/components/ErrorComponent'
 import Loader from '@/components/Loader'
 import { ProductCardProps } from '@/lib/types/product'
 import { useSearchParams } from 'next/navigation'
@@ -9,6 +10,10 @@ import { useEffect, useState } from 'react'
 const SearchContent = () => {
 	const [products, setProducts] = useState<ProductCardProps[]>([])
 	const [isLoading, setIsLoading] = useState(true)
+	const [error, setError] = useState<{
+		error: Error
+		userMessage: string
+	} | null>(null)
 
 	const searchParams = useSearchParams()
 	const query = searchParams.get('q') || ''
@@ -24,7 +29,11 @@ const SearchContent = () => {
 
 				setProducts(data)
 			} catch (error) {
-				console.error('Не удалось получить результаты', error)
+				setError({
+					error:
+						error instanceof Error ? error : new Error('Неизвестная ошибка'),
+					userMessage: 'Ошибка: не удалось загрузить результаты поиска',
+				})
 			} finally {
 				setIsLoading(false)
 			}
@@ -35,7 +44,15 @@ const SearchContent = () => {
 		}
 	}, [query])
 
-	if (isLoading) return <Loader text='поиска' className='min-h-screen' />
+	if (isLoading) {
+		return <Loader text='поиска' className='min-h-screen' />
+	}
+
+	if (error) {
+		return (
+			<ErrorComponent error={error.error} userMessage={error.userMessage} />
+		)
+	}
 
 	return (
 		<div>

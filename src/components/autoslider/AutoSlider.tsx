@@ -7,11 +7,7 @@ import 'swiper/css' // Базовые стили
 import 'swiper/css/pagination' // Стили пагинации
 
 import Image from 'next/image'
-
-interface Slide {
-	src: string
-	alt: string
-}
+import { Slide } from '@/lib/types/autoslider'
 
 const slides: Slide[] = [
 	{ src: '/images/slides/slide1.jpg', alt: 'slide1' },
