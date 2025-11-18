@@ -6,9 +6,9 @@ import Image from 'next/image'
 import { BrandProps } from '@/lib/types/brand'
 import { ProductCardProps } from '@/lib/types/product'
 import { FaArrowRightLong } from 'react-icons/fa6'
-import Loader from '../Loader'
 import ErrorComponent from '../ErrorComponent'
 import { DropdownMenuProps } from '@/lib/types/dropdown'
+import MiniLoader from '../MiniLoader'
 
 type DataType = BrandProps | ProductCardProps
 
@@ -67,7 +67,7 @@ const DropdownMenu: React.FC<DropdownMenuProps> = ({ item, onClose }) => {
 	if (isLoading) {
 		return (
 			<div className='p-4 bg-white text-black border-b border-gray-200 flex justify-center items-center h-32'>
-				<Loader text={item.name} />
+				<MiniLoader />
 			</div>
 		)
 	}

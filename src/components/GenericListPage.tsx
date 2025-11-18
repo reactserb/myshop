@@ -11,7 +11,15 @@ const GenericListPage = async ({
 	searchParams,
 	props,
 }: {
-	searchParams: Promise<{ page?: string; itemsPerPage?: string }>
+	searchParams: Promise<{
+		page?: string
+		itemsPerPage?: string
+		priceFrom?: string
+		priceTo?: string
+		sizes?: string | string[]
+		brands?: string | string[]
+		sort?: 'price_asc' | 'price_desc'
+	}>
 	props: GenericListPageProps
 }) => {
 	const params = await searchParams
@@ -19,6 +27,17 @@ const GenericListPage = async ({
 	const itemsPerPage =
 		params?.itemsPerPage ||
 		(props.contentType === 'articles' ? 1 : CONFIG.ITEMS_PER_PAGE)
+	const selectedSizes = params?.sizes
+	const selectedBrands = params?.brands
+	const sort = params?.sort
+
+	const fromPrice = params?.priceFrom ? parseInt(params?.priceFrom) : undefined
+	const toPrice = params?.priceTo ? parseInt(params?.priceTo) : undefined
+
+	const priceRangeOptions =
+		fromPrice !== undefined && toPrice !== undefined
+			? { from: fromPrice, to: toPrice }
+			: undefined
 
 	const currentPage = Number(page) || 1
 	const perPage = Number(itemsPerPage)
@@ -27,6 +46,10 @@ const GenericListPage = async ({
 	try {
 		const { items, totalCount } = await props.getData({
 			pagination: { startId, perPage },
+			priceRange: priceRangeOptions,
+			selectedSizes,
+			selectedBrands,
+			sort,
 		})
 
 		const totalPages = Math.ceil(totalCount / perPage)

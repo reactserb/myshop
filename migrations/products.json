@@ -16,7 +16,7 @@
 		"description": "Обувь",
 		"basePrice": 15000,
 		"discountPercent": 10,
-		"sizes": [40, 41, 42, 43, 44, 45],
+		"sizes": ["40", "41", "42", "43", "44", "45"],
 		"categories": ["boots", "discount"]
 	},
 	{
@@ -56,7 +56,7 @@
 		"description": "Обувь",
 		"basePrice": 20000,
 		"discountPercent": 20,
-		"sizes": [43, 44, 45],
+		"sizes": ["43", "44", "45"],
 		"categories": ["boots", "discount"]
 	},
 	{
@@ -86,7 +86,7 @@
 		"description": "Обувь",
 		"basePrice": 12000,
 		"discountPercent": 0,
-		"sizes": [35, 36, 37, 38, 39],
+		"sizes": ["35", "36", "37", "38", "39"],
 		"categories": ["boots", "new"]
 	},
 	{
@@ -106,7 +106,7 @@
 		"description": "Обувь",
 		"basePrice": 12000,
 		"discountPercent": 10,
-		"sizes": [40],
+		"sizes": ["40"],
 		"categories": ["boots", "discount"]
 	},
 	{
@@ -146,7 +146,7 @@
 		"description": "Обувь",
 		"basePrice": 25000,
 		"discountPercent": 20,
-		"sizes": [43, 44, 45],
+		"sizes": ["43", "44", "45"],
 		"categories": ["boots", "discount"]
 	},
 	{
@@ -176,7 +176,7 @@
 		"description": "Обувь",
 		"basePrice": 10000,
 		"discountPercent": 0,
-		"sizes": [35, 36, 37, 38, 39],
+		"sizes": ["35", "36", "37", "38", "39"],
 		"categories": ["boots", "new"]
 	},
 	{
@@ -186,7 +186,7 @@
 		"description": "Обувь",
 		"basePrice": 20000,
 		"discountPercent": 0,
-		"sizes": [40, 41, 42, 43, 44, 45],
+		"sizes": ["40", "41", "42", "43", "44", "45"],
 		"categories": ["boots", "new"]
 	},
 	{
@@ -196,7 +196,7 @@
 		"description": "Обувь",
 		"basePrice": 15000,
 		"discountPercent": 10,
-		"sizes": [40, 41, 42, 43, 44, 45],
+		"sizes": ["40", "41", "42", "43", "44", "45"],
 		"categories": ["boots", "discount"]
 	},
 	{
@@ -236,7 +236,7 @@
 		"description": "Обувь",
 		"basePrice": 20000,
 		"discountPercent": 20,
-		"sizes": [43, 44, 45],
+		"sizes": ["43", "44", "45"],
 		"categories": ["boots", "discount"]
 	},
 	{
@@ -266,7 +266,7 @@
 		"description": "Обувь",
 		"basePrice": 22000,
 		"discountPercent": 0,
-		"sizes": [35, 36, 37, 38, 39],
+		"sizes": ["35", "36", "37", "38", "39"],
 		"categories": ["boots", "new"]
 	},
 	{
@@ -286,7 +286,7 @@
 		"description": "Обувь",
 		"basePrice": 17000,
 		"discountPercent": 10,
-		"sizes": [40, 41, 42, 43, 44, 45],
+		"sizes": ["40", "41", "42", "43", "44", "45"],
 		"categories": ["boots", "discount"]
 	},
 	{
@@ -326,7 +326,7 @@
 		"description": "Обувь",
 		"basePrice": 15000,
 		"discountPercent": 20,
-		"sizes": [43, 44, 45],
+		"sizes": ["43", "44", "45"],
 		"categories": ["boots", "discount"]
 	},
 	{
@@ -356,7 +356,7 @@
 		"description": "Обувь",
 		"basePrice": 12000,
 		"discountPercent": 0,
-		"sizes": [35, 36, 37, 38, 39],
+		"sizes": ["35", "36", "37", "38", "39"],
 		"categories": ["boots", "new"]
 	},
 	{
@@ -376,7 +376,7 @@
 		"description": "Обувь",
 		"basePrice": 15000,
 		"discountPercent": 10,
-		"sizes": [40, 41, 42, 43, 44, 45],
+		"sizes": ["40", "41", "42", "43", "44", "45"],
 		"categories": ["boots", "discount"]
 	},
 	{
@@ -416,7 +416,7 @@
 		"description": "Обувь",
 		"basePrice": 20000,
 		"discountPercent": 20,
-		"sizes": [43, 44, 45],
+		"sizes": ["43", "44", "45"],
 		"categories": ["boots", "discount"]
 	},
 	{
@@ -441,12 +441,12 @@
 	},
 	{
 		"id": 45,
-		"img": "/images/products/adidas.webp",
+		"img": "/images/products/adidas4.webp",
 		"title": "Adidas",
 		"description": "Обувь",
 		"basePrice": 12000,
 		"discountPercent": 0,
-		"sizes": [35, 36, 37, 38, 39],
+		"sizes": ["35", "36", "37", "38", "39"],
 		"categories": ["boots", "new"]
 	},
 	{
@@ -462,11 +462,11 @@
 	{
 		"id": 47,
 		"img": "/images/products/asics2.webp",
-		"title": "Asisc",
+		"title": "Asics",
 		"description": "Обувь",
 		"basePrice": 15000,
 		"discountPercent": 10,
-		"sizes": [40, 41, 42, 43, 44, 45],
+		"sizes": ["40", "41", "42", "43", "44", "45"],
 		"categories": ["boots", "discount"]
 	},
 	{
@@ -506,7 +506,7 @@
 		"description": "Обувь",
 		"basePrice": 25000,
 		"discountPercent": 20,
-		"sizes": [43, 44, 45],
+		"sizes": ["43", "44", "45"],
 		"categories": ["boots", "discount"]
 	},
 	{
@@ -536,7 +536,7 @@
 		"description": "Обувь",
 		"basePrice": 22000,
 		"discountPercent": 0,
-		"sizes": [35, 36, 37, 38, 39],
+		"sizes": ["35", "36", "37", "38", "39"],
 		"categories": ["boots", "new"]
 	}
 ]

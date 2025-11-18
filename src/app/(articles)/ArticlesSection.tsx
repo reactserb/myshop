@@ -10,7 +10,9 @@ const ArticlesSection = ({
 }: ArticlesSectionProps) => {
 	return (
 		<section>
-			<div className={`flex flex-col ${compact ? 'justify-center' : ''}`}>
+			<div
+				className={`flex flex-col gap-y-3 ${compact ? 'justify-center' : ''}`}
+			>
 				<div className='flex flex-row justify-between items-center px-5'>
 					<h2 className='text-md sm:text-xl'>{title}</h2>
 					{viewAllButtons && (

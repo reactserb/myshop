@@ -4,3 +4,7 @@ export interface BrandProps {
 	img: string
 	brandName: string
 }
+
+export type FilterProductBrand = string
+
+export type FilterProductBrandArray = FilterProductBrand[]

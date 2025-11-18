@@ -12,7 +12,7 @@ const Actions = async () => {
 		return (
 			<ProductsSection
 				title='Скидки'
-				viewAllButtons={{ btnText: 'Все скидки', href: '/actions' }}
+				viewAllButtons={{ btnText: 'Все скидки', href: '/discount' }}
 				products={items}
 				compact
 			/>

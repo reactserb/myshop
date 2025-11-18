@@ -6,5 +6,5 @@ export interface ProductCardProps {
 	description: string
 	basePrice: number
 	discountPercent: number
-	sizes: string[] | number[]
+	sizes: string[]
 }

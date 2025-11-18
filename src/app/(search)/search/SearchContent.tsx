@@ -2,7 +2,7 @@
 
 import ProductsSection from '@/app/(products)/ProductsSection'
 import ErrorComponent from '@/components/ErrorComponent'
-import Loader from '@/components/Loader'
+import MiniLoader from '@/components/MiniLoader'
 import { ProductCardProps } from '@/lib/types/product'
 import { useSearchParams } from 'next/navigation'
 import { useEffect, useState } from 'react'
@@ -45,7 +45,7 @@ const SearchContent = () => {
 	}, [query])
 
 	if (isLoading) {
-		return <Loader text='поиска' className='min-h-screen' />
+		return <MiniLoader />
 	}
 
 	if (error) {

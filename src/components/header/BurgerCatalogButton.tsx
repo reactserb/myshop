@@ -2,17 +2,19 @@
 
 import { useState } from 'react'
 import { FiMenu } from 'react-icons/fi'
+import MenuDrawer from '../MenuDrawer'
+import React from 'react'
 import CatalogBlock from './CatalogBlock'
 
 const BurgerCatalogButton = () => {
-	const [isOpenCatalogBlock, setisOpenCatalogBlock] = useState(false)
+	const [isOpenCatalogBlock, setIsOpenCatalogBlock] = useState(false)
 
 	const handleOpenCatalogBlock = () => {
-		setisOpenCatalogBlock(true)
+		setIsOpenCatalogBlock(true)
 	}
 
 	const handleCloseCatalogBlock = () => {
-		setisOpenCatalogBlock(false)
+		setIsOpenCatalogBlock(false)
 	}
 
 	return (
@@ -21,7 +23,9 @@ const BurgerCatalogButton = () => {
 				<FiMenu className='text-xl md:hidden' />
 			</button>
 			{isOpenCatalogBlock && (
-				<CatalogBlock handleClose={handleCloseCatalogBlock} />
+				<MenuDrawer handleClose={handleCloseCatalogBlock}>
+					<CatalogBlock handleClose={handleCloseCatalogBlock} />
+				</MenuDrawer>
 			)}
 		</>
 	)

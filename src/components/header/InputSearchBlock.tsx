@@ -11,7 +11,7 @@ import HighlightText from '../HighlightText'
 import { useRouter } from 'next/navigation'
 import { FaArrowRightLong } from 'react-icons/fa6'
 import { motion } from 'framer-motion'
-import Loader from '../Loader'
+import MiniLoader from '../MiniLoader'
 
 const InputSearchBlock = ({ handleClose }: { handleClose: () => void }) => {
 	const inputRef = useRef<HTMLDivElement | null>(null)
@@ -77,7 +77,7 @@ const InputSearchBlock = ({ handleClose }: { handleClose: () => void }) => {
 			exit={{ y: '-100%', opacity: 0 }} // Состояние при скрытии (уходит вверх)
 			transition={{ duration: 0.3, ease: 'easeOut' }} // Плавный переход за 300ms
 			className={`
-				border-b-1 border-gray-200 shadow-[var(--shadow-thick)] fixed top-20 right-0 left-0 z-[10000] bg-white
+				border-b-1 border-gray-200 shadow-[var(--shadow-thick)] fixed top-20 right-0 left-0 z-[1000] bg-white
 				pt-10 pb-20 sm:pb-30 md:pb-40 px-5
 			`}
 		>
@@ -129,7 +129,7 @@ const InputSearchBlock = ({ handleClose }: { handleClose: () => void }) => {
 							</div>
 						) : isLoading ? (
 							<div className='p-4 bg-white text-black flex justify-center items-center h-32'>
-								<Loader text='товаров' />
+								<MiniLoader />
 							</div>
 						) : searchProducts.length > 0 ? (
 							<>

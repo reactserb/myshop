@@ -12,7 +12,7 @@ const BrandsSection = ({
 	return (
 		<section>
 			<div
-				className={`flex flex-col ${
+				className={`flex flex-col gap-y-3 ${
 					compact
 						? 'justify-center border-b-1 border-gray-200 shadow-[var(--shadow-thick)] sm:shadow-none sm:border-none'
 						: ''

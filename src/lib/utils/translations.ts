@@ -1,5 +1,5 @@
 export const TRANSLATIONS: Record<string, string> = {
-	actions: 'Скидки',
+	discount: 'Скидки',
 	new: 'Новинки',
 	articles: 'Статьи',
 	brands: 'Бренды',

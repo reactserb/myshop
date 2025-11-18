@@ -17,7 +17,7 @@ export const CATALOG: CatalogItemProps[] = [
 	{
 		id: 3,
 		name: 'Скидки',
-		href: '/actions',
+		href: '/discount',
 		apiEndpoint: 'products',
 		categoryName: 'discount',
 	},

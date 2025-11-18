@@ -4,15 +4,15 @@ import getDBProducts from '../getDBProducts'
 import { Suspense } from 'react'
 import Filter from '@/components/Filter'
 import FilterDrawerButton from '@/components/FilterDrawerButton'
-import Sorter from '@/components/Sorter'
 import SortDrawerButton from '@/components/SortDrawerButton'
+import Sorter from '@/components/Sorter'
 
 export const metadata = {
-	title: 'Новинки магазина UNKNOWN',
-	description: 'Новые товары магазина UNKNOWN',
+	title: 'Скидки магазина UNKNOWN',
+	description: 'Скидочные товары магазина UNKNOWN',
 }
 
-const AllNew = async ({
+const AllActions = async ({
 	searchParams,
 }: {
 	searchParams: Promise<{
@@ -38,19 +38,18 @@ const AllNew = async ({
 	return (
 		<div className='flex flex-row gap-x-10 justify-between'>
 			<div className='hidden lg:flex flex-col w-[200px] gap-y-10 ml-5 mt-10'>
-				<Filter basePath='new' />
+				<Filter basePath='discount' />
 			</div>
 			<div className='flex flex-col flex-1'>
 				<div className='hidden lg:flex justify-end px-5'>
-					<Sorter basePath='new' />
+					<Sorter basePath='discount' />
 				</div>
-
 				<div className='flex lg:hidden justify-around gap-x-2'>
 					<SortDrawerButton>
-						<Sorter basePath='new' compact />
+						<Sorter basePath='discount' compact />
 					</SortDrawerButton>
 					<FilterDrawerButton>
-						<Filter basePath='new' compact />
+						<Filter basePath='discount' compact />
 					</FilterDrawerButton>
 				</div>
 
@@ -59,16 +58,16 @@ const AllNew = async ({
 						searchParams={searchParams}
 						props={{
 							getData: ({ pagination: { startId, perPage } }) =>
-								getDBProducts('new', {
+								getDBProducts('discount', {
 									pagination: { startId, perPage },
 									priceRange: priceRangeOptions,
 									selectedSizes: sizes,
 									selectedBrands: brands,
 									sort,
 								}),
-							pageTitle: 'Все новинки',
-							basePath: '/new',
-							errorMessage: 'Ошибка: не удалось загрузить новинки',
+							pageTitle: 'Все скидки',
+							basePath: '/discount',
+							errorMessage: 'Ошибка: не удалось загрузить скидки',
 						}}
 					/>
 				</Suspense>
@@ -76,4 +75,4 @@ const AllNew = async ({
 		</div>
 	)
 }
-export default AllNew
+export default AllActions
