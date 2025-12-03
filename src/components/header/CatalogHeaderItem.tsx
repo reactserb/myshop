@@ -4,7 +4,7 @@ import { CatalogItemProps } from '@/lib/types/catalog'
 import Link from 'next/link'
 import { useCallback, useState } from 'react'
 import DropdownMenu from './DropdownMenu'
-import { useSearchOverlay } from '@/hooks/useSearchOverlay'
+import { useSearchOverlay } from './context/SearchOverlayContext'
 
 interface Props {
 	link: CatalogItemProps

@@ -1,13 +1,13 @@
 'use client'
 
-import React, { createContext, useState, ReactNode } from 'react'
+import React, { createContext, useState, ReactNode, useContext } from 'react'
 
 interface SearchOverlayContextType {
 	isSearchOpen: boolean
 	setIsSearchOpen: (isOpen: boolean) => void
 }
 
-export const SearchOverlayContext = createContext<
+const SearchOverlayContext = createContext<
 	SearchOverlayContextType | undefined
 >(undefined)
 
@@ -23,4 +23,14 @@ export const SearchOverlayProvider = ({
 			{children}
 		</SearchOverlayContext.Provider>
 	)
+}
+
+export const useSearchOverlay = () => {
+	const context = useContext(SearchOverlayContext)
+	if (context === undefined) {
+		throw new Error(
+			'useSearchOverlay must be used within a SearchOverlayProvider'
+		)
+	}
+	return context
 }

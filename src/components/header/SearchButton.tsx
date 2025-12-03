@@ -5,7 +5,7 @@ import { GoSearch } from 'react-icons/go'
 import { IoMdClose } from 'react-icons/io'
 import InputSearchBlock from './InputSearchBlock'
 import { AnimatePresence } from 'framer-motion'
-import { useSearchOverlay } from '@/hooks/useSearchOverlay'
+import { useSearchOverlay } from './context/SearchOverlayContext'
 
 const SearchButton = () => {
 	const [isOpenSearch, setIsOpenSearch] = useState(false)

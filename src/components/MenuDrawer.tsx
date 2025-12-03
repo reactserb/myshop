@@ -50,7 +50,7 @@ const MenuDrawer: React.FC<FilterDrawerProps> = ({
 			<div
 				ref={menuDrawerRef}
 				className={`
-				max-w-[300px] fixed top-0 bottom-0 py-8 z-[1000] bg-white
+				w-[300px] fixed top-0 bottom-0 py-8 z-[1000] bg-white
 				transition-all duration-${ANIMATION_DURATION} ease-out transform overflow-y-auto
 				${direction === 'right' ? 'right-0 pr-20 pl-15' : 'left-0 pl-15 pr-20'}
 				${

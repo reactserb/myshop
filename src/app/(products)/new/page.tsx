@@ -2,10 +2,10 @@ import Loader from '@/components/Loader'
 import GenericListPage from '../../../components/GenericListPage'
 import getDBProducts from '../getDBProducts'
 import { Suspense } from 'react'
-import Filter from '@/components/Filter'
-import FilterDrawerButton from '@/components/FilterDrawerButton'
-import Sorter from '@/components/Sorter'
-import SortDrawerButton from '@/components/SortDrawerButton'
+import Filter from '@/components/Filter/Filter'
+import Sorter from '@/components/Sorter/Sorter'
+import SortDrawerButton from '@/components/Sorter/SortDrawerButton'
+import FilterDrawerButton from '@/components/Filter/FilterDrawerButton'
 
 export const metadata = {
 	title: 'Новинки магазина UNKNOWN',

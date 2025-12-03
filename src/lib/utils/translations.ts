@@ -5,4 +5,6 @@ export const TRANSLATIONS: Record<string, string> = {
 	brands: 'Бренды',
 	catalog: 'Каталог',
 	products: 'Товары',
+	register: 'Регистрация',
+	login: 'Авторизация',
 }

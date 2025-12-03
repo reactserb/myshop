@@ -1,10 +1,11 @@
 import getDBProducts from '@/app/(products)/getDBProducts'
-import Filter from '@/components/Filter'
-import FilterDrawerButton from '@/components/FilterDrawerButton'
+import Filter from '@/components/Filter/Filter'
+import FilterDrawerButton from '@/components/Filter/FilterDrawerButton'
 import GenericListPage from '@/components/GenericListPage'
 import Loader from '@/components/Loader'
-import SortDrawerButton from '@/components/SortDrawerButton'
-import Sorter from '@/components/Sorter'
+import SortDrawerButton from '@/components/Sorter/SortDrawerButton'
+
+import Sorter from '@/components/Sorter/Sorter'
 import { Suspense } from 'react'
 
 export async function generateMetadata({

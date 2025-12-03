@@ -1,6 +1,6 @@
 'use client'
 
-import { CATALOG } from '@/lib/catalog'
+import { CATALOG } from '@/lib/constants/catalog'
 import Link from 'next/link'
 
 const CatalogBlock = ({ handleClose }: { handleClose: () => void }) => {

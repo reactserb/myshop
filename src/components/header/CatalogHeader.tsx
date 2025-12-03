@@ -1,5 +1,4 @@
-import { CATALOG } from '@/lib/catalog'
-
+import { CATALOG } from '@/lib/constants/catalog'
 import BurgerCatalogButton from './BurgerCatalogButton'
 import CatalogHeaderItem from './CatalogHeaderItem'
 

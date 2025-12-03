@@ -6,6 +6,8 @@ import Header from '@/components/header/Header'
 import ScrollToTop from '@/components/ScrollToTop'
 import BreadCrumbs from '@/components/BreadCrumbs'
 import ViewportHeightCalculator from '@/components/ViewportHeightCalculator'
+import { RegisterFormProvider } from './contexts/RegisterFormContext'
+import AuthProvider from '@/store/AuthProvider'
 
 const montserrat = Montserrat({
 	variable: '--font-montserrat',
@@ -15,6 +17,9 @@ const montserrat = Montserrat({
 export const metadata: Metadata = {
 	title: 'Магазин UNKNOWN',
 	description: 'Интернет-магазин UNKNOWN',
+	icons: {
+		icon: '/favicon.ico',
+	},
 }
 
 export default function RootLayout({
@@ -27,14 +32,18 @@ export default function RootLayout({
 			<body
 				className={`${montserrat.variable} font-sans flex flex-col min-h-screen-fix overflow-y-scroll`}
 			>
-				<ViewportHeightCalculator />
-				<ScrollToTop />
-				<Header />
-				<div className='m-auto max-w-[1408px] mt-30 mb-20 flex-1 w-full'>
-					<BreadCrumbs />
-					{children}
-				</div>
-				<Footer />
+				<AuthProvider>
+					<RegisterFormProvider>
+						<ViewportHeightCalculator />
+						<ScrollToTop />
+						<Header />
+						<div className='m-auto max-w-[1408px] mt-30 mb-20 flex-1 w-full'>
+							<BreadCrumbs />
+							{children}
+						</div>
+						<Footer />
+					</RegisterFormProvider>
+				</AuthProvider>
 			</body>
 		</html>
 	)

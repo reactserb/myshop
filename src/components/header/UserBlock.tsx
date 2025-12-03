@@ -4,7 +4,7 @@ import TopMenu from './TopMenu'
 const UserBlock = () => {
 	return (
 		<nav aria-label='Основное меню'>
-			<div className='flex items-center gap-x-5'>
+			<div className='flex items-center gap-x-20'>
 				<TopMenu />
 				<Profile />
 			</div>
