@@ -1,7 +1,7 @@
 'use client'
 
 import Link from 'next/link'
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { buttonStyles } from '../../styles'
 import { useRouter } from 'next/navigation'
 import { useRegisterFormContext } from '@/app/contexts/RegisterFormContext'
@@ -22,10 +22,16 @@ export const EnterCode = ({ phoneNumber }: { phoneNumber: string }) => {
 	const [attemptsLeft, setAttemptsLeft] = useState(MAX_ATTEMPTS)
 	const { regFormData } = useRegisterFormContext()
 	const { timeLeft, canResend, startTimer } = useTimer(TIMEOUT_PERIOD)
+	const inputRef = useRef<HTMLInputElement>(null)
 	const router = useRouter()
 
 	useEffect(() => {
 		startTimer()
+		if (inputRef.current) {
+			setTimeout(() => {
+				inputRef.current?.focus()
+			}, 0)
+		}
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [])
 
@@ -136,6 +142,7 @@ export const EnterCode = ({ phoneNumber }: { phoneNumber: string }) => {
 						autoComplete='off'
 					>
 						<input
+							ref={inputRef}
 							type='password'
 							inputMode='numeric'
 							pattern='[0-9]{4}'

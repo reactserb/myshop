@@ -72,7 +72,7 @@ const Sorter = ({ basePath, onCloseMenu, compact }: SortProps) => {
                                 py-2 px-0 text-md whitespace-nowrap text-left transition-colors duration-150 relative
                                 ${
 																	isSelected
-																		? 'text-gray-900 font-bold'
+																		? 'text-gray-700 font-bold'
 																		: 'text-gray-500 hover:text-gray-700 font-normal'
 																}
                             `}
@@ -105,7 +105,7 @@ const Sorter = ({ basePath, onCloseMenu, compact }: SortProps) => {
 			{/* Кнопка открытия/закрытия */}
 			<button
 				type='button'
-				// 💡 Удаляем лишний класс 'menu-drawer-ignore' с кнопки в десктопном режиме,
+				// Удаляем лишний класс 'menu-drawer-ignore' с кнопки в десктопном режиме,
 				// так как он здесь не нужен (MenuDrawer не используется)
 				className={`inline-flex items-center w-56 rounded px-4 py-2 bg-white font-medium ${
 					compact // compact всегда false в этой ветке
@@ -128,7 +128,7 @@ const Sorter = ({ basePath, onCloseMenu, compact }: SortProps) => {
 			{/* Выпадающее меню */}
 			{isOpen && (
 				<div
-					// 💡 Удаляем лишний класс 'menu-drawer-ignore' в десктопном режиме
+					// Удаляем лишний класс 'menu-drawer-ignore' в десктопном режиме
 					className={`absolute left-0 w-56 border-x-1 border-gray-300 bg-white z-30`}
 				>
 					<div

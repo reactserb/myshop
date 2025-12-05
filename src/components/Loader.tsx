@@ -1,14 +1,12 @@
 import { LoaderProps } from '@/lib/types/loader'
 
-export const Loader = ({ text = '', className = '' }: LoaderProps) => {
+const Loader = ({ text = '', className = '' }: LoaderProps) => {
 	return (
 		<div
 			className={`flex flex-col items-center justify-center w-full h-full gap-3 ${className}`}
 		>
-			<div className='relative w-12 h-12'>
-				<div className='w-full h-full border-4 border-black-500 border-t-transparent rounded-full animate-spin absolute'></div>
-				<div className='w-full h-full border-4 border-black-500 border-t-transparent rounded-full animate-spin-reverse absolute'></div>
-			</div>
+			<div className='w-12 h-12 border-4 border-gray-200 border-b-black border-r-black border-solid rounded-full animate-spin'></div>
+
 			{text && <p>Загрузка {text}...</p>}
 		</div>
 	)

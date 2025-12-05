@@ -36,7 +36,7 @@ const MenuDrawer: React.FC<FilterDrawerProps> = ({
 		}, ANIMATION_DURATION)
 	}
 
-	useClickOutside(menuDrawerRef, handleCloseAnimation, '.menu-drawer-ignore')
+	useClickOutside(menuDrawerRef, handleCloseAnimation)
 
 	return (
 		<div
@@ -58,7 +58,7 @@ const MenuDrawer: React.FC<FilterDrawerProps> = ({
 						? 'translate-x-0'
 						: `${
 								direction === 'right' ? 'translate-x-full' : '-translate-x-full'
-						  }`
+							}`
 				}
 			`}
 				onClick={e => e.stopPropagation()}

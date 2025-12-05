@@ -33,27 +33,7 @@ const DateInput = ({ value, onChangeAction }: DateInputProps) => {
 		const formatted = formDate(e.target.value)
 		handleDateChange(formatted)
 	}
-	const handleCalendarClick = () => {
-		const tempInput = document.createElement('input')
-		tempInput.type = 'date'
-		tempInput.max = new Date().toISOString().split('T')[0]
 
-		tempInput.style.position = 'absolute'
-		tempInput.style.left = '-9999px'
-		tempInput.style.opacity = '0'
-
-		tempInput.onchange = e => {
-			const target = e.target as HTMLInputElement
-			if (target.value) {
-				const [year, month, day] = target.value.split('-')
-				const formatted = `${day}.${month}.${year}`
-				handleDateChange(formatted)
-			}
-			document.body.removeChild(tempInput)
-		}
-		document.body.appendChild(tempInput)
-		tempInput.showPicker()
-	}
 	return (
 		<div className='relative'>
 			<label htmlFor='birthdayDate' className={formStyles.label}>
@@ -71,14 +51,6 @@ const DateInput = ({ value, onChangeAction }: DateInputProps) => {
 					onFocus={() => setShowTooltip(true)}
 					onBlur={() => setShowTooltip(false)}
 				/>
-				<button
-					onClick={handleCalendarClick}
-					type='button'
-					className='absolute right-2 top-1/2 transform -translate-y-1/2'
-					aria-label='Установить дату рождения'
-				>
-					<IoCalendarClearOutline className='text-2xl' />
-				</button>
 			</div>
 			{showTooltip && error && <Tooltip text={error} />}
 		</div>

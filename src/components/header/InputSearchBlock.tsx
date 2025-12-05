@@ -1,7 +1,5 @@
 'use client'
 
-import useClickOutside from '@/hooks/useClickOutside'
-import useEscapeKey from '@/hooks/useEscapeKey'
 import { SearchProduct } from '@/lib/types/searchProduct'
 import Image from 'next/image'
 import Link from 'next/link'
@@ -12,6 +10,8 @@ import { useRouter } from 'next/navigation'
 import { FaArrowRightLong } from 'react-icons/fa6'
 import { motion } from 'framer-motion'
 import MiniLoader from '../MiniLoader'
+import useClickOutside from '@/hooks/useClickOutside'
+import useEscapeKey from '@/hooks/useEscapeKey'
 
 const InputSearchBlock = ({ handleClose }: { handleClose: () => void }) => {
 	const inputRef = useRef<HTMLDivElement | null>(null)

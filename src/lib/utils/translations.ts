@@ -7,4 +7,5 @@ export const TRANSLATIONS: Record<string, string> = {
 	products: 'Товары',
 	register: 'Регистрация',
 	login: 'Авторизация',
+	'user-profile': 'Личный кабинет',
 }

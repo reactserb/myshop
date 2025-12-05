@@ -9,7 +9,7 @@ import { authClient } from '@/lib/auth-client'
 import { useAuthStore } from '@/store/authStore'
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { FaArrowLeftLong } from 'react-icons/fa6'
 
 const MAX_ATTEMPTS = 3
@@ -21,11 +21,15 @@ const LoginWithOTP = ({ phoneNumber }: { phoneNumber: string }) => {
 	const [error, setError] = useState('')
 	const [attemptsLeft, setAttemptsLeft] = useState(MAX_ATTEMPTS)
 	const { timeLeft, canResend, startTimer } = useTimer(TIMEOUT_PERIOD)
+	const inputRef = useRef<HTMLInputElement>(null)
 	const router = useRouter()
 	const { login } = useAuthStore()
 
 	useEffect(() => {
 		startTimer()
+		if (inputRef.current) {
+			inputRef.current.focus()
+		}
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [])
 
@@ -120,6 +124,7 @@ const LoginWithOTP = ({ phoneNumber }: { phoneNumber: string }) => {
 						autoComplete='off'
 					>
 						<input
+							ref={inputRef}
 							type='password'
 							inputMode='numeric'
 							pattern='[0-9]{4}'

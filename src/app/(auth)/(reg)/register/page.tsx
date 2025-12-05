@@ -68,11 +68,11 @@ const RegisterPage = () => {
 
 		try {
 			const [day, month, year] = registerFormData.birthdayDate.split('.')
-			const formattedBirthdayDate = new Date(`${year}-${month}-${day}`)
+			const formattedBirthdayDate = `${year}-${month}-${day}`
 			const userData = {
 				...registerFormData,
 				phoneNumber: registerFormData.phoneNumber.replace(/\D/g, ''),
-				birthdayDate: formattedBirthdayDate.toISOString(),
+				birthdayDate: formattedBirthdayDate,
 			}
 
 			setRegFormData(userData)

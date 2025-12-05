@@ -7,12 +7,11 @@ type UserData = {
 	surname: string
 	email: string
 	phoneNumber: string
-	emailVerified: boolean
-	phoneNumberVerified: boolean
+	emailVerified?: boolean
+	phoneNumberVerified?: boolean
 	gender: string
-	birthdayDate?: string
-	location?: string
-	region?: string
+	birthdayDate: string
+	location: string
 } | null
 
 type AuthState = {
