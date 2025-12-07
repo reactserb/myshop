@@ -6,7 +6,8 @@ import { useAuthStore } from '@/store/authStore'
 import { IoEnterOutline, IoExitOutline } from 'react-icons/io5'
 import { useEffect, useState } from 'react'
 import { useRouter } from 'next/navigation'
-import { getAvatar } from '@/lib/utils/getAvatar'
+import { getAvatar } from '@/lib/utils/avatar/getAvatar'
+import { checkAvatarExists } from '@/lib/utils/avatar/avatarUtils'
 
 const Profile = () => {
 	const { isAuth, logout, user, checkAuth } = useAuthStore()
@@ -19,11 +20,25 @@ const Profile = () => {
 	}, [user])
 
 	useEffect(() => {
-		if (user?.id) {
-			setAvatarSrc(`/api/auth/avatar/${user.id}?t=${lastUpdate}`)
-		} else {
-			setAvatarSrc(getAvatar())
+		const checkAvatar = async () => {
+			if (user?.id) {
+				try {
+					const exists = await checkAvatarExists(user.id)
+
+					if (exists) {
+						setAvatarSrc(`/api/auth/avatar/${user.id}?t=${lastUpdate}`)
+					} else {
+						setAvatarSrc(getAvatar())
+					}
+				} catch {
+					setAvatarSrc(getAvatar())
+				}
+			} else if (user?.gender) {
+				setAvatarSrc(getAvatar())
+			}
 		}
+
+		checkAvatar()
 	}, [user, lastUpdate])
 
 	useEffect(() => {

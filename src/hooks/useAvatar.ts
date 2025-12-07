@@ -1,6 +1,6 @@
 'use client'
 
-import { getAvatar } from '@/lib/utils/getAvatar'
+import { getAvatar } from '@/lib/utils/avatar/getAvatar'
 import { useAuthStore } from '@/store/authStore'
 import { useCallback, useEffect, useState } from 'react'
 

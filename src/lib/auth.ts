@@ -6,6 +6,10 @@ import { mongodbAdapter } from 'better-auth/adapters/mongodb'
 import { phoneNumber } from 'better-auth/plugins'
 import { MongoClient } from 'mongodb'
 import { Resend } from 'resend'
+import { CONFIG } from '../../config/config'
+import EmailChangeVerification from '@/app/(user-profile)/_components/EmailChangeVerification'
+import DeleteVerify from '@/app/(auth)/(reg)/_components/DeleteVeify'
+import { deleteUserAvatarFromGridFS } from './utils/avatar/deleteUserAvatar'
 
 const client = new MongoClient(process.env.UNKNOWN_SHOP_DB_URL!)
 const db = client.db(process.env.UNKNOWN_SHOP_DB_NAME)
@@ -91,7 +95,7 @@ export const auth = betterAuth({
 
 			signUpOnVerification: {
 				getTempEmail: phoneNumber => {
-					return `${phoneNumber}@unknown-shop.ru`
+					return `${phoneNumber}${CONFIG.TEMPORARY_EMAIL_DOMAIN}`
 				},
 				getTempName: phoneNumber => {
 					return phoneNumber
@@ -108,6 +112,56 @@ export const auth = betterAuth({
 			type: 'string',
 			// Разрешаем обновление email, чтобы заменить временный адрес на реальный.
 			updatable: true,
+		},
+		changeEmail: {
+			enabled: true,
+			sendChangeEmailVerification: async ({
+				user,
+				newEmail,
+				url,
+			}: {
+				user: { email: string; name: string }
+				newEmail: string
+				url: string
+			}) => {
+				const emailHtml = await render(
+					EmailChangeVerification({
+						username: user.name,
+						currentEmail: user.email,
+						newEmail,
+						verificationUrl: url,
+					})
+				)
+				await resend.emails.send({
+					from: 'UNKNOWN shop <onboarding@resend.dev>',
+					to: user.email,
+					subject: 'Подтверждение смены email в UNKNOWN shop',
+					html: emailHtml,
+				})
+			},
+		},
+		deleteUser: {
+			enabled: true,
+			sendDeleteAccountVerification: async ({
+				user,
+				url,
+			}: {
+				user: { email: string; name: string }
+				url: string
+			}) => {
+				const emailHtml = await render(
+					DeleteVerify({ username: user.name, verifyUrl: url })
+				)
+				await resend.emails.send({
+					from: 'UNKNOWN shop <onboarding@resend.dev>',
+					to: user.email,
+					subject: 'Удаление аккаунта',
+					html: emailHtml,
+				})
+			},
+			afterDelete: async user => {
+				await deleteUserAvatarFromGridFS(user.id)
+			},
 		},
 		// ----------------------------------------
 		additionalFields: {

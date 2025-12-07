@@ -4,4 +4,8 @@ export const CONFIG = {
 	ITEMS_PER_PAGE_MAIN_BRANDS: 8,
 	ITEMS_PER_PAGE_MAIN_ARTICLES: 3,
 	FALLBACK_PRICE_RANGE: { min: 0, max: 500000 },
+	SITE_URL: 'https://unknown-shop.ru',
+	TEMPORARY_EMAIL_DOMAIN: '@unknown-shop.ru',
+	MAX_ATTEMPTS: 3,
+	TIMEOUT_PERIOD: 180,
 }

@@ -17,8 +17,8 @@ const SuccessModal = () => {
 	}, [router])
 
 	return (
-		<div className='fixed inset-0 z-[1100] flex items-center justify-center bg-[#e3e3e3aa] min-h-screen'>
-			<div className='bg-white rounded shadow p-8 max-w-md mx-4 text-center'>
+		<div className='fixed inset-0 z-[1100] flex items-center justify-center bg-[#ffffffcc] backdrop-blur-sm min-h-screen'>
+			<div className='bg-white border-1 border-gray-500 rounded shadow p-8 max-w-md mx-4 text-center'>
 				<h2 className='text-2xl font-semibold mb-4'>
 					Регистрация прошла успешно!
 				</h2>

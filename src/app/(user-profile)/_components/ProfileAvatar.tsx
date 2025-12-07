@@ -1,6 +1,6 @@
 'use client'
 
-import { getAvatar } from '@/lib/utils/getAvatar'
+import { getAvatar } from '@/lib/utils/avatar/getAvatar'
 import { useAuthStore } from '@/store/authStore'
 import { useEffect, useRef, useState } from 'react'
 import Image from 'next/image'
@@ -199,7 +199,7 @@ const ProfileAvatar = () => {
 					priority
 				/>
 				{isLoading && (
-					<div className='absolute inset-0 bg-[#e3e3e3cc] flex items-center justify-center rounded-full'>
+					<div className='absolute inset-0 bg-[#ffffffcc] backdrop-blur-sm flex items-center justify-center rounded-full'>
 						<div className='animate-spin rounded-full h-8 w-8 border-b-2 border-white'></div>
 					</div>
 				)}

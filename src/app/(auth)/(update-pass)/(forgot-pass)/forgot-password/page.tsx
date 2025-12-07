@@ -66,7 +66,7 @@ const ForgotPassword = () => {
 				<div className='flex flex-col items-center'>
 					<LuKeyRound className='w-12 h-12 text-gray-500 mb-4' />
 					<h1 className='text-2xl font-bold text-center'>
-						Восстановление пароля
+						Восстановление / сброс пароля
 					</h1>
 				</div>
 				<p>

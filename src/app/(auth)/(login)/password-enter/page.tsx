@@ -97,7 +97,11 @@ const EnterPasswordContent = () => {
 							router.replace('/')
 						},
 						onError: ctx => {
-							setError(ctx.error?.message || 'Ошибка при входе')
+							if (ctx.error.includes('Invalid email or password')) {
+								setError('Неверный пароль')
+							} else {
+								setError(ctx.error.message || 'Ошибка при входе')
+							}
 						},
 					}
 				)

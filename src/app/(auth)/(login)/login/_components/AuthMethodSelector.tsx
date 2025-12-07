@@ -19,7 +19,7 @@ export const AuthMethodSelector: React.FC<AuthMethodSelectorProps> = ({
 	const buttonStyles = `
     flex flex-col items-center justify-center
     p-4 rounded-lg border border-gray-200
-    hover:shadow-md duration-300 cursor-pointer
+    hover:border-gray-500 duration-300 cursor-pointer
     relative group w-full cursor-pointer duration-300
   `
 

@@ -9,6 +9,9 @@ import ProfileHeader from '../_components/ProfileHeader'
 import SecuritySection from '../_components/SecuritySection'
 import { useRouter } from 'next/navigation'
 import ProfileAvatar from '../_components/ProfileAvatar'
+import ProfileEmail from '../_components/ProfileEmail'
+import ProfilePhoneSettings from '../_components/ProfilePhone/ProfilePhoneSettings'
+import ProfilePassword from '../_components/ProfilePassword'
 
 const ProfilePage = () => {
 	const { user, isAuth, checkAuth } = useAuthStore()
@@ -84,6 +87,13 @@ const ProfilePage = () => {
 								</div>
 							</div>
 							<ProfileAvatar />
+							<div className='grid grid-cols-1 md:grid-cols-2 gap-6'>
+								<ProfileEmail />
+								<ProfilePhoneSettings />
+							</div>
+							<div className='grid grid-cols-1 md:grid-cols-2 gap-6'>
+								<ProfilePassword />
+							</div>
 							<SecuritySection />
 						</div>
 					</div>

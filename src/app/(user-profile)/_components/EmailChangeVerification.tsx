@@ -10,13 +10,16 @@ import {
 	Tailwind,
 } from '@react-email/components'
 
-interface ResetPasswordProps {
+interface EmailChangeVerificationProps {
 	username: string
-	resetUrl: string
+	currentEmail: string
+	newEmail: string
+	verificationUrl: string
 }
 
-const PasswordResetEmail = (props: ResetPasswordProps) => {
-	const { username, resetUrl } = props
+const EmailChangeVerification = (props: EmailChangeVerificationProps) => {
+	const { username, currentEmail, newEmail, verificationUrl } = props
+
 	return (
 		<Html lang='ru' dir='ltr'>
 			<Tailwind>
@@ -25,21 +28,33 @@ const PasswordResetEmail = (props: ResetPasswordProps) => {
 					<Container className='bg-white rounded-md p-6 max-w-145 mx-auto'>
 						<Section>
 							<Text className='text-xl font-bold text-gray-900 mb-4 mt-0'>
-								Восстановление / сброс пароля
+								Подтверждение смены email
 							</Text>
 
 							<Text className='text-base text-gray-700 mb-4 mt-0 leading-5'>
-								Здравствуйте, {username}! Мы получили запрос на сброс пароля для
-								вашего аккаунта. Для создания нового пароля нажмите на кнопку
-								ниже.
+								Здравствуйте, {username}! Мы получили запрос на изменение email
+								адреса для вашего аккаунта.
+							</Text>
+
+							<Section className='bg-gray-50 rounded-md p-4 mb-6'>
+								<Text className='text-sm text-gray-700 mb-2 mt-0'>
+									<strong>Текущий email:</strong> {currentEmail}
+								</Text>
+								<Text className='text-sm text-gray-700 mb-0 mt-0'>
+									<strong>Новый email:</strong> {newEmail}
+								</Text>
+							</Section>
+
+							<Text className='text-base text-gray-700 mb-4 mt-0 leading-5'>
+								Для подтверждения смены email нажмите на кнопку ниже:
 							</Text>
 
 							<Section className='text-center mb-6'>
 								<Button
-									href={resetUrl}
+									href={verificationUrl}
 									className='bg-green-500 text-white px-6 py-2 rounded text-base font-medium no-underline'
 								>
-									Сбросить пароль
+									Подтвердить смену email
 								</Button>
 							</Section>
 
@@ -47,13 +62,13 @@ const PasswordResetEmail = (props: ResetPasswordProps) => {
 								Если кнопка не работает, скопируйте и вставьте эту ссылку в
 								адресную строку браузера:
 								<br />
-								<span className='break-all'>{resetUrl}</span>
+								<span className='break-all'>{verificationUrl}</span>
 							</Text>
 
 							<Text className='text-sm text-gray-600 mb-6 mt-0 leading-5'>
-								Ссылка для сброса пароля будет активна в течение 24 часов. Если
-								Вы не запрашивали сброс пароля, пожалуйста, проигнорируйте это
-								письмо или свяжитесь со службой поддержки.
+								Ссылка для подтверждения будет активна в течение 24 часов. Если
+								Вы не запрашивали изменение email, пожалуйста, проигнорируйте
+								это письмо или свяжитесь со службой поддержки.
 							</Text>
 
 							<Hr className='border-gray-200 my-4' />
@@ -85,4 +100,4 @@ const PasswordResetEmail = (props: ResetPasswordProps) => {
 	)
 }
 
-export default PasswordResetEmail
+export default EmailChangeVerification

@@ -1,18 +1,6 @@
 import { authClient } from '@/lib/auth-client'
+import { UserData } from '@/lib/types/userData'
 import { create } from 'zustand'
-
-type UserData = {
-	id: string
-	name: string
-	surname: string
-	email: string
-	phoneNumber: string
-	emailVerified?: boolean
-	phoneNumberVerified?: boolean
-	gender: string
-	birthdayDate: string
-	location: string
-} | null
 
 type AuthState = {
 	isAuth: boolean

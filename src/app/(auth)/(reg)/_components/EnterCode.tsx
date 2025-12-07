@@ -11,17 +11,15 @@ import useTimer from '@/hooks/useTimer'
 import { AuthFormLayout } from '../../_components/AuthFormLayout'
 import { LoadingContent } from './LoadingContent'
 import OTPResendCode from '../../_components/OTPResendCode'
-
-const MAX_ATTEMPTS = 3
-const TIMEOUT_PERIOD = 180
+import { CONFIG } from '../../../../../config/config'
 
 export const EnterCode = ({ phoneNumber }: { phoneNumber: string }) => {
 	const [code, setCode] = useState('')
 	const [error, setError] = useState('')
 	const [isLoading, setIsLoading] = useState(false)
-	const [attemptsLeft, setAttemptsLeft] = useState(MAX_ATTEMPTS)
+	const [attemptsLeft, setAttemptsLeft] = useState(CONFIG.MAX_ATTEMPTS)
 	const { regFormData } = useRegisterFormContext()
-	const { timeLeft, canResend, startTimer } = useTimer(TIMEOUT_PERIOD)
+	const { timeLeft, canResend, startTimer } = useTimer(CONFIG.TIMEOUT_PERIOD)
 	const inputRef = useRef<HTMLInputElement>(null)
 	const router = useRouter()
 
@@ -51,7 +49,7 @@ export const EnterCode = ({ phoneNumber }: { phoneNumber: string }) => {
 
 			if (verifyError) throw verifyError
 
-			setAttemptsLeft(MAX_ATTEMPTS)
+			setAttemptsLeft(CONFIG.MAX_ATTEMPTS)
 
 			const {
 				password: _,
@@ -107,7 +105,7 @@ export const EnterCode = ({ phoneNumber }: { phoneNumber: string }) => {
 					onSuccess: () => {
 						startTimer()
 						setError('')
-						setAttemptsLeft(MAX_ATTEMPTS)
+						setAttemptsLeft(CONFIG.MAX_ATTEMPTS)
 					},
 					onError: ctx => {
 						setError(ctx.error?.message || 'Ошибка при отправке SMS')

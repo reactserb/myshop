@@ -23,7 +23,7 @@ const SuccessSentEmail = ({ email }: { email: string }) => {
 					нашей системе, мы отправили письмо с инструкциями по сбросу пароля.
 				</p>
 
-				<div className='text-primary bg-white p-4 rounded border border-gray-600'>
+				<div className='text-primary bg-white p-4 rounded border border-gray-500'>
 					<h3 className='font-semibold mb-2'>Не получили письмо?</h3>
 					<ul className='text-sm list-disc list-inside space-y-1'>
 						<li>Проверьте папку «Спам» или «Нежелательная почта»</li>

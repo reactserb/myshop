@@ -11,16 +11,14 @@ import Link from 'next/link'
 import { useRouter } from 'next/navigation'
 import { useEffect, useRef, useState } from 'react'
 import { FaArrowLeftLong } from 'react-icons/fa6'
-
-const MAX_ATTEMPTS = 3
-const TIMEOUT_PERIOD = 180
+import { CONFIG } from '../../../../../../config/config'
 
 const LoginWithOTP = ({ phoneNumber }: { phoneNumber: string }) => {
 	const [code, setCode] = useState('')
 	const [isLoading, setIsLoading] = useState(false)
 	const [error, setError] = useState('')
-	const [attemptsLeft, setAttemptsLeft] = useState(MAX_ATTEMPTS)
-	const { timeLeft, canResend, startTimer } = useTimer(TIMEOUT_PERIOD)
+	const [attemptsLeft, setAttemptsLeft] = useState(CONFIG.MAX_ATTEMPTS)
+	const { timeLeft, canResend, startTimer } = useTimer(CONFIG.TIMEOUT_PERIOD)
 	const inputRef = useRef<HTMLInputElement>(null)
 	const router = useRouter()
 	const { login } = useAuthStore()
@@ -48,7 +46,7 @@ const LoginWithOTP = ({ phoneNumber }: { phoneNumber: string }) => {
 
 			if (verifyError) throw verifyError
 
-			setAttemptsLeft(MAX_ATTEMPTS)
+			setAttemptsLeft(CONFIG.MAX_ATTEMPTS)
 
 			const response = await fetch('/api/auth/check-phone', {
 				method: 'POST',
@@ -91,7 +89,7 @@ const LoginWithOTP = ({ phoneNumber }: { phoneNumber: string }) => {
 					onSuccess: () => {
 						startTimer()
 						setError('')
-						setAttemptsLeft(MAX_ATTEMPTS)
+						setAttemptsLeft(CONFIG.MAX_ATTEMPTS)
 					},
 					onError: ctx => {
 						setError(ctx.error?.message || 'Ошибка при отправке SMS')
@@ -134,7 +132,7 @@ const LoginWithOTP = ({ phoneNumber }: { phoneNumber: string }) => {
 								setCode(e.target.value)
 								setError('')
 							}}
-							className='flex justify-center w-27.5 h-15 text-center text-2xl px-4 py-3 border border-gray-300 rounded focus:border-gray-600 focus:bg-white focus:outline-none'
+							className='flex justify-center w-27.5 h-15 text-center text-2xl px-4 py-3 border border-gray-300 rounded focus:border-gray-500 focus:bg-white focus:outline-none'
 							autoComplete='one-time-code'
 							required
 						/>
