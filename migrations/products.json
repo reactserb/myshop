@@ -5,6 +5,7 @@
 		"title": "The North Face",
 		"description": "Куртка",
 		"basePrice": 30000,
+		"article": 123233,
 		"discountPercent": 0,
 		"sizes": ["s", "m", "l", "xl"],
 		"categories": ["jacket", "new"]
@@ -15,6 +16,7 @@
 		"title": "Native",
 		"description": "Обувь",
 		"basePrice": 15000,
+		"article": 123153,
 		"discountPercent": 10,
 		"sizes": ["40", "41", "42", "43", "44", "45"],
 		"categories": ["boots", "discount"]
@@ -25,6 +27,7 @@
 		"title": "Obey",
 		"description": "Худи",
 		"basePrice": 20000,
+		"article": 333233,
 		"discountPercent": 20,
 		"sizes": ["s", "xl"],
 		"categories": ["hoodie", "discount"]
@@ -35,6 +38,7 @@
 		"title": "Alpha Industries",
 		"description": "Куртка",
 		"basePrice": 30000,
+		"article": 123444,
 		"discountPercent": 0,
 		"sizes": ["s", "m", "l", "xl"],
 		"categories": ["jacket", "new"]
@@ -45,6 +49,7 @@
 		"title": "SHU",
 		"description": "Куртка",
 		"basePrice": 20000,
+		"article": 125533,
 		"discountPercent": 50,
 		"sizes": ["xl"],
 		"categories": ["jacket", "discount"]
@@ -55,6 +60,7 @@
 		"title": "Timberland",
 		"description": "Обувь",
 		"basePrice": 20000,
+		"article": 823233,
 		"discountPercent": 20,
 		"sizes": ["43", "44", "45"],
 		"categories": ["boots", "discount"]
@@ -65,6 +71,7 @@
 		"title": "The North Face",
 		"description": "Куртка",
 		"basePrice": 25000,
+		"article": 125577,
 		"discountPercent": 10,
 		"sizes": ["s", "l", "xl"],
 		"categories": ["jacket", "discount"]
@@ -75,6 +82,7 @@
 		"title": "Alpha Industries",
 		"description": "Куртка",
 		"basePrice": 65000,
+		"article": 995533,
 		"discountPercent": 0,
 		"sizes": ["s", "m", "l", "xl"],
 		"categories": ["jacket", "new"]
@@ -85,6 +93,7 @@
 		"title": "Vans",
 		"description": "Обувь",
 		"basePrice": 12000,
+		"article": 120033,
 		"discountPercent": 0,
 		"sizes": ["35", "36", "37", "38", "39"],
 		"categories": ["boots", "new"]
@@ -95,6 +104,7 @@
 		"title": "The North Face",
 		"description": "Куртка",
 		"basePrice": 28000,
+		"article": 995333,
 		"discountPercent": 0,
 		"sizes": ["s", "m", "l"],
 		"categories": ["jacket", "new"]
@@ -105,6 +115,7 @@
 		"title": "Native",
 		"description": "Обувь",
 		"basePrice": 12000,
+		"article": 997773,
 		"discountPercent": 10,
 		"sizes": ["40"],
 		"categories": ["boots", "discount"]
@@ -115,6 +126,7 @@
 		"title": "Obey",
 		"description": "Свитер",
 		"basePrice": 17000,
+		"article": 417773,
 		"discountPercent": 20,
 		"sizes": ["s", "xl"],
 		"categories": ["hoodie", "discount"]
@@ -125,6 +137,7 @@
 		"title": "Alpha Industries",
 		"description": "Куртка",
 		"basePrice": 50000,
+		"article": 667773,
 		"discountPercent": 0,
 		"sizes": ["s", "m", "l", "xl"],
 		"categories": ["jacket", "new"]
@@ -135,6 +148,7 @@
 		"title": "Fred Perry",
 		"description": "Жилет",
 		"basePrice": 20000,
+		"article": 660000,
 		"discountPercent": 50,
 		"sizes": ["xl"],
 		"categories": ["jacket", "discount"]
@@ -145,6 +159,7 @@
 		"title": "Timberland",
 		"description": "Обувь",
 		"basePrice": 25000,
+		"article": 660001,
 		"discountPercent": 20,
 		"sizes": ["43", "44", "45"],
 		"categories": ["boots", "discount"]
@@ -155,6 +170,7 @@
 		"title": "The North Face",
 		"description": "Куртка",
 		"basePrice": 28000,
+		"article": 660002,
 		"discountPercent": 10,
 		"sizes": ["s", "l", "xl"],
 		"categories": ["jacket", "discount"]
@@ -165,6 +181,7 @@
 		"title": "Alpha Industries",
 		"description": "Куртка",
 		"basePrice": 65000,
+		"article": 660003,
 		"discountPercent": 0,
 		"sizes": ["s", "m", "l", "xl"],
 		"categories": ["jacket", "new"]
@@ -175,6 +192,7 @@
 		"title": "Vans",
 		"description": "Обувь",
 		"basePrice": 10000,
+		"article": 660004,
 		"discountPercent": 0,
 		"sizes": ["35", "36", "37", "38", "39"],
 		"categories": ["boots", "new"]
@@ -185,6 +203,7 @@
 		"title": "Adidas",
 		"description": "Обувь",
 		"basePrice": 20000,
+		"article": 660005,
 		"discountPercent": 0,
 		"sizes": ["40", "41", "42", "43", "44", "45"],
 		"categories": ["boots", "new"]
@@ -195,6 +214,7 @@
 		"title": "Adidas",
 		"description": "Обувь",
 		"basePrice": 15000,
+		"article": 660006,
 		"discountPercent": 10,
 		"sizes": ["40", "41", "42", "43", "44", "45"],
 		"categories": ["boots", "discount"]
@@ -205,6 +225,7 @@
 		"title": "Carhartt",
 		"description": "Худи",
 		"basePrice": 25000,
+		"article": 660007,
 		"discountPercent": 20,
 		"sizes": ["s", "xl"],
 		"categories": ["hoodie", "discount"]
@@ -215,6 +236,7 @@
 		"title": "Alpha Industries",
 		"description": "Куртка",
 		"basePrice": 50000,
+		"article": 660008,
 		"discountPercent": 0,
 		"sizes": ["s", "m", "l", "xl"],
 		"categories": ["jacket", "new"]
@@ -225,6 +247,7 @@
 		"title": "SHU",
 		"description": "Куртка",
 		"basePrice": 20000,
+		"article": 660009,
 		"discountPercent": 50,
 		"sizes": ["xl"],
 		"categories": ["jacket", "discount"]
@@ -235,6 +258,7 @@
 		"title": "New Balance",
 		"description": "Обувь",
 		"basePrice": 20000,
+		"article": 660010,
 		"discountPercent": 20,
 		"sizes": ["43", "44", "45"],
 		"categories": ["boots", "discount"]
@@ -245,6 +269,7 @@
 		"title": "Carhartt",
 		"description": "Куртка",
 		"basePrice": 25000,
+		"article": 660011,
 		"discountPercent": 10,
 		"sizes": ["s", "l", "xl"],
 		"categories": ["jacket", "discount"]
@@ -255,6 +280,7 @@
 		"title": "Napapijri",
 		"description": "Куртка",
 		"basePrice": 65000,
+		"article": 660012,
 		"discountPercent": 0,
 		"sizes": ["s", "m", "l", "xl"],
 		"categories": ["jacket", "new"]
@@ -265,6 +291,7 @@
 		"title": "Adidas",
 		"description": "Обувь",
 		"basePrice": 22000,
+		"article": 660013,
 		"discountPercent": 0,
 		"sizes": ["35", "36", "37", "38", "39"],
 		"categories": ["boots", "new"]
@@ -275,6 +302,7 @@
 		"title": "The North Face",
 		"description": "Куртка",
 		"basePrice": 12000,
+		"article": 660014,
 		"discountPercent": 0,
 		"sizes": ["s", "m", "l", "xl"],
 		"categories": ["jacket", "new"]
@@ -285,6 +313,7 @@
 		"title": "Asics",
 		"description": "Обувь",
 		"basePrice": 17000,
+		"article": 660015,
 		"discountPercent": 10,
 		"sizes": ["40", "41", "42", "43", "44", "45"],
 		"categories": ["boots", "discount"]
@@ -295,6 +324,7 @@
 		"title": "Napapijri",
 		"description": "Свитер",
 		"basePrice": 20000,
+		"article": 660016,
 		"discountPercent": 20,
 		"sizes": ["s", "xl"],
 		"categories": ["hoodie", "discount"]
@@ -305,6 +335,7 @@
 		"title": "Napapijri",
 		"description": "Жилет",
 		"basePrice": 20000,
+		"article": 660017,
 		"discountPercent": 0,
 		"sizes": ["s", "m", "l", "xl"],
 		"categories": ["jacket", "new"]
@@ -315,6 +346,7 @@
 		"title": "SHU",
 		"description": "Куртка",
 		"basePrice": 22000,
+		"article": 660018,
 		"discountPercent": 50,
 		"sizes": ["xl"],
 		"categories": ["jacket", "discount"]
@@ -325,6 +357,7 @@
 		"title": "New Balance",
 		"description": "Обувь",
 		"basePrice": 15000,
+		"article": 660019,
 		"discountPercent": 20,
 		"sizes": ["43", "44", "45"],
 		"categories": ["boots", "discount"]
@@ -335,6 +368,7 @@
 		"title": "Fred Perry",
 		"description": "Куртка",
 		"basePrice": 25000,
+		"article": 660020,
 		"discountPercent": 10,
 		"sizes": ["s", "l", "xl"],
 		"categories": ["jacket", "discount"]
@@ -345,6 +379,7 @@
 		"title": "Alpha Industries",
 		"description": "Куртка",
 		"basePrice": 45000,
+		"article": 660021,
 		"discountPercent": 0,
 		"sizes": ["s", "m", "l", "xl"],
 		"categories": ["jacket", "new"]
@@ -355,6 +390,7 @@
 		"title": "Vans",
 		"description": "Обувь",
 		"basePrice": 12000,
+		"article": 660022,
 		"discountPercent": 0,
 		"sizes": ["35", "36", "37", "38", "39"],
 		"categories": ["boots", "new"]
@@ -365,6 +401,7 @@
 		"title": "Obey",
 		"description": "Куртка",
 		"basePrice": 30000,
+		"article": 660023,
 		"discountPercent": 0,
 		"sizes": ["s", "m", "l", "xl"],
 		"categories": ["jacket", "new"]
@@ -375,6 +412,7 @@
 		"title": "Native",
 		"description": "Обувь",
 		"basePrice": 15000,
+		"article": 660024,
 		"discountPercent": 10,
 		"sizes": ["40", "41", "42", "43", "44", "45"],
 		"categories": ["boots", "discount"]
@@ -385,6 +423,7 @@
 		"title": "Fred Perry",
 		"description": "Свитер",
 		"basePrice": 20000,
+		"article": 660025,
 		"discountPercent": 20,
 		"sizes": ["s", "xl"],
 		"categories": ["hoodie", "discount"]
@@ -395,6 +434,7 @@
 		"title": "Napapijri",
 		"description": "Куртка",
 		"basePrice": 30000,
+		"article": 660026,
 		"discountPercent": 0,
 		"sizes": ["s", "m", "l", "xl"],
 		"categories": ["jacket", "new"]
@@ -405,6 +445,7 @@
 		"title": "SHU",
 		"description": "Куртка",
 		"basePrice": 20000,
+		"article": 660028,
 		"discountPercent": 30,
 		"sizes": ["xl"],
 		"categories": ["jacket", "discount"]
@@ -415,6 +456,7 @@
 		"title": "New Balance",
 		"description": "Обувь",
 		"basePrice": 20000,
+		"article": 660027,
 		"discountPercent": 20,
 		"sizes": ["43", "44", "45"],
 		"categories": ["boots", "discount"]
@@ -425,6 +467,7 @@
 		"title": "The North Face",
 		"description": "Куртка",
 		"basePrice": 25000,
+		"article": 660029,
 		"discountPercent": 30,
 		"sizes": ["s", "l", "xl"],
 		"categories": ["jacket", "discount"]
@@ -435,6 +478,7 @@
 		"title": "Alpha Industries",
 		"description": "Куртка",
 		"basePrice": 55000,
+		"article": 660030,
 		"discountPercent": 0,
 		"sizes": ["s", "m", "l", "xl"],
 		"categories": ["jacket", "new"]
@@ -445,6 +489,7 @@
 		"title": "Adidas",
 		"description": "Обувь",
 		"basePrice": 12000,
+		"article": 660031,
 		"discountPercent": 0,
 		"sizes": ["35", "36", "37", "38", "39"],
 		"categories": ["boots", "new"]
@@ -455,6 +500,7 @@
 		"title": "The North Face",
 		"description": "Куртка",
 		"basePrice": 30000,
+		"article": 660032,
 		"discountPercent": 0,
 		"sizes": ["s", "m", "l", "xl"],
 		"categories": ["jacket", "new"]
@@ -465,6 +511,7 @@
 		"title": "Asics",
 		"description": "Обувь",
 		"basePrice": 15000,
+		"article": 660033,
 		"discountPercent": 10,
 		"sizes": ["40", "41", "42", "43", "44", "45"],
 		"categories": ["boots", "discount"]
@@ -475,6 +522,7 @@
 		"title": "Obey",
 		"description": "Худи",
 		"basePrice": 20000,
+		"article": 660034,
 		"discountPercent": 20,
 		"sizes": ["s", "xl"],
 		"categories": ["hoodie", "discount"]
@@ -485,6 +533,7 @@
 		"title": "Alpha Industries",
 		"description": "Куртка",
 		"basePrice": 30000,
+		"article": 660035,
 		"discountPercent": 0,
 		"sizes": ["s", "m", "l", "xl"],
 		"categories": ["jacket", "new"]
@@ -495,6 +544,7 @@
 		"title": "Alpha Industries",
 		"description": "Куртка",
 		"basePrice": 55000,
+		"article": 660036,
 		"discountPercent": 50,
 		"sizes": ["xl"],
 		"categories": ["jacket", "discount"]
@@ -505,6 +555,7 @@
 		"title": "Timberland",
 		"description": "Обувь",
 		"basePrice": 25000,
+		"article": 660037,
 		"discountPercent": 20,
 		"sizes": ["43", "44", "45"],
 		"categories": ["boots", "discount"]
@@ -515,6 +566,7 @@
 		"title": "Alpha Industries",
 		"description": "Куртка",
 		"basePrice": 25000,
+		"article": 660038,
 		"discountPercent": 10,
 		"sizes": ["s", "l", "xl"],
 		"categories": ["jacket", "discount"]
@@ -525,6 +577,7 @@
 		"title": "Alpha Industries",
 		"description": "Куртка",
 		"basePrice": 65000,
+		"article": 660039,
 		"discountPercent": 0,
 		"sizes": ["s", "m", "l", "xl"],
 		"categories": ["jacket", "new"]
@@ -535,6 +588,7 @@
 		"title": "New Balance",
 		"description": "Обувь",
 		"basePrice": 22000,
+		"article": 664000,
 		"discountPercent": 0,
 		"sizes": ["35", "36", "37", "38", "39"],
 		"categories": ["boots", "new"]

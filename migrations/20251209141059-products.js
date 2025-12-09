@@ -7,4 +7,3 @@ module.exports = {
 
 	// async down(db) {},
 }
-s

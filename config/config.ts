@@ -8,4 +8,5 @@ export const CONFIG = {
 	TEMPORARY_EMAIL_DOMAIN: '@unknown-shop.ru',
 	MAX_ATTEMPTS: 3,
 	TIMEOUT_PERIOD: 180,
+	DEFAULT_PAGE_SIZE: 5,
 }

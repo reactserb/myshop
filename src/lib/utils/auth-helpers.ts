@@ -47,7 +47,7 @@ export async function getUserById(userId: string) {
 		gender: user.gender,
 		birthdayDate: user.birthdayDate,
 		location: user.location,
-		region: user.region,
+		role: user.role,
 	}
 }
 

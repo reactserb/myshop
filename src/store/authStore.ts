@@ -4,7 +4,7 @@ import { create } from 'zustand'
 
 type AuthState = {
 	isAuth: boolean
-	user: UserData
+	user: UserData | null
 	isLoading: boolean
 	login: () => void
 	logout: () => Promise<void>

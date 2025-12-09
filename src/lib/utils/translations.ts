@@ -8,4 +8,6 @@ export const TRANSLATIONS: Record<string, string> = {
 	register: 'Регистрация',
 	login: 'Авторизация',
 	'user-profile': 'Личный кабинет',
+	administrator: 'Администраторская',
+	'users-list': 'Список пользователей',
 }

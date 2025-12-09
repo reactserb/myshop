@@ -69,7 +69,10 @@ const Profile = () => {
 
 	return (
 		<div className='flex flex-1 items-center gap-x-3 cursor-pointer'>
-			<Link href='/user-profile'>
+			<Link href='/user-profile' className='flex items-center'>
+				<span className='hidden xl:block cursor-pointer p-2.5'>
+					{user?.name}
+				</span>
 				<div className='w-10 h-10 rounded-full overflow-hidden'>
 					<Image
 						src={avatarSrc || getAvatar()}

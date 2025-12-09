@@ -3,7 +3,7 @@ import PasswordResetEmail from '@/app/(auth)/(update-pass)/_components/PasswordR
 import { render } from '@react-email/render'
 import { betterAuth } from 'better-auth'
 import { mongodbAdapter } from 'better-auth/adapters/mongodb'
-import { phoneNumber } from 'better-auth/plugins'
+import { admin, phoneNumber } from 'better-auth/plugins'
 import { MongoClient } from 'mongodb'
 import { Resend } from 'resend'
 import { CONFIG } from '../../config/config'
@@ -106,6 +106,7 @@ export const auth = betterAuth({
 			expiresIn: 300,
 			requireVerification: true,
 		}),
+		admin(),
 	],
 	user: {
 		email: {
@@ -170,6 +171,12 @@ export const auth = betterAuth({
 			birthdayDate: { type: 'date', input: true, required: true },
 			location: { type: 'string', input: true, required: true },
 			gender: { type: 'string', input: true, required: true },
+			role: {
+				type: 'string',
+				input: false,
+				required: false,
+				default: 'user',
+			},
 		},
 	},
 })
