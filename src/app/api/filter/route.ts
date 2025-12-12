@@ -25,9 +25,7 @@ export async function GET(request: Request) {
 		}
 
 		const priceRange = await db
-
 			.collection('products')
-
 			.aggregate([
 				{ $match: matchFilter },
 

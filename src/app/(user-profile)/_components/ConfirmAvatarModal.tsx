@@ -26,11 +26,10 @@ const ConfirmAvatarModal = ({
 					Подтверждение смены аватара
 				</h3>
 
-				<div className='flex justify-center mb-4'>
+				<div className='flex justify-center mb-4 relative w-20 h-20'>
 					<Image
 						src={previewUrl}
-						width={80}
-						height={80}
+						fill
 						alt='Превью аватара'
 						className='w-20 h-20 rounded-full object-cover'
 					/>

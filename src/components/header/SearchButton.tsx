@@ -1,11 +1,11 @@
 'use client'
 
 import { useState } from 'react'
-import { GoSearch } from 'react-icons/go'
 import { IoMdClose } from 'react-icons/io'
 import InputSearchBlock from './InputSearchBlock'
 import { AnimatePresence } from 'framer-motion'
 import { useSearchOverlay } from './context/SearchOverlayContext'
+import { LuSearch } from 'react-icons/lu'
 
 const SearchButton = () => {
 	const [isOpenSearch, setIsOpenSearch] = useState(false)
@@ -28,7 +28,7 @@ const SearchButton = () => {
 				{isOpenSearch ? (
 					<IoMdClose className='text-2xl lg:hover:text-black' />
 				) : (
-					<GoSearch className='text-2xl lg:hover:text-black' />
+					<LuSearch className='text-2xl lg:hover:text-black' />
 				)}
 			</div>
 			<AnimatePresence>

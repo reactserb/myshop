@@ -4,7 +4,6 @@ import { SearchProduct } from '@/lib/types/searchProduct'
 import Image from 'next/image'
 import Link from 'next/link'
 import { useEffect, useRef, useState } from 'react'
-import { GoSearch } from 'react-icons/go'
 import HighlightText from '../HighlightText'
 import { useRouter } from 'next/navigation'
 import { FaArrowRightLong } from 'react-icons/fa6'
@@ -12,6 +11,7 @@ import { motion } from 'framer-motion'
 import MiniLoader from '../MiniLoader'
 import useClickOutside from '@/hooks/useClickOutside'
 import useEscapeKey from '@/hooks/useEscapeKey'
+import { LuSearch } from 'react-icons/lu'
 
 const InputSearchBlock = ({ handleClose }: { handleClose: () => void }) => {
 	const inputRef = useRef<HTMLDivElement | null>(null)
@@ -109,7 +109,7 @@ const InputSearchBlock = ({ handleClose }: { handleClose: () => void }) => {
 							</button>
 						)}
 					</div>
-					<GoSearch className='absolute top-2 left-2 text-xl opacity-75 cursor-default' />
+					<LuSearch className='absolute top-2 left-2 text-xl opacity-75 cursor-default' />
 				</form>
 
 				{isOpen && (
@@ -142,7 +142,7 @@ const InputSearchBlock = ({ handleClose }: { handleClose: () => void }) => {
 										>
 											<Link
 												prefetch={false}
-												href={`/products/${prod.id}`}
+												href={`/brands/${prod.title}/${prod.id}?desc=${encodeURIComponent(prod.description)} ${prod.title}`}
 												className='cursor-pointer flex gap-x-2 flex-grow'
 											>
 												<HighlightText

@@ -10,6 +10,7 @@ import NavAndInfo from './_components/NavAndInfo'
 import UsersTable from './_components/UsersTable'
 import Filters from './_components/Filters'
 import { FiltersState } from '@/lib/types/filterState'
+import { LuChevronDown, LuChevronUp } from 'react-icons/lu'
 
 const PAGE_SIZE_OPTIONS = [1, 5, 10, 20, 50, 100]
 
@@ -42,6 +43,7 @@ const UsersList = () => {
 	const [filters, setFilters] = useState<FiltersState>(initialFilters)
 	const [appliedFilters, setAppliedFilters] =
 		useState<FiltersState>(initialFilters)
+	const [isFiltersOpen, setIsFiltersOpen] = useState(false)
 
 	const { user: currentUser } = useAuthStore()
 	const isManager = currentUser?.role === 'manager'
@@ -161,12 +163,23 @@ const UsersList = () => {
 				onPageSizeChange={handlePageSizeChange}
 				totalUsers={totalUsers}
 			/>
-			<Filters
-				filters={filters}
-				onFilterChange={handleFilterChange}
-				onClearFilters={handleClearFilters}
-				onApplyFilters={handleApplyFilters}
-			/>
+			<button
+				className='bg-gray-500 hover:opacity-75 py-1 px-4 text-white rounded cursor-pointer mb-3'
+				onClick={() => setIsFiltersOpen(!isFiltersOpen)}
+			>
+				<div className='flex flex-col items-center gap-y-1'>
+					<span>Фильтр</span>
+					{!isFiltersOpen ? <LuChevronDown /> : <LuChevronUp />}
+				</div>
+			</button>
+			{isFiltersOpen && (
+				<Filters
+					filters={filters}
+					onFilterChange={handleFilterChange}
+					onClearFilters={handleClearFilters}
+					onApplyFilters={handleApplyFilters}
+				/>
+			)}
 			<UsersTable
 				users={users}
 				currentPage={currentPage}

@@ -8,13 +8,21 @@ import BreadCrumbs from '@/components/BreadCrumbs'
 import ViewportHeightCalculator from '@/components/ViewportHeightCalculator'
 import { RegisterFormProvider } from './contexts/RegisterFormContext'
 import AuthProvider from '@/store/AuthProvider'
+import MiniLoader from '@/components/MiniLoader'
+import { Suspense } from 'react'
 
 const montserrat = Montserrat({
 	variable: '--font-montserrat',
 	subsets: ['latin', 'cyrillic'],
 })
 
+const baseUrl =
+	process.env.NEXT_PUBLIC_BASE_URL ||
+	process.env.VERCEL_URL ||
+	'http://localhost:3000'
+
 export const metadata: Metadata = {
+	metadataBase: new URL(baseUrl),
 	title: 'Магазин UNKNOWN',
 	description: 'Интернет-магазин UNKNOWN',
 	icons: {
@@ -38,7 +46,9 @@ export default function RootLayout({
 						<ScrollToTop />
 						<Header />
 						<div className='m-auto max-w-[1408px] mt-30 mb-20 flex-1 w-full'>
-							<BreadCrumbs />
+							<Suspense fallback={<MiniLoader />}>
+								<BreadCrumbs />
+							</Suspense>
 							{children}
 						</div>
 						<Footer />

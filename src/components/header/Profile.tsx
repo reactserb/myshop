@@ -61,7 +61,7 @@ const Profile = () => {
 
 	if (!isAuth) {
 		return (
-			<Link href='login' className='text-gray-400 hover:text-black'>
+			<Link href='/login' className='text-gray-400 hover:text-black'>
 				<IoEnterOutline className='text-3xl' />
 			</Link>
 		)

@@ -49,6 +49,12 @@ export const useAuthStore = create<AuthState>((set, get) => ({
 	},
 
 	fetchUserData: async () => {
+		if (
+			typeof window !== 'undefined' &&
+			localStorage.getItem('viewed_products_auth') === null
+		) {
+			localStorage.removeItem('viewed_products_guest')
+		}
 		try {
 			set({ isLoading: true })
 			const response = await fetch('/api/auth/user')

@@ -128,7 +128,7 @@ const DropdownMenu: React.FC<DropdownMenuProps> = ({ item, onClose }) => {
 							<Link
 								href={
 									'title' in dataItem
-										? `/products/${dataItem.id}`
+										? `/brands/${dataItem.title}/${dataItem.id}?desc=${encodeURIComponent(dataItem.description)} ${dataItem.title}`
 										: `${item.href}/${dataItem.brandName}`
 								}
 								className='cursor-pointer block'
@@ -150,8 +150,8 @@ const DropdownMenu: React.FC<DropdownMenuProps> = ({ item, onClose }) => {
 							{item.apiEndpoint === 'brands'
 								? ' бренды'
 								: item.categoryName === 'new-arrivals'
-								? ' новинки'
-								: ' скидки'}
+									? ' новинки'
+									: ' скидки'}
 							<FaArrowRightLong />
 						</span>
 					</Link>

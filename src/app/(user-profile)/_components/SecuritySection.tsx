@@ -52,7 +52,7 @@ const SecuritySection: React.FC = () => {
 				<div className='grid grid-cols-1 md:grid-cols-2 gap-6'>
 					<button
 						onClick={handleAppLogout}
-						className='flex-1 bg-gray-500 text-white border-none rounded flex hover:bg-gray-300 hover:text-gray-600 px-4 py-2 justify-center items-center disabled:opacity-50 disabled:cursor-not-allowed h-12 text-gray-500 font-medium  duration-300 cursor-pointer'
+						className='flex-1 bg-gray-500 text-white border-none rounded flex hover:bg-gray-300 hover:text-gray-600 px-4 py-2 justify-center items-center disabled:opacity-50 disabled:cursor-not-allowed h-12 text-gray-500 font-medium duration-300 cursor-pointer'
 					>
 						Выйти из аккаунта
 					</button>

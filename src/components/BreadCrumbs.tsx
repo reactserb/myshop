@@ -2,23 +2,40 @@
 
 import { TRANSLATIONS } from '@/lib/utils/translations'
 import Link from 'next/link'
-import { usePathname } from 'next/navigation'
+import { usePathname, useSearchParams } from 'next/navigation'
 
 const BreadCrumbs = () => {
 	const pathname = usePathname()
+	const searchParams = useSearchParams()
 
 	if (pathname === '/' || pathname === '/search') return null
 
 	const pathSegments = pathname.split('/').filter(segment => segment !== '')
+
+	const productDesc = searchParams.get('desc')
 
 	const breadcrumbs = pathSegments.map((seg, index) => {
 		const href = '/' + pathSegments.slice(0, index + 1).join('/')
 
 		const decodedSeg = decodeURIComponent(seg)
 
+		let label = TRANSLATIONS[decodedSeg] || decodedSeg
+
+		if (
+			index === pathSegments.length - 1 &&
+			productDesc &&
+			pathSegments.includes('brands') &&
+			pathSegments.length >= 3
+		) {
+			label = productDesc
+		}
+
 		return {
-			label: TRANSLATIONS[decodedSeg] || decodedSeg,
-			href,
+			label,
+			href:
+				index === pathSegments.length - 1
+					? `${href}?desc=${productDesc}`
+					: href,
 			isLast: index === pathSegments.length - 1,
 		}
 	})

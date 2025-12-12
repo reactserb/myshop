@@ -16,6 +16,7 @@ import ProfilePassword from '../_components/ProfilePassword'
 const ProfilePage = () => {
 	const { user, isAuth, checkAuth } = useAuthStore()
 	const [isCheckingAuth, setIsCheckingAuth] = useState(true)
+	const [isInfoOpen, setIsInfoOpen] = useState(false)
 	const router = useRouter()
 	const isPhoneRegistration = user?.phoneNumberVerified
 
@@ -87,13 +88,23 @@ const ProfilePage = () => {
 								</div>
 							</div>
 							<ProfileAvatar />
-							<div className='grid grid-cols-1 md:grid-cols-2 gap-6'>
-								<ProfileEmail />
-								<ProfilePhoneSettings />
-							</div>
-							<div className='grid grid-cols-1 md:grid-cols-2 gap-6'>
-								<ProfilePassword />
-							</div>
+							<button
+								className='px-4 py-2 bg-gray-500 hover:bg-gray-300 hover:text-gray-600 text-white rounded cursor-pointer mb-3'
+								onClick={() => setIsInfoOpen(!isInfoOpen)}
+							>
+								{isInfoOpen ? 'Скрыть информацию' : 'Показать информацию'}
+							</button>
+							{isInfoOpen && (
+								<>
+									<div className='grid grid-cols-1 md:grid-cols-2 gap-6'>
+										<ProfileEmail />
+										<ProfilePhoneSettings />
+									</div>
+									<div className='grid grid-cols-1 md:grid-cols-2 gap-6'>
+										<ProfilePassword />
+									</div>
+								</>
+							)}
 							<SecuritySection />
 						</div>
 					</div>

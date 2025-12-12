@@ -3,10 +3,9 @@
 import { SizeOptionsProps } from '@/lib/types/sizeOptions'
 
 const SizeOptions = ({ sizes }: SizeOptionsProps) => {
-	const handleClick = (e: React.MouseEvent, size: string | number) => {
+	const handleClick = (e: React.MouseEvent, size: string) => {
 		e.preventDefault()
 		e.stopPropagation()
-		console.log(`Выбран размер: ${size}`)
 	}
 
 	return (
