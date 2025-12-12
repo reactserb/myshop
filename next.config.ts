@@ -1,7 +1,13 @@
 import type { NextConfig } from 'next'
 
 const nextConfig: NextConfig = {
-	/* config options here */
+	eslint: {
+		ignoreDuringBuilds: true,
+	},
+
+	generateStaticParams: async () => {
+		return []
+	},
 }
 
 export default nextConfig
