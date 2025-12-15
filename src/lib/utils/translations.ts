@@ -11,4 +11,5 @@ export const TRANSLATIONS: Record<string, string> = {
 	administrator: 'Администраторская',
 	'users-list': 'Список пользователей',
 	'add-product': 'Добавить товар',
+	favorites: 'Избранное',
 }

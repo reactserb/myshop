@@ -17,14 +17,17 @@ const montserrat = Montserrat({
 })
 
 const getBaseUrl = () => {
-  const url = process.env.NEXT_PUBLIC_BASE_URL ?? 
-    (process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : 'http://localhost:3000')
-  
-  try {
-    return new URL(url).toString()  // ← Валидная строка
-  } catch {
-    return 'http://localhost:3000'
-  }
+	const url =
+		process.env.NEXT_PUBLIC_BASE_URL ??
+		(process.env.VERCEL_URL
+			? `https://${process.env.VERCEL_URL}`
+			: 'http://localhost:3000')
+
+	try {
+		return new URL(url).toString()
+	} catch {
+		return 'http://localhost:3000'
+	}
 }
 
 const baseUrl = getBaseUrl()

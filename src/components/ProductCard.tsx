@@ -15,7 +15,7 @@ const ProductCard = (product: ProductCardProps) => {
 
 	return (
 		<div className='group relative flex flex-col flex-1 justify-between items-center rounded overflow-hidden sm:w-60 p-1 xl:p-5 outline-1 outline-solid outline-transparent hover:outline-gray-300 cursor-pointer'>
-			<FavoriteButton />
+			<FavoriteButton productId={id.toString()} />
 			<Link
 				href={`/brands/${title}/${id}?desc=${encodeURIComponent(description)} ${title}`}
 				className='w-8 h-8 absolute z-20 top-10 right-1 cursor-pointer hidden xl:group-hover:flex'
@@ -31,7 +31,7 @@ const ProductCard = (product: ProductCardProps) => {
 				<div className='relative w-60 h-60'>
 					<Image
 						src={img}
-						alt='action'
+						alt='товар'
 						fill
 						className='object-contain p-2'
 						sizes='(max-width: 640px) 140px, 240px'

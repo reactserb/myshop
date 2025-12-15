@@ -9,6 +9,7 @@ import SizeButtons from './_components/SizeButtons'
 import SimilarProducts from './_components/SimilarProducts'
 import RecentlyViewed from './_components/RecentlyViewed'
 import { ViewHistoryLogger } from './_components/ViewHistoryLogger'
+import Link from 'next/link'
 
 interface ProductPageContentProps {
 	product: ProductCardProps
@@ -44,10 +45,13 @@ const ProductPageContent = ({
 					<div className='text-sm'>арт. {article}</div>
 
 					<ShareButton title={title} />
-					<button className='flex flex-row ml-2 flex-wrap gap-2 items-center justify-center group cursor-pointer'>
+					<Link
+						href='/favorites'
+						className='flex flex-row flex-wrap gap-2 ml-2 items-center justify-center group cursor-pointer'
+					>
 						<LuStar className='w-6 h-6 cursor-pointer select-none text-gray-400 group-hover:text-gray-700' />
 						<p className='text-sm group-hover:opacity-50'>В избранное</p>
-					</button>
+					</Link>
 				</div>
 			</div>
 			<SimilarProducts currentProduct={product} finalPrice={finalPrice} />

@@ -67,18 +67,12 @@ const ProfilePassword = () => {
 
 			{/* Модальное окно */}
 			{isModalOpen && (
-				<div className='absolute inset-0 z-100 flex items-center justify-center bg-[#ffffffcc] min-h-screen text-gray-600 py-10 px-3 backdrop-blur-sm'>
+				<div className='fixed inset-0 z-[150] flex items-center justify-center bg-[#ffffffcc] min-h-screen text-gray-600 py-10 px-3 backdrop-blur-sm'>
 					<div className='relative bg-white border-1 border-gray-500 rounded w-full flex flex-col justify-center gap-y-8 p-6'>
-						<div className='flex justify-between items-center mb-4'>
+						<div className='flex items-center mb-4'>
 							<h3 className='text-lg font-semibold text-gray-900'>
 								Подтверждение смены пароля
 							</h3>
-							<button
-								onClick={handleCancel}
-								className='text-gray-400 hover:text-gray-600 duration-300 p-1 rounded-full hover:bg-gray-100 cursor-pointer'
-							>
-								<LuX className='h-5 w-5' />
-							</button>
 						</div>
 
 						<p className='text-gray-600 mb-6'>{getModalText()}</p>

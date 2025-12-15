@@ -5,4 +5,5 @@ export interface ProductsSectionProps {
 	viewAllButtons?: { btnText: string; href: string }
 	products: ProductCardProps[]
 	compact?: boolean
+	favorites?: boolean
 }

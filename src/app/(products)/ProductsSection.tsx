@@ -7,6 +7,7 @@ const ProductsSection = ({
 	viewAllButtons,
 	products,
 	compact = false,
+	favorites = false,
 }: ProductsSectionProps) => {
 	const productsFound = products && products.length > 0
 	return (
@@ -52,7 +53,9 @@ const ProductsSection = ({
 								</ul>
 							</div>
 						) : (
-							<ul className='grid grid-cols-1 450px:grid-cols-2 md:grid-cols-3 gap-4 justify-items-center'>
+							<ul
+								className={`${favorites ? 'grid grid-cols-1 450px:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5' : 'grid grid-cols-1 450px:grid-cols-2 md:grid-cols-3'} gap-4 justify-items-center`}
+							>
 								{products.map(item => (
 									<li key={item._id}>{<ProductCard {...item} />}</li>
 								))}

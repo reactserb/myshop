@@ -19,6 +19,20 @@ export function getCustomSessionToken(
 	return cookies.find(c => c.startsWith('session='))?.split('=')[1] || null
 }
 
+export function getCustomSessionTokenServerComp(
+	cookieHeader: string | null
+): string | null {
+	if (!cookieHeader) return null
+
+	const cookies = cookieHeader.split(';').map(c => c.trim())
+
+	const betterAuthCookie = cookies.find(c =>
+		c.startsWith('better-auth.session_token=')
+	)
+
+	return betterAuthCookie?.split('=')[1]?.split('.')[0] || null
+}
+
 export async function validateCustomSession(sessionToken: string) {
 	const db = await getDB()
 	const session = await db

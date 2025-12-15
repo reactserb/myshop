@@ -4,6 +4,9 @@ const nextConfig: NextConfig = {
 	eslint: {
 		ignoreDuringBuilds: true,
 	},
+	experimental: {
+		optimizePackageImports: ['zustand'],
+	},
 }
 
 export default nextConfig

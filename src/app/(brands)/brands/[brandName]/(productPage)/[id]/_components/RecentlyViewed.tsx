@@ -10,16 +10,13 @@ import { formatPriceWithSpaces } from '@/lib/utils/price/formatPriceWithSpaces'
 import { useAuthStore } from '@/store/authStore'
 
 const RecentlyViewed = ({ finalPrice }: { finalPrice: number }) => {
- 	const { isAuth } = useAuthStore()
-
-	if (!isAuth) return null
-
+	const { isAuth } = useAuthStore()
 	const [products, setProducts] = useState<ProductCardProps[]>([])
 	const [isLoading, setIsLoading] = useState(true)
 
 	useEffect(() => {
 		const fetchViewedProducts = async () => {
-			 const viewedIds = getRecentlyViewedProductIds(isAuth)
+			const viewedIds = getRecentlyViewedProductIds(isAuth)
 
 			if (viewedIds.length === 0) {
 				setIsLoading(false)
@@ -60,8 +57,8 @@ const RecentlyViewed = ({ finalPrice }: { finalPrice: number }) => {
 		return <Loader />
 	}
 
-	if (products.length === 0) {
-		return null // Ничего не показываем, если история пуста
+	if (!isAuth || products.length === 0) {
+		return null
 	}
 
 	return (
