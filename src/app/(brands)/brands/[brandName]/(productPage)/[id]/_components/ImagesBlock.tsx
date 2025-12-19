@@ -5,7 +5,7 @@ import Image from 'next/image'
 const ImagesBlock = ({ product }: { product: ProductCardProps }) => {
 	const { img, title, id } = product
 	return (
-		<div className='flex flex-col mb-25 sm:mb-30 lg:mb-0 md:flex-row md:gap-x-8 h-[248px] xl:h-[496px]'>
+		<div className='flex flex-col md:flex-row md:gap-x-8 h-[248px] xl:h-[496px]'>
 			<div className='hidden md:flex md:flex-col md:justify-between md:h-full md:shrink-0'>
 				{[...Array(5)].map((_, index) => (
 					<div
@@ -18,6 +18,7 @@ const ImagesBlock = ({ product }: { product: ProductCardProps }) => {
 							fill
 							className='object-cover'
 							sizes='64px'
+							loading='lazy'
 						/>
 					</div>
 				))}
@@ -30,8 +31,8 @@ const ImagesBlock = ({ product }: { product: ProductCardProps }) => {
 					height={496}
 					className='w-full h-full object-contain'
 					style={{ width: 'auto', height: 'auto' }}
-					sizes='(max-width: 768px) 300px, (max-width: 1032px) 300px, 500px'
-					priority
+					sizes='(max-width: 768px) 300px, 500px'
+					loading='eager'
 				/>
 				<FavoriteButton productId={id.toString()} />
 			</div>
@@ -47,6 +48,7 @@ const ImagesBlock = ({ product }: { product: ProductCardProps }) => {
 							fill
 							className='object-cover'
 							sizes='64px'
+							loading='lazy'
 						/>
 					</div>
 				))}

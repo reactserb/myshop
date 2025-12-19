@@ -19,12 +19,14 @@ const CartSummary = ({
 					</p>
 					<p className=''>{formatPriceWithSpaces(totalMaxPrice)} ₽</p>
 				</div>
-				<div className='flex flex-row justify-between'>
-					<p className='text-[#8f8f8f]'>Скидка</p>
-					<p className='text-[#ff6633] font-bold'>
-						-{formatPriceWithSpaces(totalDiscount)} ₽
-					</p>
-				</div>
+				{!!totalDiscount && (
+					<div className='flex flex-row justify-between'>
+						<p className='text-[#8f8f8f]'>Скидка</p>
+						<p className='text-[#ff6633] font-bold'>
+							-{formatPriceWithSpaces(totalDiscount)} ₽
+						</p>
+					</div>
+				)}
 			</div>
 
 			<div className='flex flex-col items-end justify-between gap-y-6'>
