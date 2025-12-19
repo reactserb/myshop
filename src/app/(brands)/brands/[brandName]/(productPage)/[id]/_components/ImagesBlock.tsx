@@ -31,7 +31,10 @@ const ImagesBlock = ({ product }: { product: ProductCardProps }) => {
 					height={496}
 					className='w-full h-full object-contain'
 					style={{ width: 'auto', height: 'auto' }}
-					sizes='(max-width: 768px) 300px, 500px'
+					sizes='(max-width: 768px) 350px, 500px'
+					priority
+					fetchPriority='high'
+					quality={80}
 					loading='eager'
 				/>
 				<FavoriteButton productId={id.toString()} />

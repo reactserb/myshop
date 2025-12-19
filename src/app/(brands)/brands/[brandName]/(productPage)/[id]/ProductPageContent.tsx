@@ -22,9 +22,9 @@ const ProductPageContent = ({
 	const finalPrice = calculateFinalPrice(basePrice, discountPercent)
 
 	return (
-		<div className='flex flex-col gap-y-10 xl:gap-y-15'>
+		<div className='flex flex-col gap-y-20 xl:gap-y-15'>
 			<ViewHistoryLogger productId={productId} />
-			<div className='flex flex-col md:flex-row md:flex-wrap gap-y-10 gap-x-3 w-full text-center justify-center'>
+			<div className='flex flex-col md:flex-row md:flex-wrap gap-y-10 lg:gap-x-3 w-full text-center justify-center'>
 				<ImagesBlock product={product} />
 				<div className='md:w-[344px] lg:w-[376px] flex flex-col gap-y-5'>
 					<div>

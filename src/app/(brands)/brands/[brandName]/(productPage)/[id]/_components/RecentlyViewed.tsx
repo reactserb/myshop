@@ -63,7 +63,7 @@ const RecentlyViewed = ({ finalPrice }: { finalPrice: number }) => {
 
 	return (
 		<div className='flex flex-col relative'>
-			<h3 className='xl:text-lg mb-2 text-gray-700 text-center xl:text-left px-3'>
+			<h3 className='md:text-lg mb-2 text-gray-700 text-center md:text-left px-5'>
 				Вы недавно смотрели
 			</h3>
 
