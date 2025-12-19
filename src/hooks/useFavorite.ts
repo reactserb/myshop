@@ -1,21 +1,21 @@
 'use client'
 
 import { useAuthStore } from '@/store/authStore'
+import { useFavoriteStore } from '@/store/useFavoriteStore'
 import { usePathname, useRouter } from 'next/navigation'
-import { useEffect, useState } from 'react'
+import { useEffect } from 'react'
 
 export const useFavorites = () => {
 	const { user } = useAuthStore()
-	const [favorites, setFavorites] = useState<string[]>([])
+	const { favorites, isLoaded, setFavorites, addFavorite, removeFavorite } =
+		useFavoriteStore()
 	const pathname = usePathname()
 	const router = useRouter()
 
 	useEffect(() => {
 		const loadFavorites = async () => {
-			if (!user?.id) {
-				setFavorites([])
-				return
-			}
+			// Если данных нет, пользователь не авторизован или данные уже загружены - выходим
+			if (!user?.id || isLoaded) return
 
 			try {
 				const response = await fetch(`/api/favorites?userId=${user.id}`)
@@ -29,40 +29,41 @@ export const useFavorites = () => {
 		}
 
 		loadFavorites()
-	}, [user?.id])
+	}, [user?.id, isLoaded, setFavorites])
 
 	const toggleFavorite = async (productId: string) => {
 		if (!user?.id) return
-
 		const isCurrentlyFavorite = favorites.includes(productId)
 		const action = isCurrentlyFavorite ? 'remove' : 'add'
 
-		const response = await fetch('/api/favorites', {
-			method: 'POST',
-			headers: { 'Content-Type': 'application/json' },
-			body: JSON.stringify({
-				userId: user.id,
-				productId,
-				action,
-			}),
-		})
+		// Оптимистичное обновление (сразу меняем в UI)
+		if (isCurrentlyFavorite) removeFavorite(productId)
+		else addFavorite(productId)
 
-		if (response.ok) {
-			if (isCurrentlyFavorite) {
-				setFavorites(prev => prev.filter(id => id !== productId))
-			} else {
-				setFavorites(prev => [...prev, productId])
+		try {
+			const response = await fetch('/api/favorites', {
+				method: 'POST',
+				headers: { 'Content-Type': 'application/json' },
+				body: JSON.stringify({ userId: user.id, productId, action }),
+			})
+
+			if (!response.ok) {
+				// Если сервер ответил ошибкой, откатываем изменения (необязательно, но желательно)
+				if (isCurrentlyFavorite) addFavorite(productId)
+				else removeFavorite(productId)
 			}
+		} catch (e) {
+			console.error(e)
 		}
+
 		if (pathname === '/favorites') {
 			router.refresh()
 		}
 	}
 
-	const isFavorite = (productId: string) => favorites.includes(productId)
-
 	return {
+		favorites,
 		toggleFavorite,
-		isFavorite,
+		isFavorite: (productId: string) => favorites.includes(productId),
 	}
 }

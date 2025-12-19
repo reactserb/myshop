@@ -3,7 +3,7 @@
 import { useFavorites } from '@/hooks/useFavorite'
 import { useAuthStore } from '@/store/authStore'
 import { useRouter } from 'next/navigation'
-import { useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { LuStar } from 'react-icons/lu'
 
 const FavoriteButton = ({ productId }: { productId: string }) => {
@@ -13,6 +13,8 @@ const FavoriteButton = ({ productId }: { productId: string }) => {
 	const [alertType, setAlertType] = useState<'add' | 'remove'>('add')
 	const { toggleFavorite, isFavorite } = useFavorites()
 	const router = useRouter()
+
+	const timerRef = useRef<NodeJS.Timeout | null>(null)
 
 	const handleClick = async (e: React.MouseEvent) => {
 		e.stopPropagation()
@@ -31,11 +33,26 @@ const FavoriteButton = ({ productId }: { productId: string }) => {
 			)
 			setAlertType(wasFavorite ? 'remove' : 'add')
 			setShowAlert(true)
-			setTimeout(() => setShowAlert(false), 3000)
+			if (timerRef.current) {
+				clearTimeout(timerRef.current)
+			}
+
+			timerRef.current = setTimeout(() => {
+				setShowAlert(false)
+				timerRef.current = null
+			}, 3000)
 		} catch (error) {
 			console.error('Не удалось переключить избранное:', error)
 		}
 	}
+
+	useEffect(() => {
+		return () => {
+			if (timerRef.current) {
+				clearTimeout(timerRef.current)
+			}
+		}
+	}, [])
 
 	const isActive = isAuth && isFavorite(productId)
 
@@ -51,7 +68,7 @@ const FavoriteButton = ({ productId }: { productId: string }) => {
 			</button>
 			{showAlert && (
 				<div
-					className={`fixed top-4 right-4 z-[1000] px-6 py-3 rounded-xl shadow-2xl animate-in slide-in-from-top-2 fade-in duration-300 max-w-sm ${
+					className={`fixed top-4 right-4 z-[1500] px-6 py-3 rounded-xl animate-in slide-in-from-top-2 fade-in duration-300 max-w-sm ${
 						alertType === 'add'
 							? 'bg-gradient-to-r from-teal-600 to-teal-300 text-white'
 							: 'bg-gradient-to-r from-red-600 to-red-300 text-white'

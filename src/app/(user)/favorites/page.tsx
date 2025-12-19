@@ -1,25 +1,9 @@
 import ProductsSection from '@/app/(products)/ProductsSection'
 import { ProductCardProps } from '@/lib/types/product'
 import { getDB } from '@/lib/utils/api-routes'
-import {
-	getCustomSessionTokenServerComp,
-	getValidCustomSession,
-} from '@/lib/utils/auth-helpers'
+import { getServerUserId } from '@/lib/utils/getServerUserId'
 import { ObjectId } from 'mongodb'
-import { headers } from 'next/headers'
-
-async function getServerUserId() {
-	try {
-		const headersList = await headers()
-		const cookies = headersList.get('cookie')
-		const sessionToken = getCustomSessionTokenServerComp(cookies)
-		if (!sessionToken) return null
-		const session = await getValidCustomSession(sessionToken)
-		return session?.userId || null
-	} catch {
-		return null
-	}
-}
+import Link from 'next/link'
 
 const FavoritesPage = async () => {
 	const userId = await getServerUserId()
@@ -32,7 +16,13 @@ const FavoritesPage = async () => {
 						Войдите в аккаунт
 					</h2>
 					<p className='text-gray-600'>
-						Авторизуйтесь, чтобы увидеть избранное
+						<Link
+							href='/login'
+							className='font-semibold text-red-500 hover:text-teal-500 duration-200'
+						>
+							Авторизуйтесь
+						</Link>
+						, чтобы увидеть избранное
 					</p>
 				</div>
 			</div>

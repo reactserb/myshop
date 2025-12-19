@@ -1,0 +1,56 @@
+import { CartItem } from '@/lib/types/cart'
+import { create } from 'zustand'
+
+interface CartState {
+	cartItems: CartItem[]
+	totalItems: number
+	isLoading: boolean
+	fetchCart: () => Promise<void>
+	updateCart: (items: CartItem[]) => void
+	clearCart: () => void
+}
+
+export const useCartStore = create<CartState>(set => ({
+	cartItems: [],
+	totalItems: 0,
+	isLoading: false,
+
+	fetchCart: async () => {
+		try {
+			set({ isLoading: true })
+			const response = await fetch('/api/cart')
+
+			if (!response.ok) {
+				throw new Error('Failed to fetch cart')
+			}
+
+			const cartItems: CartItem[] = await response.json()
+
+			const totalItems = cartItems.reduce((sum: number) => sum + 1, 0)
+
+			set({
+				cartItems,
+				totalItems,
+				isLoading: false,
+			})
+		} catch (error) {
+			console.error('Error fetching cart:', error)
+			set({ isLoading: false })
+		}
+	},
+
+	updateCart: (items: CartItem[]) => {
+		const totalItems = items.reduce((sum: number) => sum + 1, 0)
+		set({
+			cartItems: items,
+			totalItems,
+		})
+	},
+
+	clearCart: () => {
+		set({
+			cartItems: [],
+			totalItems: 0,
+		})
+	},
+}))

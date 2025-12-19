@@ -12,4 +12,5 @@ export const TRANSLATIONS: Record<string, string> = {
 	'users-list': 'Список пользователей',
 	'add-product': 'Добавить товар',
 	favorites: 'Избранное',
+	cart: 'Корзина',
 }

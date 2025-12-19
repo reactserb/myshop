@@ -7,9 +7,9 @@ import ScrollToTop from '@/components/ScrollToTop'
 import BreadCrumbs from '@/components/BreadCrumbs'
 import ViewportHeightCalculator from '@/components/ViewportHeightCalculator'
 import { RegisterFormProvider } from './contexts/RegisterFormContext'
-import AuthProvider from '@/store/AuthProvider'
 import MiniLoader from '@/components/MiniLoader'
 import { Suspense } from 'react'
+import StatesProvider from '@/store/StatesProvider'
 
 const montserrat = Montserrat({
 	variable: '--font-montserrat',
@@ -51,7 +51,7 @@ export default function RootLayout({
 			<body
 				className={`${montserrat.variable} font-sans flex flex-col min-h-screen-fix overflow-y-scroll`}
 			>
-				<AuthProvider>
+				<StatesProvider>
 					<RegisterFormProvider>
 						<ViewportHeightCalculator />
 						<ScrollToTop />
@@ -64,7 +64,7 @@ export default function RootLayout({
 						</div>
 						<Footer />
 					</RegisterFormProvider>
-				</AuthProvider>
+				</StatesProvider>
 			</body>
 		</html>
 	)

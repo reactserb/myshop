@@ -1,15 +1,11 @@
 import { ProductCardProps } from '@/lib/types/product'
-import CartButton from './_components/CartButton'
-import ProductOffer from './_components/ProductOffer'
-import { LuStar } from 'react-icons/lu'
 import ImagesBlock from './_components/ImagesBlock'
 import ShareButton from './_components/ShareButton'
 import { calculateFinalPrice } from '@/lib/utils/price/calculateFinalPrice'
-import SizeButtons from './_components/SizeButtons'
 import SimilarProducts from './_components/SimilarProducts'
 import RecentlyViewed from './_components/RecentlyViewed'
 import { ViewHistoryLogger } from './_components/ViewHistoryLogger'
-import Link from 'next/link'
+import ClientInfo from './_components/ClientInfo'
 
 interface ProductPageContentProps {
 	product: ProductCardProps
@@ -26,32 +22,24 @@ const ProductPageContent = ({
 	const finalPrice = calculateFinalPrice(basePrice, discountPercent)
 
 	return (
-		<div className='flex flex-col gap-y-25 md:gap-y-20 xl:gap-y-30'>
+		<div className='flex flex-col gap-y-10 xl:gap-y-15'>
 			<ViewHistoryLogger productId={productId} />
-			<div className='flex flex-col md:flex-row md:flex-wrap gap-10 w-full text-center justify-center'>
+			<div className='flex flex-col md:flex-row md:flex-wrap gap-y-10 gap-x-3 w-full text-center justify-center'>
 				<ImagesBlock product={product} />
 				<div className='md:w-[344px] lg:w-[376px] flex flex-col gap-y-5'>
 					<div>
 						<h1 className='text-2xl'>{title}</h1>
 						<h2 className='text-md text-gray-400'>{description}</h2>
 					</div>
-					<SizeButtons sizes={sizes} />
-					<ProductOffer
+					<ClientInfo
+						sizes={sizes}
 						finalPrice={finalPrice}
 						basePrice={basePrice}
 						discountPercent={discountPercent}
+						productId={productId}
 					/>
-					<CartButton />
 					<div className='text-sm'>арт. {article}</div>
-
 					<ShareButton title={title} />
-					<Link
-						href='/favorites'
-						className='flex flex-row flex-wrap gap-2 ml-2 items-center justify-center group cursor-pointer'
-					>
-						<LuStar className='w-6 h-6 cursor-pointer select-none text-gray-400 group-hover:text-gray-700' />
-						<p className='text-sm group-hover:opacity-50'>В избранное</p>
-					</Link>
 				</div>
 			</div>
 			<SimilarProducts currentProduct={product} finalPrice={finalPrice} />

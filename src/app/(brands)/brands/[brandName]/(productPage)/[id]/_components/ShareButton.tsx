@@ -45,7 +45,7 @@ const ShareButton = ({ title, className = '' }: ShareButtonProps) => {
 			{showShareMenu && currentUrl && (
 				<>
 					<div className='fixed inset-0 z-40' onClick={handleClickOutside} />
-					<div className='absolute top-full left-0 bg-white rounded-md p-3 z-50 mt-2 border border-gray-200'>
+					<div className='absolute top-full right-0 bg-white rounded-md p-3 z-50 mt-2 mr-25 border border-gray-200'>
 						<div className='flex gap-3'>
 							<TelegramShareButton
 								url={currentUrl}

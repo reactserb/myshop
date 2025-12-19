@@ -26,7 +26,7 @@ const SearchButton = () => {
 		<li className='cursor-pointer'>
 			<div onClick={handleToggleSearch}>
 				{isOpenSearch ? (
-					<IoMdClose className='text-2xl lg:hover:text-black' />
+					<IoMdClose className='text-2xl text-red-700 lg:hover:text-black' />
 				) : (
 					<LuSearch className='text-2xl lg:hover:text-black' />
 				)}

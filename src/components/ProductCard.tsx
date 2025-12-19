@@ -22,7 +22,7 @@ const ProductCard = (product: ProductCardProps) => {
 			>
 				<LuSearch className='text-2xl text-gray-400 xl:hover:text-black' />
 			</Link>
-			<SizeOptions sizes={sizes} />
+			<SizeOptions sizes={sizes} productId={id.toString()} />
 
 			<Link
 				href={`/brands/${title}/${id}?desc=${encodeURIComponent(description)} ${title}`}
