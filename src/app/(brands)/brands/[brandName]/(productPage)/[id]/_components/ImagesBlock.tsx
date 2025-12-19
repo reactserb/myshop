@@ -17,13 +17,13 @@ const ImagesBlock = ({ product }: { product: ProductCardProps }) => {
 							alt={`${title} - миниатюра ${index + 1}`}
 							fill
 							className='object-cover'
-							sizes='64px'
+							sizes='80px'
 							loading='lazy'
 						/>
 					</div>
 				))}
 			</div>
-			<div className='group relative flex-1 max-w-[500px] max-h-[500px] mx-auto md:max-w-none md:max-h-none'>
+			<div className='group relative flex-1 max-w-[504px] max-h-[496px] mx-auto md:max-w-none md:max-h-none'>
 				<Image
 					src={img}
 					alt={title}
@@ -33,9 +33,7 @@ const ImagesBlock = ({ product }: { product: ProductCardProps }) => {
 					style={{ width: 'auto', height: 'auto' }}
 					sizes='(max-width: 768px) 350px, 500px'
 					priority
-					fetchPriority='high'
-					quality={80}
-					loading='eager'
+					quality={85}
 				/>
 				<FavoriteButton productId={id.toString()} />
 			</div>
@@ -50,7 +48,7 @@ const ImagesBlock = ({ product }: { product: ProductCardProps }) => {
 							alt={`${title} - миниатюра ${index + 1}`}
 							fill
 							className='object-cover'
-							sizes='64px'
+							sizes='60px'
 							loading='lazy'
 						/>
 					</div>

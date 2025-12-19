@@ -63,7 +63,7 @@ const FavoriteButton = ({ productId }: { productId: string }) => {
 				className={`w-8 h-8 absolute z-[15] top-2 right-1 cursor-pointer xl:hidden xl:group-hover:flex`}
 			>
 				<LuStar
-					className={`text-2xl ${isActive ? 'text-red-700 bg-red-200 rounded-3xl' : 'text-gray-400 xl:hover:text-black'}`}
+					className={`text-2xl ${isActive ? 'text-red-700' : 'text-gray-400 xl:hover:text-black'}`}
 				/>
 			</button>
 			{showAlert && (
