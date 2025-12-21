@@ -1,19 +1,13 @@
 import { CartItem } from '@/lib/types/cart'
+import { CartState } from '@/lib/types/cartStoreStates'
 import { create } from 'zustand'
-
-interface CartState {
-	cartItems: CartItem[]
-	totalItems: number
-	isLoading: boolean
-	fetchCart: () => Promise<void>
-	updateCart: (items: CartItem[]) => void
-	clearCart: () => void
-}
 
 export const useCartStore = create<CartState>(set => ({
 	cartItems: [],
 	totalItems: 0,
 	isLoading: false,
+	isCheckout: false,
+	isOrdered: false,
 
 	fetchCart: async () => {
 		try {
@@ -51,6 +45,24 @@ export const useCartStore = create<CartState>(set => ({
 		set({
 			cartItems: [],
 			totalItems: 0,
+		})
+	},
+
+	setIsCheckout: (isCheckout: boolean) => {
+		set({
+			isCheckout,
+		})
+	},
+	setIsOrdered: (isOrdered: boolean) => {
+		set({ isOrdered })
+	},
+
+	resetAfterOrder: () => {
+		set({
+			cartItems: [],
+			totalItems: 0,
+			isCheckout: false,
+			isOrdered: false,
 		})
 	},
 }))

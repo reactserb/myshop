@@ -1,7 +1,7 @@
 export const buttonStyles = {
 	base: 'w-65 py-4 my-10 mx-auto text-xl rounded cursor-pointer duration-200',
-	active: 'bg-gray-600 text-white',
-	inactive: 'bg-gray-200 text-black',
+	active: 'bg-gray-600 text-white cursor-pointer',
+	inactive: 'bg-gray-200 text-black cursor-not-allowed',
 }
 
 export const formStyles = {

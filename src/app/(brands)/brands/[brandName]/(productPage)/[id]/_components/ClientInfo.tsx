@@ -86,6 +86,8 @@ const ClientInfo = ({
 		}
 	}, [])
 
+	const hasSizes = sizes && sizes.length > 0
+
 	return (
 		<>
 			<div className='flex flex-col gap-y-3'>
@@ -131,9 +133,9 @@ const ClientInfo = ({
 			<div>
 				<button
 					onClick={handleAddToCartFromProductPage}
-					disabled={isLoading}
+					disabled={isLoading || !hasSizes}
 					className={`relative mb-2 max-w-[300px] mx-auto h-15 ${
-						isLoading
+						isLoading || !hasSizes
 							? 'bg-gray-400 opacity-50 cursor-not-allowed'
 							: 'bg-gray-500 hover:bg-teal-400 cursor-pointer'
 					} text-white text-sm md:text-lg py-4 pl-15 pr-8 md:pl-15 flex justify-center items-center rounded duration-300`}

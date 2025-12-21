@@ -6,7 +6,6 @@ import {
 } from '@/actions/orderActions'
 import Loader from '@/components/Loader'
 import { ProductCardProps } from '@/lib/types/product'
-import { calculateFinalPrice } from '@/lib/utils/price/calculateFinalPrice'
 import { useCartStore } from '@/store/cartStore'
 import { useCallback, useEffect, useState } from 'react'
 import CartHeader from './_components/CardHeader'
@@ -14,6 +13,9 @@ import CartControls from './_components/CartControls'
 import CartSummary from './_components/CartSummary '
 import CartItem from './_components/CartItem'
 import { SelectedCartItem } from '@/lib/types/cart'
+import { usePricing } from '@/hooks/usePricing'
+import CheckoutForm from './_components/CheckoutForm'
+import { DeliveryAddress } from '@/lib/types/order'
 
 const CartPage = () => {
 	// Состояние для отслеживания выбранных товаров (массив ID товаров)
@@ -27,12 +29,33 @@ const CartPage = () => {
 	// Состояние загрузки данных корзины (показывает индикатор загрузки)
 	const [isCartLoading, setIsCartLoading] = useState(true)
 	// Получение данных корзины и функции обновления из глобального состояния (Zustand store)
-	const { cartItems, updateCart } = useCartStore()
+	const { cartItems, updateCart, isCheckout, isOrdered } = useCartStore()
+
+	const [title, setTitle] = useState('Корзина')
+
+	const [deliveryData, setDeliveryData] = useState<{
+		address: DeliveryAddress
+		isAddressValid: boolean
+	} | null>(null)
+
+	const handleFormDataChange = useCallback(
+		(data: { address: DeliveryAddress; isAddressValid: boolean }) => {
+			setDeliveryData(data)
+		},
+		[]
+	)
 	// Фильтруем удаленные товары - показываем только те, что не в списке удаленных
 	// Это оптимистичное обновление UI до подтверждения удаления с сервера
 	const visibleCartItems = cartItems.filter(
 		item => !removedItems.includes(`${item.productId}-${item.size}`)
 	)
+
+	const pricingData = usePricing({
+		visibleCartItems,
+		productsData,
+	})
+
+	const { totalPrice, totalMaxPrice, totalDiscount } = pricingData
 
 	// Асинхронная функция загрузки данных корзины и товаров
 	const fetchCartAndProducts = async () => {
@@ -75,6 +98,10 @@ const CartPage = () => {
 			setIsCartLoading(false) // Выключаем индикатор загрузки в любом случае
 		}
 	}
+
+	useEffect(() => {
+		setTitle(isCheckout ? 'Доставка' : 'Корзина')
+	}, [isCheckout])
 
 	useEffect(() => {
 		fetchCartAndProducts()
@@ -161,44 +188,6 @@ const CartPage = () => {
 		[]
 	)
 
-	// Расчет общей стоимости ВСЕХ товаров в корзине
-	const totalMaxPrice = visibleCartItems.reduce((total, item) => {
-		const product = productsData[item.productId]
-		if (!product) return total // Пропускаем если данные товара не загружены
-
-		return total + product.basePrice
-	}, 0)
-
-	// Расчет общей стоимости скидок
-	const totalDiscount = visibleCartItems.reduce((total, item) => {
-		const product = productsData[item.productId]
-		if (!product) return total
-
-		const priceWithDiscount = calculateFinalPrice(
-			product.basePrice,
-			product.discountPercent || 0
-		)
-
-		// Скидка = (цена без карты - цена с картой) * количество
-		const itemDiscount = product.basePrice - priceWithDiscount
-
-		return total + itemDiscount
-	}, 0)
-
-	// Расчет общей стоимости ВСЕХ товаров в корзине с учетом скидки
-	const totalPrice = visibleCartItems.reduce((total, item) => {
-		const product = productsData[item.productId]
-		if (!product) return total // Пропускаем если данные товара не загружены
-
-		// Рассчитываем цену с учетом скидки на товар
-		const finalPrice = calculateFinalPrice(
-			product.basePrice,
-			product.discountPercent || 0
-		)
-
-		return total + finalPrice
-	}, 0)
-
 	const isAllSelected =
 		selectedItems.length > 0 &&
 		selectedItems.length === visibleCartItems.length &&
@@ -226,39 +215,49 @@ const CartPage = () => {
 
 	return (
 		<div className='px-[max(12px,calc((100%-1208px)/2))] md:px-[max(16px,calc((100%-1208px)/2))] text-main-text mx-auto'>
-			<CartHeader itemCount={visibleCartItems.length} />
+			<CartHeader itemCount={visibleCartItems.length} title={title} />
+			<div className='flex flex-col md:flex-row md:justify-between sm:px-5 gap-8 xl:gap-x-15'>
+				<div
+					className={`flex-1 ${isOrdered ? 'pointer-events-none opacity-50' : ''}`}
+				>
+					{!isCheckout ? (
+						<>
+							<CartControls
+								isAllSelected={isAllSelected}
+								selectedItemsCount={selectedItems.length}
+								onSelectAll={selectAllItems}
+								onDeselectAll={deselectAllItems}
+								onRemoveSelected={handleRemoveSelected}
+							/>
 
-			<CartControls
-				isAllSelected={isAllSelected}
-				selectedItemsCount={selectedItems.length}
-				onSelectAll={selectAllItems}
-				onDeselectAll={deselectAllItems}
-				onRemoveSelected={handleRemoveSelected}
-			/>
-
-			<div className='flex flex-col md:flex-row md:justify-between gap-8 xl:gap-x-15'>
-				<div className='flex flex-col gap-y-6'>
-					{visibleCartItems.map(item => (
-						<CartItem
-							key={`${item.productId}-${item.size}`}
-							item={item}
-							productData={productsData[item.productId]}
-							isSelected={selectedItems.some(
-								selected =>
-									selected.productId === item.productId &&
-									selected.size === item.size
-							)}
-							onSelectionChange={handleItemSelection}
-						/>
-					))}
+							<div className='flex flex-col gap-y-6'>
+								{visibleCartItems.map(item => (
+									<CartItem
+										key={`${item.productId}-${item.size}`}
+										item={item}
+										productData={productsData[item.productId]}
+										isSelected={selectedItems.some(
+											selected =>
+												selected.productId === item.productId &&
+												selected.size === item.size
+										)}
+										onSelectionChange={handleItemSelection}
+									/>
+								))}
+							</div>
+						</>
+					) : (
+						<CheckoutForm onFormDataChange={handleFormDataChange} />
+					)}
 				</div>
-
-				<div className='flex flex-col gap-y-6 md:w-[255px] xl:w-[272px]'>
+				<div className='flex flex-col mt-12 gap-y-6 md:w-[255px] xl:w-[272px]'>
 					<CartSummary
 						visibleCartItems={visibleCartItems}
 						totalPrice={totalPrice}
 						totalMaxPrice={totalMaxPrice}
 						totalDiscount={totalDiscount}
+						deliveryData={deliveryData}
+						productsData={productsData}
 					/>
 				</div>
 			</div>

@@ -13,8 +13,16 @@ const ProductCard = (product: ProductCardProps) => {
 
 	const finalPrice = calculateFinalPrice(basePrice, discountPercent)
 
+	const hasSizes = sizes && sizes.length > 0
+
 	return (
-		<div className='group relative flex flex-col flex-1 justify-between items-center rounded overflow-hidden sm:w-60 p-1 xl:p-5 outline-1 outline-solid outline-transparent hover:outline-gray-300 cursor-pointer'>
+		<div
+			className={`group relative flex flex-col flex-1 justify-between items-center rounded overflow-hidden sm:w-60 p-1 xl:p-5 outline-1 outline-solid outline-transparent hover:outline-gray-300 cursor-pointer  ${
+				!hasSizes
+					? 'opacity-40 grayscale cursor-not-allowed hover:opacity-50 hover:grayscale'
+					: 'hover:scale-[1.02]'
+			}`}
+		>
 			<FavoriteButton productId={id.toString()} />
 			<Link
 				href={`/brands/${title}/${id}?desc=${encodeURIComponent(description)} ${title}`}
@@ -22,7 +30,17 @@ const ProductCard = (product: ProductCardProps) => {
 			>
 				<LuSearch className='text-2xl text-gray-400 xl:hover:text-black' />
 			</Link>
-			<SizeOptions sizes={sizes} productId={id.toString()} />
+			<>
+				{hasSizes ? (
+					<SizeOptions sizes={sizes} productId={id.toString()} />
+				) : (
+					<div className='absolute z-10 mx-2 mt-30 px-4 py-2 h-[40px] xl:hidden xl:group-hover:flex flex items-center justify-center bg-gradient-to-r from-gray-100 to-gray-200 rounded-xl transition-all duration-300'>
+						<span className='text-sm font-semibold text-gray-600 group-hover:text-red-600 transition-all'>
+							Нет в наличии
+						</span>
+					</div>
+				)}
+			</>
 
 			<Link
 				href={`/brands/${title}/${id}?desc=${encodeURIComponent(description)} ${title}`}
@@ -43,7 +61,7 @@ const ProductCard = (product: ProductCardProps) => {
 					<div className='text-gray-400'>{description}</div>
 				</div>
 
-				{discountPercent > 0 && (
+				{discountPercent > 0 && hasSizes && (
 					<div className='flex flex-col text-center xl:group-hover:opacity-0'>
 						<div>
 							<span className='line-through'>
@@ -58,7 +76,7 @@ const ProductCard = (product: ProductCardProps) => {
 						</div>
 					</div>
 				)}
-				{!discountPercent && (
+				{!discountPercent && hasSizes && (
 					<div className='mb-2 xl:group-hover:opacity-0'>
 						{formatPriceWithSpaces(basePrice)} ₽
 					</div>
