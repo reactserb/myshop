@@ -28,3 +28,15 @@ export interface UpdateUserData {
 		size: string
 	}>
 }
+
+export interface Order {
+	status: 'pending' | 'confirmed' | 'delivered' | 'cancelled'
+	paymentStatus: 'pending' | 'waiting' | 'paid'
+}
+
+// Для онлайн-оплаты:
+// 1. Создание: status: "pending", paymentStatus: "pending"
+// 2. Переход на оплату: paymentStatus: "waiting"
+// 3. Успешная оплата: status: "confirmed",
+// paymentStatus: "paid"
+// 4. Доставка: status: "delivered"

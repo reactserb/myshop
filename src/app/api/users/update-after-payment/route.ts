@@ -34,27 +34,6 @@ export async function POST(request: Request) {
 			)
 		}
 
-		for (const purchase of purchasedProductIds) {
-			const productId = Number(purchase.productId)
-			const size = purchase.size
-
-			const product = await db.collection('products').findOne({ id: productId })
-
-			if (product && product.sizes && Array.isArray(product.sizes)) {
-				const updatedSizes = product.sizes.filter((s: string) => s !== size)
-
-				await db.collection('products').updateOne(
-					{ id: productId },
-					{
-						$set: {
-							sizes: updatedSizes,
-							updatedAt: new Date(),
-						},
-					}
-				)
-			}
-		}
-
 		const user = await db.collection('user').findOne({
 			_id: userObjectId,
 		})

@@ -13,7 +13,7 @@ const FirstFooterCol = () => {
 						href='#'
 						className='group flex items-center gap-x-1 cursor-pointer'
 					>
-						<FaVk className='text-gray-400 text-xl group-hover:text-black' />
+						<FaVk className='text-gray-400 text-xl group-hover:text-blue-400' />
 						<span>Вконтакте</span>
 					</Link>
 				</li>
@@ -22,7 +22,7 @@ const FirstFooterCol = () => {
 						href='#'
 						className='group flex items-center gap-x-1 cursor-pointer'
 					>
-						<RiTelegram2Fill className='text-gray-400 text-xl group-hover:text-black' />
+						<RiTelegram2Fill className='text-gray-400 text-xl group-hover:text-blue-600' />
 						<span>Телеграм</span>
 					</Link>
 				</li>
@@ -31,7 +31,7 @@ const FirstFooterCol = () => {
 						href='#'
 						className='group flex items-center gap-x-1 cursor-pointer'
 					>
-						<FaWhatsapp className='text-gray-400 text-xl group-hover:text-black' />
+						<FaWhatsapp className='text-gray-400 text-xl group-hover:text-green-600' />
 						<span>WhatsApp</span>
 					</Link>
 				</li>

@@ -6,6 +6,7 @@ import { FakePaymentData, PaymentSuccessData } from '@/lib/types/payment'
 import { useRouter } from 'next/navigation'
 import PriceSummary from './PriceSummary'
 import {
+	confirmOrderPayment,
 	createOrderRequest,
 	prepareCartItemsWithPrices,
 	updateUserAfterPayment,
@@ -22,16 +23,24 @@ const CartSummary = ({
 	deliveryData,
 	productsData = {},
 }: CartSummaryProps) => {
-	const [isProcessing, setIsProcessing] = useState(false)
+	const purchasedProductIds = visibleCartItems.map(item => ({
+		productId: item.productId,
+		size: item.size,
+	}))
+
 	const {
 		isCheckout,
 		setIsCheckout,
 		isOrdered,
 		setIsOrdered,
 		resetAfterOrder,
+		currentOrderId,
+		orderNumber,
+		setOrderInfo,
+		resetOrderInfo,
 	} = useCartStore()
-	const [orderNumber, setOrderNumber] = useState<string | null>(null)
 
+	const [isProcessing, setIsProcessing] = useState(false)
 	const [showPaymentModal, setShowPaymentModal] = useState(false)
 	const [showSuccessModal, setShowSuccessModal] = useState(false)
 	const [successData, setSuccessData] = useState<PaymentSuccessData | null>(
@@ -40,6 +49,38 @@ const CartSummary = ({
 	const [isOrderProcessing, setIsOrderProcessing] = useState(false)
 
 	const router = useRouter()
+
+	const updateExistingOrder = async () => {
+		if (!deliveryData || !currentOrderId) {
+			throw new Error('Нет данных доставки или ID заказа')
+		}
+
+		const cartItemsWithPrices = prepareCartItemsWithPrices(
+			visibleCartItems,
+			productsData
+		)
+
+		const updateData = {
+			deliveryAddress: deliveryData.address,
+			cartItems: cartItemsWithPrices,
+			totalPrice,
+			totalDiscount,
+			totalMaxPrice,
+		}
+
+		const response = await fetch(`/api/orders/${currentOrderId}`, {
+			method: 'PATCH',
+			headers: { 'Content-Type': 'application/json' },
+			body: JSON.stringify(updateData),
+		})
+
+		if (!response.ok) {
+			const errorData = await response.json()
+			throw new Error(errorData.message || 'Ошибка обновления заказа')
+		}
+
+		return await response.json()
+	}
 
 	const createOrder = async (paymentId?: string) => {
 		if (!deliveryData) {
@@ -62,32 +103,28 @@ const CartSummary = ({
 		return await createOrderRequest(orderData)
 	}
 
-	const handleOrderCreation = async (paymentData?: FakePaymentData) => {
-		if (!deliveryData) {
-			console.error('Данные доставки не заполнены')
+	const handlePaymentResult = async (paymentData?: FakePaymentData) => {
+		if (!deliveryData || !currentOrderId) {
+			console.error('Отсутствуют данные доставки ИЛИ ID заказа:', {
+				currentOrderId,
+			})
 			return
 		}
 
 		setIsProcessing(true)
 
 		try {
-			const result = await createOrder(paymentData?.id)
-			try {
-				await updateUserAfterPayment({
-					purchasedProductIds: visibleCartItems.map(item => ({
-						productId: item.productId,
-						size: item.size,
-					})),
+			if (paymentData?.status === 'succeeded') {
+				await confirmOrderPayment(currentOrderId, {
+					purchasedProductIds,
 				})
-			} catch (updateError) {
-				console.warn(
-					'Заказ создан, но возникла проблема с обновлением бонусов',
-					updateError
-				)
+				await updateUserAfterPayment({
+					purchasedProductIds,
+				})
 			}
 
 			const successModalData: PaymentSuccessData = {
-				orderNumber: result.orderNumber,
+				orderNumber: orderNumber!,
 				paymentId: paymentData!.id,
 				amount: totalPrice + 500,
 				cardLast4: paymentData!.cardLast4,
@@ -96,24 +133,37 @@ const CartSummary = ({
 			setSuccessData(successModalData)
 			setShowSuccessModal(true)
 
-			setOrderNumber(result.orderNumber)
 			setIsOrdered(true)
-		} catch (error: unknown) {
-			console.error(`Ошибка при создании заказа:`, error)
-			const errorMessage =
-				error instanceof Error ? error.message : 'Произошла неизвестная ошибка'
-			alert(`Ошибка при оформлении заказа: ${errorMessage}`)
+		} catch (error) {
+			setShowPaymentModal(false)
+			console.error(`Ошибка:`, error)
+			alert(`Ошибка при обработке заказа`)
 		} finally {
 			setIsProcessing(false)
 		}
 	}
 
-	const handleOnlinePayment = () => {
+	const handleOnlinePayment = async () => {
 		if (!deliveryData) {
 			console.error('Данные доставки не заполнены')
 			return
 		}
-		setShowPaymentModal(true)
+		setIsProcessing(true)
+
+		try {
+			if (currentOrderId && orderNumber) {
+				await updateExistingOrder()
+			} else {
+				const result = await createOrder()
+				setOrderInfo(result.order._id, result.orderNumber)
+			}
+			setShowPaymentModal(true)
+		} catch (error) {
+			console.error('Ошибка при создании заказа:', error)
+			alert('Ошибка при создании заказа')
+		} finally {
+			setIsProcessing(false)
+		}
 	}
 
 	const handleClosePaymentModal = () => {
@@ -123,7 +173,7 @@ const CartSummary = ({
 	const handlePaymentSuccess = async (paymentData: FakePaymentData) => {
 		setIsOrderProcessing(true)
 		try {
-			await handleOrderCreation(paymentData)
+			await handlePaymentResult(paymentData)
 		} finally {
 			setIsOrderProcessing(false)
 		}
@@ -131,6 +181,7 @@ const CartSummary = ({
 
 	const handlePaymentError = (error: string) => {
 		alert(`Ошибка оплаты: ${error}`)
+		setShowPaymentModal(false)
 	}
 
 	const handleCloseSuccessModal = () => {

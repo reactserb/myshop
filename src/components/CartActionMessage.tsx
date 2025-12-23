@@ -10,7 +10,7 @@ const CartActionMessage = ({
 
 	const isSuccess = message.success
 	const baseClasses =
-		'fixed top-4 right-4 z-[1500] px-6 py-3 rounded-xl animate-in slide-in-from-top-2 fade-in duration-300 max-w-sm text-white'
+		'fixed top-4 right-4 ml-4 z-[1500] px-6 py-3 rounded-xl animate-in slide-in-from-top-2 fade-in duration-300 max-w-sm text-white'
 
 	const gradientClass = isSuccess
 		? 'bg-gradient-to-r from-teal-600 to-teal-300'

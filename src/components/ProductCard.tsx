@@ -17,7 +17,7 @@ const ProductCard = (product: ProductCardProps) => {
 
 	return (
 		<div
-			className={`group relative flex flex-col flex-1 justify-between items-center rounded overflow-hidden sm:w-60 p-1 xl:p-5 outline-1 outline-solid outline-transparent hover:outline-gray-300 cursor-pointer  ${
+			className={`group relative flex flex-col flex-1 justify-between items-center rounded overflow-hidden sm:w-60 p-1 xl:p-5 outline-1 outline-solid outline-transparent hover:outline-gray-300 cursor-pointer ${
 				!hasSizes
 					? 'opacity-40 grayscale cursor-not-allowed hover:opacity-50 hover:grayscale'
 					: 'hover:scale-[1.02]'

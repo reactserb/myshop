@@ -73,3 +73,31 @@ export const updateUserAfterPayment = async (data: UpdateUserData) => {
 		throw error
 	}
 }
+
+export const confirmOrderPayment = async (
+	orderId: string,
+	data: UpdateUserData
+) => {
+	try {
+		const response = await fetch('/api/orders/confirm-payment', {
+			method: 'POST',
+			headers: {
+				'Content-Type': 'application/json',
+			},
+			body: JSON.stringify({
+				orderId,
+				purchasedProductIds: data.purchasedProductIds,
+			}),
+		})
+
+		if (!response.ok) {
+			const errorData = await response.json()
+			throw new Error(errorData.message || 'Ошибка при подтверждении оплаты')
+		}
+
+		return await response.json()
+	} catch (error) {
+		console.error('Ошибка при подтверждении оплаты:', error)
+		throw error
+	}
+}

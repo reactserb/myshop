@@ -3,6 +3,8 @@
 import { useEffect, useState } from 'react'
 import DeliveryAddress from './DeliveryAddress'
 import { DeliveryAddress as DeliveryAddressType } from '@/lib/types/order'
+import { FaArrowLeftLong } from 'react-icons/fa6'
+import { useCartStore } from '@/store/cartStore'
 
 interface CheckoutFormProps {
 	onFormDataChange: (data: {
@@ -21,6 +23,8 @@ const CheckoutForm = ({ onFormDataChange }: CheckoutFormProps) => {
 			additional: '',
 		}
 	)
+
+	const { isOrdered, setIsCheckout } = useCartStore()
 
 	useEffect(() => {
 		const isAddressValid = Boolean(
@@ -45,6 +49,15 @@ const CheckoutForm = ({ onFormDataChange }: CheckoutFormProps) => {
 
 	return (
 		<div className='flex-1 space-y-10'>
+			{!isOrdered && (
+				<button
+					onClick={() => setIsCheckout(false)}
+					className='rounded w-full text-xl h-15 flex items-center text-gray-500 gap-2 cursor-pointer hover:text-gray-700'
+				>
+					<FaArrowLeftLong />
+					<span>Вернуться в корзину</span>
+				</button>
+			)}
 			<DeliveryAddress
 				formData={deliveryFormData}
 				onFormDataChange={handleFormDataChange}
