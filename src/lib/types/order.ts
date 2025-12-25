@@ -29,9 +29,42 @@ export interface UpdateUserData {
 	}>
 }
 
+export interface OrderItem {
+	basePrice: number
+	title: string
+	productId: string
+	size: string
+	price: number
+	discountPercent?: number
+	productDetails?: {
+		_id: string
+		id: number
+		img: string
+		title: string
+		description: string
+		basePrice: number
+		discountPercent: number
+	}
+}
+
 export interface Order {
-	status: 'pending' | 'confirmed' | 'delivered' | 'cancelled'
-	paymentStatus: 'pending' | 'waiting' | 'paid'
+	_id: string
+	userId: string
+	orderNumber: string
+	status: 'pending' | 'confirmed' | 'cancelled' | 'delivered' | 'failed'
+	paymentStatus: 'pending' | 'waiting' | 'paid' | 'failed'
+	paymentId: string
+	totalAmount: number
+	discountAmount: number
+	deliveryAddress: DeliveryAddress
+	surname: string
+	name: string
+	phone: string
+	gender: string
+	birthday: string
+	items: OrderItem[]
+	createdAt: string
+	updatedAt: string
 }
 
 // Для онлайн-оплаты:

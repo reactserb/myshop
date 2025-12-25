@@ -99,11 +99,11 @@ const getDBProducts = async (
 
 		let sortStage: object | null = null
 		if (options?.sort === 'price_asc') {
-			sortStage = { $sort: { finalPrice: 1 } }
+			sortStage = { $sort: { finalPrice: 1, _id: 1 } }
 		} else if (options?.sort === 'price_desc') {
-			sortStage = { $sort: { finalPrice: -1 } }
+			sortStage = { $sort: { finalPrice: -1, _id: 1 } }
 		} else {
-			sortStage = { $sort: { brandName: 1 } }
+			sortStage = { $sort: { brandName: 1, _id: 1 } }
 		}
 
 		if (options?.randomLimit) {

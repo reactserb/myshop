@@ -37,7 +37,6 @@ const CartSummary = ({
 		currentOrderId,
 		orderNumber,
 		setOrderInfo,
-		resetOrderInfo,
 	} = useCartStore()
 
 	const [isProcessing, setIsProcessing] = useState(false)
@@ -188,7 +187,7 @@ const CartSummary = ({
 		setShowSuccessModal(false)
 		setIsOrdered(true)
 		resetAfterOrder()
-		router.push('/orders')
+		router.push('/user-orders')
 	}
 
 	const isFormValid = (): boolean => {

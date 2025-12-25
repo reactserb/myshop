@@ -1,3 +1,4 @@
+import { Order } from '@/lib/types/order'
 import { getDB } from '@/lib/utils/api-routes'
 import { getServerUserId } from '@/lib/utils/getServerUserId'
 import { ObjectId } from 'mongodb'
@@ -77,6 +78,44 @@ export async function POST(request: Request) {
 		})
 	} catch (error) {
 		console.error('Ошибка создания заказа:', error)
+		return NextResponse.json(
+			{ message: 'Внутренняя ошибка сервера' },
+			{ status: 500 }
+		)
+	}
+}
+
+export async function GET() {
+	try {
+		const db = await getDB()
+		const userId = await getServerUserId()
+
+		if (!userId) {
+			return NextResponse.json(
+				{ message: 'Пользователь не авторизован' },
+				{ status: 401 }
+			)
+		}
+
+		const orders = (await db
+			.collection('orders')
+			.find({ userId: new ObjectId(userId as string) })
+			.sort({ createdAt: -1 })
+			.toArray()) as unknown as Order[]
+
+		if (!orders || orders.length === 0) {
+			return NextResponse.json({
+				success: true,
+				orders: [],
+			})
+		}
+
+		return NextResponse.json({
+			success: true,
+			orders: orders,
+		})
+	} catch (error) {
+		console.error('Ошибка получения заказов:', error)
 		return NextResponse.json(
 			{ message: 'Внутренняя ошибка сервера' },
 			{ status: 500 }

@@ -15,10 +15,13 @@ const TopMenu = () => {
 	const { totalItems, fetchCart } = useCartStore()
 
 	const isFavoritesPage = pathname === '/favorites'
-	const isOrdersPage = pathname === '/orders'
+	const isUserOrdersPage = pathname === '/user-orders'
+	const isAdminOrdersPage = pathname === '/admin-orders'
 	const isCartPage = pathname === '/cart'
 
 	const isManagerOrAdmin = user?.role === 'manager' || user?.role === 'admin'
+	const ordersLink = isManagerOrAdmin ? '/admin-orders' : 'user-orders'
+	const isOrdersPage = isUserOrdersPage || isAdminOrdersPage
 
 	useEffect(() => {
 		if (user && !isManagerOrAdmin) {
@@ -39,9 +42,11 @@ const TopMenu = () => {
 			)}
 			{!isManagerOrAdmin && <SearchButton />}
 			<li>
-				<LuBox
-					className={`text-2xl ${isOrdersPage ? 'text-red-700' : 'text-gray-400 lg:hover:text-black'}`}
-				/>
+				<Link href={ordersLink}>
+					<LuBox
+						className={`text-2xl ${isOrdersPage ? 'text-red-700' : 'text-gray-400 lg:hover:text-black'}`}
+					/>
+				</Link>
 			</li>
 			{!isManagerOrAdmin && (
 				<li className='relative'>

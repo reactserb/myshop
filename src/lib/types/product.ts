@@ -9,4 +9,7 @@ export interface ProductCardProps {
 	sizes: string[]
 	categories: string[]
 	article: string
+	isOrderPage?: boolean
+	orderSize?: string
+	orderPrice?: number
 }

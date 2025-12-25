@@ -5,11 +5,21 @@ import { formatPriceWithSpaces } from '@/lib/utils/price/formatPriceWithSpaces'
 import Link from 'next/link'
 import FavoriteButton from './FavoriteButton'
 import SizeOptions from './SizeOptions'
-import { LuSearch } from 'react-icons/lu'
+import { LuSearch, LuShoppingCart } from 'react-icons/lu'
 
 const ProductCard = (product: ProductCardProps) => {
-	const { id, description, title, discountPercent, basePrice, img, sizes } =
-		product
+	const {
+		id,
+		description,
+		title,
+		discountPercent,
+		basePrice,
+		img,
+		sizes,
+		isOrderPage,
+		orderSize,
+		orderPrice,
+	} = product
 
 	const finalPrice = calculateFinalPrice(basePrice, discountPercent)
 
@@ -23,6 +33,12 @@ const ProductCard = (product: ProductCardProps) => {
 					: 'hover:scale-[1.02]'
 			}`}
 		>
+			{isOrderPage && (
+				<div className='absolute top-2 left-2 text-main-text flex items-center justify-center gap-1 text-lg z-10'>
+					<LuShoppingCart className='-mt-1' />
+					{orderSize?.toUpperCase()}
+				</div>
+			)}
 			<FavoriteButton productId={id.toString()} />
 			<Link
 				href={`/brands/${title}/${id}?desc=${encodeURIComponent(description)} ${title}`}
@@ -52,6 +68,7 @@ const ProductCard = (product: ProductCardProps) => {
 						alt='товар'
 						fill
 						className='object-contain p-2'
+						priority
 						sizes='(max-width: 640px) 140px, 240px'
 					/>
 				</div>
@@ -61,7 +78,7 @@ const ProductCard = (product: ProductCardProps) => {
 					<div className='text-gray-400'>{description}</div>
 				</div>
 
-				{discountPercent > 0 && hasSizes && (
+				{discountPercent > 0 && hasSizes && !isOrderPage && (
 					<div className='flex flex-col text-center xl:group-hover:opacity-0'>
 						<div>
 							<span className='line-through'>
@@ -76,9 +93,15 @@ const ProductCard = (product: ProductCardProps) => {
 						</div>
 					</div>
 				)}
-				{!discountPercent && hasSizes && (
+				{!discountPercent && hasSizes && !isOrderPage && (
 					<div className='mb-2 xl:group-hover:opacity-0'>
 						{formatPriceWithSpaces(basePrice)} ₽
+					</div>
+				)}
+				{isOrderPage && (
+					<div className='mb-2 flex items-center justify-center gap-1 xl:group-hover:opacity-0'>
+						<LuShoppingCart className='-mt-1' />
+						{formatPriceWithSpaces(orderPrice!)} ₽
 					</div>
 				)}
 			</Link>
