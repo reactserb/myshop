@@ -22,15 +22,20 @@ export interface CreateOrderRequest {
 	paymentId?: string
 }
 
-export interface UpdateUserData {
-	purchasedProductIds: Array<{
-		productId: string
-		size: string
-	}>
+export interface PurchaseItem {
+	productId: string
+	size: string
+}
+
+export interface UpdateAfterPaymentData {
+	orderId: string
+	purchasedProductIds: PurchaseItem[]
 }
 
 export interface OrderItem {
 	basePrice: number
+	totalPrice: number
+	description: string
 	title: string
 	productId: string
 	size: string
@@ -51,7 +56,14 @@ export interface Order {
 	_id: string
 	userId: string
 	orderNumber: string
-	status: 'pending' | 'confirmed' | 'cancelled' | 'delivered' | 'failed'
+	status:
+		| 'pending'
+		| 'confirmed'
+		| 'cancelled'
+		| 'delivered'
+		| 'failed'
+		| 'delivering'
+		| 'refund'
 	paymentStatus: 'pending' | 'waiting' | 'paid' | 'failed'
 	paymentId: string
 	totalAmount: number
@@ -66,10 +78,3 @@ export interface Order {
 	createdAt: string
 	updatedAt: string
 }
-
-// Для онлайн-оплаты:
-// 1. Создание: status: "pending", paymentStatus: "pending"
-// 2. Переход на оплату: paymentStatus: "waiting"
-// 3. Успешная оплата: status: "confirmed",
-// paymentStatus: "paid"
-// 4. Доставка: status: "delivered"

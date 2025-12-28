@@ -8,8 +8,6 @@ export const useCartStore = create<CartState>(set => ({
 	isLoading: false,
 	isCheckout: false,
 	isOrdered: false,
-	currentOrderId: null,
-	orderNumber: null,
 
 	fetchCart: async () => {
 		try {
@@ -59,22 +57,12 @@ export const useCartStore = create<CartState>(set => ({
 		set({ isOrdered })
 	},
 
-	setOrderInfo: (orderId: string, orderNumber: string) => {
-		set({ currentOrderId: orderId, orderNumber })
-	},
-
-	resetOrderInfo: () => {
-		set({ currentOrderId: null, orderNumber: null })
-	},
-
 	resetAfterOrder: () => {
 		set({
 			cartItems: [],
 			totalItems: 0,
 			isCheckout: false,
 			isOrdered: false,
-			currentOrderId: null,
-			orderNumber: null,
 		})
 	},
 }))

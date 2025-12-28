@@ -52,7 +52,7 @@ const CheckoutForm = ({ onFormDataChange }: CheckoutFormProps) => {
 			{!isOrdered && (
 				<button
 					onClick={() => setIsCheckout(false)}
-					className='rounded w-full text-xl h-15 flex items-center text-gray-500 gap-2 cursor-pointer hover:text-gray-700'
+					className='rounded text-xl h-15 flex items-center text-gray-500 gap-2 cursor-pointer hover:text-gray-700'
 				>
 					<FaArrowLeftLong />
 					<span>Вернуться в корзину</span>

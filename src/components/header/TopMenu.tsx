@@ -16,11 +16,13 @@ const TopMenu = () => {
 
 	const isFavoritesPage = pathname === '/favorites'
 	const isUserOrdersPage = pathname === '/user-orders'
-	const isAdminOrdersPage = pathname === '/admin-orders'
+	const isAdminOrdersPage = pathname === '/administrator/admin-orders'
 	const isCartPage = pathname === '/cart'
 
 	const isManagerOrAdmin = user?.role === 'manager' || user?.role === 'admin'
-	const ordersLink = isManagerOrAdmin ? '/admin-orders' : 'user-orders'
+	const ordersLink = isManagerOrAdmin
+		? '/administrator/admin-orders'
+		: '/user-orders'
 	const isOrdersPage = isUserOrdersPage || isAdminOrdersPage
 
 	useEffect(() => {

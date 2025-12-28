@@ -1,4 +1,4 @@
-import { DeliveryAddress } from './order'
+import { DeliveryAddress, Order } from './order'
 import { ProductCardProps } from './product'
 
 export interface CartItem {
@@ -14,6 +14,8 @@ export interface CartSummaryProps {
 	totalDiscount: number
 	deliveryData?: { address: DeliveryAddress; isAddressValid: boolean } | null
 	productsData?: { [key: string]: ProductCardProps }
+	retryOrderId?: string | null
+	retryOrderData?: Order | null
 }
 
 export interface CartItemProps {

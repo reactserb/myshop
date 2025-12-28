@@ -24,9 +24,9 @@ const OrderCard = ({ order }: { order: Order }) => {
 			<div className='flex flex-col md:flex-row justify-between items-center mb-10.5 gap-6'>
 				<div className='flex flex-row text-sm lg:text-2xl gap-6 items-center'>
 					<span
-						className={`px-2 py-1 rounded text-base shrink-0 ${getStatusColor(order.status)}`}
+						className={`px-2 py-1 rounded text-base shrink-0 ${getStatusColor(order)}`}
 					>
-						{getStatusText(order.status)}
+						{getStatusText(order)}
 					</span>
 				</div>
 				<OrderActions

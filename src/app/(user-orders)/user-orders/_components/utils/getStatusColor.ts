@@ -1,13 +1,28 @@
-export const getStatusColor = (status: string) => {
-	switch (status) {
+import { Order } from '@/lib/types/order'
+
+export const getStatusColor = (order: Order) => {
+	if (order.paymentStatus === 'paid' && order.status === 'confirmed') {
+		return 'bg-[#f3f2f1]'
+	} else if (order.paymentStatus === 'failed') {
+		return 'bg-[#d80000] text-white'
+	} else if (order.paymentStatus === 'waiting' && order.status === 'pending') {
+		return 'bg-[#f3f2f1] text-main-text'
+	}
+
+	switch (order.status) {
 		case 'pending':
 		case 'confirmed':
-			return 'bg-green-300 text-green-700'
+			return 'bg-[#f3f2f1]'
 		case 'delivered':
-			return 'bg-green-500 text-white'
+			return 'bg-[#067647] text-white'
 		case 'cancelled':
-			return 'bg-red-500 text-white'
+		case 'failed':
+			return 'bg-[#d80000] text-white'
+		case 'refund':
+			return 'bg-[#fff9e6] text-[#b35c00]'
+		case 'delivering':
+			return 'bg-[#e6f7ee] text-[#067647]'
 		default:
-			return 'bg-gray-100 text-gray-800'
+			return 'bg-[#f3f2f1] text-gray-800'
 	}
 }

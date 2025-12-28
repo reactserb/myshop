@@ -1,10 +1,22 @@
-export const getStatusText = (status: string): string => {
+import { Order } from '@/lib/types/order'
+
+export const getStatusText = (order: Order): string => {
+	if (order.paymentStatus === 'failed') {
+		return 'Не оплачен'
+	} else if (order.paymentStatus === 'paid' && order.status === 'confirmed') {
+		return 'Подтвержден'
+	} else if (order.paymentStatus === 'waiting' && order.status === 'pending') {
+		return 'В процессе'
+	}
+
 	const statusMap: { [key: string]: string } = {
 		pending: 'В процессе',
+		refund: 'Возврат',
+		delivering: 'Отправлен',
 		confirmed: 'Подтвержден',
-		delivered: 'Получен',
-		cancelled: 'Возврат',
-		failed: 'Не доставили',
+		delivered: 'Доставлен',
+		cancelled: 'Отменен',
 	}
-	return statusMap[status] || status
+
+	return statusMap[order.status] || order.status
 }

@@ -27,6 +27,7 @@
 		"react-swiper": "^0.1.5",
 		"resend": "^6.5.2",
 		"swiper": "^12.0.2",
+		"xlsx": "^0.18.5",
 		"zustand": "^5.0.8"
 	},
 	"devDependencies": {
