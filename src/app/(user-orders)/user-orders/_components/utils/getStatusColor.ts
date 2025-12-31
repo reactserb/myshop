@@ -2,7 +2,7 @@ import { Order } from '@/lib/types/order'
 
 export const getStatusColor = (order: Order) => {
 	if (order.paymentStatus === 'paid' && order.status === 'confirmed') {
-		return 'bg-[#f3f2f1]'
+		return 'bg-teal-600 text-white'
 	} else if (order.paymentStatus === 'failed') {
 		return 'bg-[#d80000] text-white'
 	} else if (order.paymentStatus === 'waiting' && order.status === 'pending') {
@@ -16,7 +16,6 @@ export const getStatusColor = (order: Order) => {
 		case 'delivered':
 			return 'bg-[#067647] text-white'
 		case 'cancelled':
-		case 'failed':
 			return 'bg-[#d80000] text-white'
 		case 'refund':
 			return 'bg-[#fff9e6] text-[#b35c00]'

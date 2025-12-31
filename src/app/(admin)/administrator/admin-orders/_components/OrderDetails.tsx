@@ -2,6 +2,7 @@ import { Order } from '@/lib/types/order'
 import { isBirthdaySoon } from '@/lib/utils/admin/birthdaySoon'
 import { getMappedStatus } from '../utils/getMappedStatus'
 import { LuCake } from 'react-icons/lu'
+import { formatPriceWithSpaces } from '@/lib/utils/price/formatPriceWithSpaces'
 
 const OrderDetails = ({ order }: { order: Order }) => {
 	const formatDate = (isoString: string): string => {
@@ -59,13 +60,15 @@ const OrderDetails = ({ order }: { order: Order }) => {
 					<h4 className='font-medium text-gray-700'>Финансовая информация</h4>
 					<div className='space-y-2'>
 						<div className='flex justify-between gap-x-1'>
-							<span className='text-gray-600'>Общая сумма:</span>
-							<span className='font-medium'>{order.totalAmount} ₽</span>
+							<span className='text-gray-600'>Сумма с учетом скидки:</span>
+							<span className='font-medium whitespace-nowrap'>
+								{formatPriceWithSpaces(order.totalAmount)} ₽
+							</span>
 						</div>
 						<div className='flex justify-between gap-x-1'>
 							<span className='text-gray-600'>Скидка:</span>
-							<span className='font-medium text-green-600'>
-								-{order.discountAmount} ₽
+							<span className='font-medium text-green-600 whitespace-nowrap'>
+								-{formatPriceWithSpaces(order.discountAmount)} ₽
 							</span>
 						</div>
 					</div>

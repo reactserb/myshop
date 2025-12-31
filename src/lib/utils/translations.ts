@@ -14,4 +14,8 @@ export const TRANSLATIONS: Record<string, string> = {
 	cart: 'Корзина',
 	'user-orders': 'Заказы',
 	'admin-orders': 'Заказы',
+	'delivery-payment': 'Доставка и оплата',
+	returns: 'Возврат',
+	contact: 'Контакты',
+	address: 'Адрес магазина',
 }

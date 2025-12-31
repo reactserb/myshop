@@ -6,8 +6,6 @@ export const getEnglishStatuses = (russianStatus: string) => {
 			return { status: 'cancelled', paymentStatus: 'failed' }
 		case 'Новый':
 			return { status: 'pending', paymentStatus: 'waiting' }
-		case 'Не оплачен':
-			return { status: 'pending', paymentStatus: 'failed' }
 	}
 
 	// Базовые статусы (не влияют на paymentStatus)

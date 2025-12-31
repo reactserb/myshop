@@ -61,7 +61,6 @@ export interface Order {
 		| 'confirmed'
 		| 'cancelled'
 		| 'delivered'
-		| 'failed'
 		| 'delivering'
 		| 'refund'
 	paymentStatus: 'pending' | 'waiting' | 'paid' | 'failed'

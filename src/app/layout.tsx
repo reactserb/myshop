@@ -47,7 +47,7 @@ export default function RootLayout({
 	children: React.ReactNode
 }>) {
 	return (
-		<html lang='en'>
+		<html lang='ru'>
 			<body
 				className={`${montserrat.variable} font-sans flex flex-col min-h-screen-fix overflow-y-scroll`}
 			>

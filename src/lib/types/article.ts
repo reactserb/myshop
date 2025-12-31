@@ -5,4 +5,5 @@ export interface ArticleCardProps {
 	title: string
 	text: string
 	createdAt: string
+	extratext?: string
 }

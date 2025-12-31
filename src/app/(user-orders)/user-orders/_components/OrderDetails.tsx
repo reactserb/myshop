@@ -1,4 +1,5 @@
 import { Order } from '@/lib/types/order'
+import { formatPriceWithSpaces } from '@/lib/utils/price/formatPriceWithSpaces'
 
 const OrderDetails: React.FC<{ order: Order }> = ({ order }) => {
 	return (
@@ -14,20 +15,28 @@ const OrderDetails: React.FC<{ order: Order }> = ({ order }) => {
 			</div>
 			<div className='mt-4 pt-4 border-t border-gray-200 space-y-3 text-sm'>
 				<div className='flex justify-between items-center'>
-					<span className='text-main-text lg:text-base'>
-						Итоговая цена без скидки
-					</span>
-					<span className='font-medium lg:text-base '>
+					<span className='text-main-text lg:text-base'>Цена без скидки</span>
+					<span className='font-medium lg:text-base whitespace-nowrap'>
 						{(order.totalAmount + order.discountAmount).toLocaleString('ru-RU')}{' '}
 						₽
 					</span>
 				</div>
+				<div className='flex justify-between items-center'>
+					<span className='text-main-text lg:text-base'>Скидка:</span>
+					<span className='font-medium lg:text-base text-teal-700'>
+						-{order.discountAmount.toLocaleString('ru-RU')} ₽
+					</span>
+				</div>
+				<div className='flex justify-between items-center'>
+					<span className='text-main-text lg:text-base'>Доставка:</span>
+					<span className='font-medium lg:text-base'>500 ₽</span>
+				</div>
 			</div>
 			<div className='mt-4 pt-4 border-t border-gray-200 space-y-3 text-sm'>
 				<div className='flex justify-between items-center'>
-					<span className='text-main-text lg:text-base'>Скидка:</span>
-					<span className='font-medium lg:text-base text-red-700'>
-						-{order.discountAmount.toLocaleString('ru-RU')} ₽
+					<span className='text-main-text lg:text-base'>Итоговая цена:</span>
+					<span className='font-medium lg:text-base whitespace-nowrap'>
+						{formatPriceWithSpaces(order.totalAmount + 500)} ₽
 					</span>
 				</div>
 			</div>
